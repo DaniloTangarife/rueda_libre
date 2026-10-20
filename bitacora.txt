@@ -80,10 +80,61 @@ agregar imágenes, crear listas y utilizar enlaces.
 Todavia no utilizo CSS ni JavaScript porque estamos
 trabajando solamente con HTML básico.
 
-VERIFICACIONES PENDIENTES
+MINIRETO 3 - TARIFAS Y RUTAS
 
-- Revisar la estructura en DevTools (Elements).
-- Comprobar que las imágenes cargan correctamente.
-- Verificar que los enlaces funcionan.
-- Revisar que no existan errores 404 en Network.
-- Subir los cambios a GitHub.
+¿Qué hice?
+Creé una página llamada tarifas.html dentro
+de una carpeta llamada paginas para mostrar
+los precios de las bicicletas y los recorridos.
+
+1. Creé la carpeta paginas y dentro de ella
+   agregué el archivo tarifas.html.
+
+2. Agregué un título y una descripción
+   para identificar la nueva página.
+
+3. Creé una tabla con los precios de alquiler
+   de las bicicletas urbanas, de montaña
+   y eléctricas.
+
+4. Creé otra tabla con los recorridos guiados,
+   sus distancias, duración, nivel y precio.
+
+5. Utilicé table para crear las tablas,
+   caption para sus títulos, thead para
+   los encabezados y tbody para los datos.
+
+6. Utilicé tr para las filas, th para los
+   encabezados y td para los datos.
+
+7. Utilicé scope="col" para identificar
+   los encabezados de columnas y
+   scope="row" para los encabezados de filas.
+
+8. Agregué la información sobre el casco,
+   el candado y los horarios de salida.
+
+9. Creé una lista ul con los elementos
+   que debo llevar a los recorridos.
+
+10. Agregué el logo utilizando ../img/logo.jpg
+    porque la página está dentro de otra carpeta.
+
+11. Conecté index.html con tarifas.html
+    utilizando enlaces con rutas relativas.
+
+12. Agregué un enlace desde los recorridos
+    guiados de inicio hacia la tabla de recorridos
+    utilizando #recorridos.
+
+¿Qué aprendí?
+Aprendí a crear tablas en HTML y organizar
+la información en filas y columnas.
+
+También aprendí a utilizar rutas relativas
+para conectar archivos que están en
+diferentes carpetas.
+
+Comprendí que ../ sirve para subir
+un nivel de carpeta y que #id permite
+ir directamente a una sección.
