@@ -1,20 +1,89 @@
-URL completa: http://127.0.0.1:5500/index.html 
-Protocolo: http/1.1
-Host: 127.0.0.1:5500
-Puerto: 127.0.0.1
+
+BITÁCORA - RUEDA LIBRE
+
+URL completa: http://127.0.0.1:5500/index.html
+Protocolo: HTTP/1.1
+Host: 127.0.0.1
+Puerto: 5500
 Ruta: /index.html
 Método de la petición: GET
 Código de estado: 304 Not Modified
 
-Ruta que no existe:
+¿Qué significa 304 Not Modified?
+Significa que la página no ha cambiado y el navegador
+puede utilizar la versión que tiene guardada.
 
-¿Qué error aparece en la página? Error: ENOTDIR: not a directory, stat '/home/cohorte8/Documents/DANILO/rueda_libre/index.html/promociones.html'
-Código de respuesta del servidor: 500 Internal Server Error
-¿Qué significa? Significa que algo ha fallado en el servidor de la página al intentar procesar la solicitud, pero el servidor no sabe exactamente cuál es el problema
+RUTA QUE NO EXISTE
 
-¿Qué rol cumplirán HTML, CSS y JavaScript dentro del proyecto?
+¿Qué error aparece en la página?
+Error: ENOTDIR: not a directory, stat
+'/home/cohorte8/Documents/DANILO/rueda_libre/index.html/promociones.html'
 
-HTML: Será el esqueleto de la página
-CSS: El que le dé estilo a la página
-JavaScript: El que controlará qué se puede y qué no se puede hacer dentro de la página, todas las funciones
+Código de respuesta del servidor:
+500 Internal Server Error
 
+¿Qué significa?
+Significa que el servidor tuvo un problema al intentar
+abrir la ruta. En este caso, intentó buscar una página
+dentro de index.html como si fuera una carpeta.
+
+¿QUÉ FUNCIÓN CUMPLEN HTML, CSS Y JAVASCRIPT?
+
+HTML:
+Es el esqueleto de la página y organiza su contenido.
+
+CSS:
+Sirve para darle estilos, colores y diseño a la página.
+
+JavaScript:
+Sirve para agregar funciones e interactividad a la página.
+
+
+MINIRETO 2 - PÁGINA DE INICIO
+
+¿Qué hice?
+Organizar la página principal de Rueda Libre
+utilizando etiquetas básicas de HTML.
+
+1. Agregar un título principal h1 con el nombre
+   Rueda Libre.
+
+2. Organizar el contenido con h2 y h3 para
+   los títulos y subtítulos.
+
+3. Utilizar párrafos con la etiqueta p.
+
+4. Utilizar strong para resaltar información
+   importante y em para dar énfasis a algunas palabras.
+
+5. Crear una lista ul con tres beneficios
+   de alquilar bicicletas.
+
+6. Crear una lista ol con los cuatro pasos
+   para alquilar una bicicleta.
+
+7. Agregar tres imágenes desde la carpeta img,
+   utilizando src, alt y width.
+
+8. Agregar tres tipos de enlaces:
+   - Enlace interno a Encuéntranos.
+   - Enlace externo a Google Maps.
+   - Enlace para enviar un correo electrónico.
+
+9. Utilizar target="_blank" para abrir
+   Google Maps en otra pestaña.
+
+¿Qué aprendi?
+Aprendi a organizar una página con HTML,
+agregar imágenes, crear listas y utilizar enlaces.
+
+Todavia no utilizo CSS ni JavaScript porque estamos
+trabajando solamente con HTML básico.
+
+VERIFICACIONES PENDIENTES
+
+- Revisar la estructura en DevTools (Elements).
+- Comprobar que las imágenes cargan correctamente.
+- Verificar que los enlaces funcionan.
+- Revisar que no existan errores 404 en Network.
+- Subir los cambios a GitHub.
