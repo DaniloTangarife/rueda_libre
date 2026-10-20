@@ -1,0 +1,20 @@
+URL completa: http://127.0.0.1:5500/index.html 
+Protocolo: http/1.1
+Host: 127.0.0.1:5500
+Puerto: 127.0.0.1
+Ruta: /index.html
+Método de la petición: GET
+Código de estado: 304 Not Modified
+
+Ruta que no existe:
+
+¿Qué error aparece en la página? Error: ENOTDIR: not a directory, stat '/home/cohorte8/Documents/DANILO/rueda_libre/index.html/promociones.html'
+Código de respuesta del servidor: 500 Internal Server Error
+¿Qué significa? Significa que algo ha fallado en el servidor de la página al intentar procesar la solicitud, pero el servidor no sabe exactamente cuál es el problema
+
+¿Qué rol cumplirán HTML, CSS y JavaScript dentro del proyecto?
+
+HTML: Será el esqueleto de la página
+CSS: El que le dé estilo a la página
+JavaScript: El que controlará qué se puede y qué no se puede hacer dentro de la página, todas las funciones
+
