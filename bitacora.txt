@@ -177,3 +177,42 @@ Reestructuré las tres páginas con etiquetas semánticas, manteniendo el conten
 Aprendí a usar etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`) para que la estructura del sitio tenga significado tanto para Google como para lectores de pantalla, sin perder contenido ni romper la navegación.
 
 **Versión:** Rueda Libre v0.2 (reestructuración semántica)
+
+## MINIRETO 6 - FORMULARIO DE RESERVA
+
+**¿Qué hice?**
+
+Agregué un formulario de reserva dentro del contenido principal de `paginas/reservas.html`, manteniendo la estructura semántica del MiniReto 5.
+
+- Creé una `<section>` "Formulario de reserva" con un `<form action="#" method="post">`.
+- Agrupé los campos en tres `<fieldset>` con su `<legend>`: "Tus datos", "Tu alquiler" y "Confirmación".
+- Asocié cada control con su `<label for>` y su `id`, y le puse `name` a todos.
+- Agregué `<button type="submit">` al final del formulario.
+
+**Controles elegidos por dato:**
+
+| Dato | Control | `name` |
+|---|---|---|
+| Nombre completo | `<input type="text">` | `nombre` |
+| Número de documento | `<input type="text">` | `documento` |
+| Correo electrónico | `<input type="email">` | `correo` |
+| Celular | `<input type="tel">` | `celular` |
+| Fecha del alquiler | `<input type="date">` | `fecha` |
+| Tipo de bicicleta | `<input type="radio">` (tres opciones) | `tipo_bicicleta` |
+| Plan | `<input type="radio">` (tres opciones) | `plan` |
+| Cantidad de bicicletas | `<input type="number">` | `cantidad` |
+| Recorrido guiado | `<select>` + `<option>` | `recorrido` |
+| Comentarios | `<textarea>` | `comentarios` |
+| Aceptación de políticas | `<input type="checkbox">` | `politicas` |
+
+**Justificación de tres elecciones:**
+
+1. **Correo electrónico → `type="email"`:** el navegador valida automáticamente el formato antes de enviar, evitando reservas con correos mal escritos (uno de los problemas que mencionó el cliente).
+2. **Fecha del alquiler → `type="date"`:** muestra un calendario nativo que impide fechas inválidas y reduce los errores de fechas equivocadas que llegaban por WhatsApp.
+3. **Tipo de bicicleta → `type="radio"`:** son solo tres opciones mutuamente excluyentes, con pocas alternativas; los radios dejan todas visibles y el `name` compartido (`tipo_bicicleta`) garantiza que solo se pueda elegir una.
+
+**¿Qué aprendí?**
+
+Aprendí a elegir el control HTML más adecuado para cada tipo de dato, a agrupar campos con `<fieldset>` y `<legend>`, a asociar etiquetas con controles usando `for`/`id`, y a enviar datos con `method="post"`.
+
+**Versión:** Rueda Libre v0.3 (formulario de reserva)
