@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,14 +20,15 @@
         <h1>Reserva tu bicicleta</h1>
 
     </header>
-    
+
     <main>
 
-        <p>Para reservar una bicicleta, puedes escribirnos al correo <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.</p>
+        <p>Completa el formulario para reservar tu bicicleta. Si tienes dudas, escríbenos al correo <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.</p>
 
         <section>
 
             <h2>Formulario de reserva</h2>
+
             <form action="#" method="post">
 
                 <fieldset>
@@ -37,22 +37,53 @@
 
                     <p>
                         <label for="nombre">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            minlength="3"
+                            maxlength="80"
+                            autocomplete="name"
+                            required>
                     </p>
 
                     <p>
                         <label for="documento">Número de documento</label>
-                        <input type="text" id="documento" name="documento" required>    
+                        <input
+                            type="text"
+                            id="documento"
+                            name="documento"
+                            pattern="[0-9]{6,10}"
+                            minlength="6"
+                            maxlength="10"
+                            inputmode="numeric"
+                            title="Solo números, entre 6 y 10 dígitos."
+                            required>
                     </p>
 
                     <p>
                         <label for="correo">Correo electrónico</label>
-                        <input type="email" id="correo" name="correo" required>
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            autocomplete="email"
+                            required>
                     </p>
 
                     <p>
-                        <label for="celular">Número de celular</label>
-                        <input type="tel" id="celular" name="celular" required>
+                        <label for="celular">Celular</label>
+                        <input
+                            type="tel"
+                            id="celular"
+                            name="celular"
+                            pattern="3[0-9]{9}"
+                            minlength="10"
+                            maxlength="10"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            title="Debe tener 10 dígitos y empezar por 3 (por ejemplo 3001234567)."
+                            required>
                     </p>
 
                 </fieldset>
@@ -62,16 +93,22 @@
                     <legend>Tu alquiler</legend>
 
                     <p>
-                        <label for="fecha">Fecha de alquiler</label>
-                        <input type="date" id="fecha" name="fecha" required>
+                        <label for="fecha">Fecha del alquiler</label>
+                        <input
+                            type="date"
+                            id="fecha"
+                            name="fecha"
+                            min="2026-11-01"
+                            max="2026-12-31"
+                            title="Elige una fecha entre el 1 de noviembre y el 31 de diciembre de 2026."
+                            required>
                     </p>
 
-                    <p>Tipo de bicicleta</p>
+                    <p>Tipo de bicicleta:</p>
                     <p>
-                       <input type="radio" id="tipo-urbana" name="tipo_bicicleta" value="urbana" required>
-                       <label for="tipo-urbana">Urbana</label>
+                        <input type="radio" id="tipo-urbana" name="tipo_bicicleta" value="urbana" required>
+                        <label for="tipo-urbana">Urbana</label>
                     </p>
-
                     <p>
                         <input type="radio" id="tipo-montana" name="tipo_bicicleta" value="montana">
                         <label for="tipo-montana">Montaña</label>
@@ -97,7 +134,14 @@
 
                     <p>
                         <label for="cantidad">Cantidad de bicicletas</label>
-                        <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1" required>
+                        <input
+                            type="number"
+                            id="cantidad"
+                            name="cantidad"
+                            min="1"
+                            max="6"
+                            value="1"
+                            required>
                     </p>
 
                     <p>
@@ -118,7 +162,12 @@
 
                     <p>
                         <label for="comentarios">Comentarios</label>
-                        <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea>
+                        <textarea
+                            id="comentarios"
+                            name="comentarios"
+                            rows="4"
+                            cols="40"
+                            maxlength="300"></textarea>
                     </p>
 
                     <p>
@@ -129,8 +178,6 @@
                     <p>
                         <button type="submit" name="enviar-reserva">Enviar reserva</button>
                     </p>
-
-                </fieldset>
 
                 </fieldset>
 
@@ -156,5 +203,6 @@
         <p>Rueda Libre - 2026</p>
         <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
     </footer>
+
 </body>
 </html>

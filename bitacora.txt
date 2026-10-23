@@ -216,3 +216,78 @@ Agregué un formulario de reserva dentro del contenido principal de `paginas/res
 Aprendí a elegir el control HTML más adecuado para cada tipo de dato, a agrupar campos con `<fieldset>` y `<legend>`, a asociar etiquetas con controles usando `for`/`id`, y a enviar datos con `method="post"`.
 
 **Versión:** Rueda Libre v0.3 (formulario de reserva)
+
+## MINIRETO 7 - VALIDACIÓN NATIVA Y TECLADO
+
+**¿Qué hice?**
+
+Traduje cada regla de negocio del cliente a atributos de validación nativa en `paginas/reservas.html`, manteniendo la estructura semántica del MiniReto 6.
+
+**Reglas traducidas a atributos:**
+
+| Campo | Regla del cliente | Atributos aplicados |
+|---|---|---|
+| Nombre completo | Obligatorio, mínimo 3 caracteres | `required` + `minlength="3"` |
+| Documento | Obligatorio, solo números, 6–10 dígitos | `required` + `pattern="[0-9]{6,10}"` + `minlength="6"` + `maxlength="10"` + `title` |
+| Correo | Obligatorio, formato válido | `type="email"` + `required` |
+| Celular | Obligatorio, 10 dígitos, empieza por 3 | `type="tel"` + `required` + `pattern="3[0-9]{9}"` + `minlength="10"` + `maxlength="10"` + `title` |
+| Fecha del alquiler | Obligatoria, 1 nov – 31 dic 2026 | `type="date"` + `required` + `min="2026-11-01"` + `max="2026-12-31"` + `title` |
+| Tipo de bicicleta | Obligatorio | `required` en el grupo de radios |
+| Plan | Obligatorio | `required` en el grupo de radios |
+| Cantidad | Obligatoria, 1 a 6 | `type="number"` + `required` + `min="1"` + `max="6"` |
+| Comentarios | Opcional, máximo 300 caracteres | `maxlength="300"` (sin `required`) |
+| Políticas | Obligatorio aceptarlas | `required` en el checkbox |
+
+**Patrones usados:**
+
+- Documento: `[0-9]{6,10}` → solo dígitos del 0 al 9, entre 6 y 10 posiciones. Uso `[0-9]` en lugar de `\d` porque `\d` acepta dígitos Unicode.
+- Celular: `3[0-9]{9}` → 10 dígitos exactos, el primero debe ser 3.
+- Ambos patrones llevan `title` para que el navegador muestre el mensaje esperado al usuario.
+
+**Tabla de pruebas:**
+
+| # | Campo | Dato de prueba | Resultado esperado | Resultado obtenido |
+|---|---|---|---|---|
+| 1 | Nombre completo | (vacío) | No envía; pide completar | ❌ No envía — mensaje "Completa este campo" |
+| 2 | Nombre completo | `Al` (2 caracteres) | No envía; mínimo 3 | ❌ No envía — "Alarga este texto a 3 caracteres o más" |
+| 3 | Documento | `abc12345` (letras) | No envía; formato inválido | ❌ No envía — muestra `title` |
+| 4 | Documento | `12345` (5 dígitos) | No envía | ❌ No envía — formato inválido |
+| 5 | Documento | `1234567890` (10 dígitos) | Envía | ✅ Aceptado |
+| 6 | Correo | `correo` (sin @) | No envía | ❌ No envía — "Incluye un signo @" |
+| 7 | Celular | `3001234567` | Envía | ✅ Aceptado |
+| 8 | Celular | `1234567890` | No envía; debe empezar por 3 | ❌ No envía — muestra `title` |
+| 9 | Celular | `300123` (6 dígitos) | No envía | ❌ No envía — formato inválido |
+| 10 | Fecha | `2026-10-15` (antes del rango) | No envía | ❌ No envía — "El valor debe ser 2026-11-01 o posterior" |
+| 11 | Fecha | `2026-11-15` | Envía | ✅ Aceptado |
+| 12 | Cantidad | `0` | No envía; mínimo 1 | ❌ No envía |
+| 13 | Cantidad | `7` | No envía; máximo 6 | ❌ No envía |
+| 14 | Tipo de bicicleta | (ninguno seleccionado) | No envía | ❌ No envía — "Selecciona una de estas opciones" |
+| 15 | Plan | (ninguno seleccionado) | No envía | ❌ No envía |
+| 16 | Comentarios | 301 caracteres | El campo se corta a 300 | ✅ Se detiene en 300 |
+| 17 | Políticas | Sin marcar | No envía | ❌ No envía — "Marca esta casilla si deseas continuar" |
+
+**Prueba de navegación por teclado:**
+
+Recorrí el formulario completo solo con el teclado y el orden fue lógico:
+
+1. `Tab` → Nombre completo
+2. `Tab` → Número de documento
+3. `Tab` → Correo electrónico
+4. `Tab` → Celular
+5. `Tab` → Fecha del alquiler
+6. `Tab` → grupo "Tipo de bicicleta" (un solo tab-stop; flechas ↑/↓ cambian la opción)
+7. `Tab` → grupo "Plan" (igual, flechas para elegir)
+8. `Tab` → Cantidad de bicicletas
+9. `Tab` → Recorrido guiado (con `select`, flechas abren opciones)
+10. `Tab` → Comentarios
+11. `Tab` → checkbox Políticas (barra espaciadora lo marca)
+12. `Tab` → Botón "Enviar reserva" (`Enter` envía)
+13. `Shift + Tab` retrocede en el mismo orden.
+
+No fue necesario reordenar nada: el orden del DOM coincide con el orden lógico de llenado.
+
+**¿Qué aprendí?**
+
+Aprendí a traducir reglas de negocio a validación nativa HTML (`required`, `minlength`, `maxlength`, `pattern`, `min`, `max`, tipos `email`, `tel`, `number`, `date`) y a comprobar que un formulario se puede completar y enviar solo con teclado.
+
+**Versión:** Rueda Libre v0.4 (validación nativa)
