@@ -146,3 +146,34 @@ body
 │   ├─ p (correo de contacto)
 │   └─ aside (h2 Horario de atención + dl)   ← contenido complementario
 └─ footer
+
+## MINIRETO 5 - REESTRUCTURACIÓN SEMÁNTICA
+
+**¿Qué hice?**
+
+Reestructuré las tres páginas con etiquetas semánticas, manteniendo el contenido y la navegación de la v0.1.
+
+- Agrupé el nombre del negocio y el menú dentro de un `<header>` en las tres páginas.
+- Marqué el menú como `<nav>` dentro del `<header>`.
+- Envolví el contenido propio de cada página en un único `<main>`.
+- Convertí el bloque final en `<footer>`.
+- En index, cada bloque temático quedó como `<section>` con su propio encabezado, y cada servicio (Alquiler de bicicletas, Recorridos guiados y Taller básico) como `<article>`.
+- En tarifas, cada tabla quedó en su propia `<section>` y "¿Qué llevar?" se marcó como `<aside>`.
+- En reservas, el horario de atención se marcó como `<aside>`.
+
+**Decisiones justificadas:**
+
+- El bloque de bienvenida del index (párrafo + enlace + logo) y el bloque del logo + "Volver al inicio" en tarifas no tienen encabezado propio, por eso quedaron como hijos directos de `<main>` sin envolverlos en `<section>`.
+- "Beneficios de alquilar con nosotros" no es un servicio, por eso no se convirtió en `<article>` sino en una `<section>` anidada dentro de "Nuestros servicios".
+- El `<aside>` de reservas se dejó dentro de `<main>` porque es contenido complementario a la acción principal de reservar.
+- No existe ningún `<div>` ni `<span>` en el código. No había en la v0.1 y no se introdujo ninguno, así que no hay nada que justificar sobre ellos.
+
+**Jerarquía de encabezados:** se conservó igual que en la v0.1 (mismos textos, mismos niveles h1/h2/h3).
+
+**Verificación:** confirmé un solo `<main>`, un solo `<header>` y un solo `<footer>` por página; los enlaces del menú y los enlaces internos (`#encuentranos`, `tarifas.html#recorridos`) siguen funcionando.
+
+**¿Qué aprendí?**
+
+Aprendí a usar etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`) para que la estructura del sitio tenga significado tanto para Google como para lectores de pantalla, sin perder contenido ni romper la navegación.
+
+**Versión:** Rueda Libre v0.2 (reestructuración semántica)
