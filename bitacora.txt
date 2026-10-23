@@ -101,3 +101,48 @@ Aprendí a conectar varias páginas con un menú, utilizar rutas relativas y mos
 ---
 
 **Nota:** Hasta el momento desarrollé el proyecto utilizando únicamente HTML, sin CSS ni JavaScript.
+
+index.html:
+
+body
+├─ header
+│   ├─ nav  (menú: Inicio / Tarifas / Reservas)
+│   └─ h1 "Rueda Libre"
+├─ main
+│   ├─ (párrafo de bienvenida + enlace + logo)  ← sin section: no tiene encabezado
+│   ├─ section  (h2 ¿Quiénes somos?)
+│   ├─ section  (h2 Nuestros servicios)
+│   │   ├─ article (h3 Alquiler de bicicletas)
+│   │   ├─ article (h3 Recorridos guiados)
+│   │   ├─ article (h3 Taller básico)
+│   │   └─ section (h3 Beneficios de alquilar con nosotros)  ← decisión, ver abajo
+│   ├─ section  (h2 ¿Cómo alquilar?)
+│   └─ section  (h2 Encuéntranos)   ← conserva id="encuentranos"
+└─ footer
+
+tarifas.html:
+
+body
+├─ header
+│   ├─ nav
+│   └─ h1 "Tarifas y Rutas - Rueda Libre"
+├─ main
+│   ├─ (logo + enlace "Volver al inicio")  ← sin section: no tienen encabezado
+│   ├─ section (h2 Tarifas de alquiler) → table
+│   ├─ section (h2 Recorridos guiados) → table + enlace   ← conserva id="recorridos"
+│   ├─ section (h2 Información importante)
+│   │   ├─ p, p
+│   │   └─ aside (h3 ¿Qué llevar? + ul)   ← contenido complementario
+│   └─ (enlace "Regresar a Rueda Libre")
+└─ footer
+
+reservas.html:
+
+body
+├─ header
+│   ├─ nav
+│   └─ h1 "Reserva tu bicicleta"
+├─ main
+│   ├─ p (correo de contacto)
+│   └─ aside (h2 Horario de atención + dl)   ← contenido complementario
+└─ footer
