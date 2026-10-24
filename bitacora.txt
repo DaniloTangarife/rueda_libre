@@ -296,3 +296,5 @@ El Conflicto: El compañero escribió #menu a y .activo.
 
 La Solución: Para solucionarlo sin recurrir a !important ni a estilos en línea, aumentamos la especificidad del selector activo combinándolo con el menú: #menu a.activo (o #menu .activo), cuya especificidad pasa a ser (0, 1, 1, 1) (1 ID, 1 clase, 1 etiqueta), ganando correctamente la disputa de cascada de forma limpia y estándar.
 
+Por defecto, el navegador calcula el ancho de un elemento sumando el contenido + padding + bordes (modelo estándar). Al cambiar a box-sizing: border-box, el ancho total declarado (por ejemplo, max-width: 800px o width: 100%) incluye internamente el relleno y los bordes, evitando que los elementos se desborden o crezcan inesperadamente.
+

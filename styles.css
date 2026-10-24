@@ -2,20 +2,29 @@
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Open Sans', sans-serif;
 
-    /* Variables corporativas y adaptadas del reto */
+    /* Colores corporativos */
     --gris-asfalto: #334155;
     --verde-ruta: #10b981;
     --verde-hover: #059669;
-
     --color-primary: #10b981;
     --color-secondary: #0f172a;
     --color-accent: #f59e0b;
     --color-background: #f8fafc;
     --color-text: #334155;
+    --color-card-bg: #ffffff;
+    --color-border: #cbd5e1;
 
+    /* Escala de espaciado en rem */
+    --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+}
+
+/* 1. Box Model global: ancho incluye relleno y borde */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
@@ -23,7 +32,8 @@ body {
     color: var(--color-text);
     background-color: var(--color-background);
     margin: 0;
-    padding: var(--spacing-md);
+    padding: 0;
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,18 +41,33 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-secondary);
 }
 
-/* ==========================================
-   1. NAVEGACIÓN Y MENÚ (Paso 1, 4, 5 y 6)
-   ================================---------- */
+/* 2. Ancho máximo del contenido principal y centrado con márgenes automáticos */
+main {
+    max-width: 65rem; /* ~1040px ideal para evitar líneas larguísimas */
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* Portada de inicio con altura mínima relativa al alto de la ventana */
+header {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* 11. Menú en una fila usando display adecuado */
 #menu {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-md);
-    background-color: #ffffff;
-    padding: var(--spacing-md);
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#menu li {
+    display: inline-block;
 }
 
 #menu a {
@@ -54,14 +79,12 @@ h1, h2, h3, h4, h5, h6 {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Resolución del conflicto de especificidad */
 #menu a.activo {
     color: var(--verde-ruta);
     font-weight: 600;
     background-color: rgba(16, 185, 129, 0.1);
 }
 
-/* Estados de interacción del menú */
 #menu a:hover {
     color: var(--verde-hover);
     background-color: rgba(16, 185, 129, 0.08);
@@ -70,52 +93,150 @@ h1, h2, h3, h4, h5, h6 {
 #menu a:focus {
     outline: 3px solid var(--color-accent);
     outline-offset: 2px;
-    background-color: rgba(245, 158, 11, 0.1);
 }
 
-/* ==========================================
-   2. BOTONES Y LLAMADAS A LA ACCIÓN (Paso 7)
-   ================================---------- */
-.btn-cta {
-    display: inline-block;
-    background-color: var(--color-primary);
+/* 3, 4, 5, 6. Tarjetas de servicios */
+article {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+article img {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: auto;
+    border-radius: 4px;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+/* 7. Mejora de lectura de las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+th {
+    background-color: var(--color-secondary);
     color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
     font-family: var(--font-heading);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-weight: 600;
 }
 
-.btn-cta:hover {
-    background-color: var(--verde-hover);
+tr:hover {
+    background-color: #f1f5f9;
 }
 
-.btn-cta:focus {
-    outline: 3px solid var(--color-accent);
-    outline-offset: 3px;
-    background-color: var(--verde-hover);
+/* 8, 9, 10. Orden y espaciado del formulario */
+form {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-md);
 }
 
-/* ==========================================
-   3. FORMULARIOS Y FOCO VISIBLE (Paso 10)
-   ================================---------- */
-input, select, textarea {
+fieldset {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+legend {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-secondary);
+    padding: 0 var(--spacing-sm);
+}
+
+/* Cada etiqueta sobre su campo y campos a todo el ancho */
+form p {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--gris-asfalto);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem var(--spacing-md); /* Relleno cómodo */
     font-family: var(--font-body);
     font-size: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 400px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: #ffffff;
     box-sizing: border-box;
-    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input:focus, select:focus, textarea:focus {
-    outline: none; /* Reemplazamos el contorno nativo por un indicador accesible */
+    outline: none;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+/* Radio buttons y checkboxes en línea con sus etiquetas secundarias */
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    display: inline-block;
+    margin-right: var(--spacing-xs);
+}
+
+fieldset p label {
+    display: inline;
+    font-weight: normal;
+}
+
+/* Botón con relleno generoso (CTA) */
+button[type="submit"], .btn-cta {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 0.875rem var(--spacing-lg); /* Relleno generoso */
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover, .btn-cta:hover {
+    background-color: var(--verde-hover);
+}
+
+button[type="submit"]:focus, .btn-cta:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
 }
