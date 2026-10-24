@@ -1,3 +1,6 @@
+/* ==========================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ========================================== */
 :root {
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Open Sans', sans-serif;
@@ -14,7 +17,7 @@
     --color-card-bg: #ffffff;
     --color-border: #cbd5e1;
 
-    /* Escala de espaciado en rem */
+    /* Escala de espaciado */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
@@ -22,7 +25,6 @@
     --spacing-xl: 4rem;
 }
 
-/* 1. Box Model global: ancho incluye relleno y borde */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -41,22 +43,30 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-secondary);
 }
 
-/* 2. Ancho máximo del contenido principal y centrado con márgenes automáticos */
-main {
-    max-width: 65rem; /* ~1040px ideal para evitar líneas larguísimas */
-    margin-left: auto;
-    margin-right: auto;
-    padding: var(--spacing-lg) var(--spacing-md);
+/* Enlace de salto de accesibilidad */
+body > a:first-of-type {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-secondary);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+}
+body > a:first-of-type:focus {
+    top: 0;
 }
 
-/* Portada de inicio con altura mínima relativa al alto de la ventana */
+
+/* ==========================================
+   2. ENCABEZADO Y NAVEGACIÓN
+   ========================================== */
 header {
     background-color: var(--color-card-bg);
     padding: var(--spacing-md) var(--spacing-lg);
     border-bottom: 1px solid var(--color-border);
 }
 
-/* 11. Menú en una fila usando display adecuado */
 #menu {
     list-style: none;
     padding: 0;
@@ -95,7 +105,23 @@ header {
     outline-offset: 2px;
 }
 
-/* 3, 4, 5, 6. Tarjetas de servicios */
+
+/* ==========================================
+   3. CONTENEDOR PRINCIPAL Y DISEÑO BASE
+   ========================================== */
+main {
+    max-width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+    /* Margen inferior extra para evitar que el botón flotante tape contenido */
+    padding-bottom: calc(var(--spacing-xl) + 2rem); 
+}
+
+
+/* ==========================================
+   4. COMPONENTES (TARJETAS, TABLAS Y BOTONES)
+   ========================================== */
 article {
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-border);
@@ -105,16 +131,38 @@ article {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+/* Tarjeta con etiqueta posicionada (Reto 12) */
+.tarjeta-con-etiqueta {
+    position: relative;
+}
+
+.etiqueta-nuevo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 article img {
-    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    width: 100%;
+    max-width: 280px;
     height: auto;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-top: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* 7. Mejora de lectura de las tablas */
+/* Tablas */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -143,7 +191,36 @@ tr:hover {
     background-color: #f1f5f9;
 }
 
-/* 8, 9, 10. Orden y espaciado del formulario */
+/* Botones y llamadas a la acción */
+button[type="submit"], .btn-cta {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 0.875rem var(--spacing-lg);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover, .btn-cta:hover {
+    background-color: var(--verde-hover);
+}
+
+button[type="submit"]:focus, .btn-cta:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+
+/* ==========================================
+   5. FORMULARIOS
+   ========================================== */
 form {
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-border);
@@ -166,7 +243,6 @@ legend {
     padding: 0 var(--spacing-sm);
 }
 
-/* Cada etiqueta sobre su campo y campos a todo el ancho */
 form p {
     margin-bottom: var(--spacing-md);
 }
@@ -187,13 +263,12 @@ select,
 textarea {
     display: block;
     width: 100%;
-    padding: 0.75rem var(--spacing-md); /* Relleno cómodo */
+    padding: 0.75rem var(--spacing-md);
     font-family: var(--font-body);
     font-size: 1rem;
     border: 1px solid var(--color-border);
     border-radius: 6px;
     background-color: #ffffff;
-    box-sizing: border-box;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -202,7 +277,6 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
 }
 
-/* Radio buttons y checkboxes en línea con sus etiquetas secundarias */
 input[type="radio"],
 input[type="checkbox"] {
     width: auto;
@@ -215,28 +289,53 @@ fieldset p label {
     font-weight: normal;
 }
 
-/* Botón con relleno generoso (CTA) */
-button[type="submit"], .btn-cta {
-    display: inline-block;
-    background-color: var(--color-primary);
+
+/* ==========================================
+   6. ELEMENTOS FLOTANTES Y POSICIONADOS
+   ========================================== */
+.whatsapp-flotant {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: #25d366;
     color: #ffffff;
-    padding: 0.875rem var(--spacing-lg); /* Relleno generoso */
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: var(--font-heading);
-    cursor: pointer;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s ease;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-button[type="submit"]:hover, .btn-cta:hover {
-    background-color: var(--verde-hover);
+.whatsapp-flotant:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
 }
 
-button[type="submit"]:focus, .btn-cta:focus {
+.whatsapp-flotant:focus {
     outline: 3px solid var(--color-accent);
     outline-offset: 3px;
+}
+
+
+/* ==========================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================== */
+footer {
+    background-color: var(--color-secondary);
+    color: #ffffff;
+    text-align: center;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
