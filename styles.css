@@ -1,0 +1,25 @@
+:root {
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    --color-primary: #10b981;
+    --color-secondary: #0f172a;
+    --color-accent: #f59e0b;
+    --color-background: #f8fafc;
+    --color-text: #334155;
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
