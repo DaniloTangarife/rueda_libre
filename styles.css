@@ -1,7 +1,11 @@
 :root {
-
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Open Sans', sans-serif;
+
+    /* Variables corporativas y adaptadas del reto */
+    --gris-asfalto: #334155;
+    --verde-ruta: #10b981;
+    --verde-hover: #059669;
 
     --color-primary: #10b981;
     --color-secondary: #0f172a;
@@ -18,8 +22,100 @@ body {
     font-family: var(--font-body);
     color: var(--color-text);
     background-color: var(--color-background);
+    margin: 0;
+    padding: var(--spacing-md);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    color: var(--color-secondary);
+}
+
+/* ==========================================
+   1. NAVEGACIÓN Y MENÚ (Paso 1, 4, 5 y 6)
+   ================================---------- */
+#menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: var(--spacing-md);
+    background-color: #ffffff;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#menu a {
+    color: var(--gris-asfalto);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Resolución del conflicto de especificidad */
+#menu a.activo {
+    color: var(--verde-ruta);
+    font-weight: 600;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Estados de interacción del menú */
+#menu a:hover {
+    color: var(--verde-hover);
+    background-color: rgba(16, 185, 129, 0.08);
+}
+
+#menu a:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* ==========================================
+   2. BOTONES Y LLAMADAS A LA ACCIÓN (Paso 7)
+   ================================---------- */
+.btn-cta {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--verde-hover);
+}
+
+.btn-cta:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+    background-color: var(--verde-hover);
+}
+
+/* ==========================================
+   3. FORMULARIOS Y FOCO VISIBLE (Paso 10)
+   ================================---------- */
+input, select, textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none; /* Reemplazamos el contorno nativo por un indicador accesible */
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
 }

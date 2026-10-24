@@ -291,3 +291,8 @@ No fue necesario reordenar nada: el orden del DOM coincide con el orden lógico 
 Aprendí a traducir reglas de negocio a validación nativa HTML (`required`, `minlength`, `maxlength`, `pattern`, `min`, `max`, tipos `email`, `tel`, `number`, `date`) y a comprobar que un formulario se puede completar y enviar solo con teclado.
 
 **Versión:** Rueda Libre v0.4 (validación nativa)
+
+El Conflicto: El compañero escribió #menu a y .activo.
+
+La Solución: Para solucionarlo sin recurrir a !important ni a estilos en línea, aumentamos la especificidad del selector activo combinándolo con el menú: #menu a.activo (o #menu .activo), cuya especificidad pasa a ser (0, 1, 1, 1) (1 ID, 1 clase, 1 etiqueta), ganando correctamente la disputa de cascada de forma limpia y estándar.
+
