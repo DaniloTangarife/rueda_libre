@@ -372,3 +372,63 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* ==========================================
+   8. NUESTRA FLOTA - GRID Y FLEXBOX
+   ========================================== */
+
+/* Cuadrícula de bicicletas */
+.grid-flota {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Tarjetas de bicicletas */
+.tarjeta-bicicleta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+/* Imágenes de las bicicletas */
+.tarjeta-bicicleta img {
+    width: 100%;
+    max-width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+/* Nombres de las bicicletas */
+.tarjeta-bicicleta h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Descripción */
+.tarjeta-bicicleta p {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Precio por hora */
+.tarjeta-bicicleta .precio {
+    font-weight: bold;
+    color: var(--verde-ruta);
+    font-size: 1.1rem;
+}
+
+/* Botón de reservar */
+.tarjeta-bicicleta .btn-cta {
+    margin-top: auto;
+    text-align: center;
+}
+

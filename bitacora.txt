@@ -329,3 +329,49 @@ se acomodan en nuevas filas para evitar que se amontonen.
 Finalmente, utilizamos el mismo archivo css/styles.css
 para aplicar estos estilos a las tres páginas del sitio.
 
+RETO - NUESTRA FLOTA CON CSS GRID Y FLEXBOX
+
+En este reto agregamos una nueva sección llamada "Nuestra flota"
+en la página de inicio.
+
+Creamos siete tarjetas de bicicletas. Cada una contiene una imagen,
+el nombre del modelo, una descripción, el precio por hora y un
+enlace para reservar.
+
+Para organizar las tarjetas utilizamos CSS Grid con display: grid.
+
+Con grid-template-columns, repeat(), auto-fit y minmax() logramos
+que las columnas se adapten automáticamente al espacio disponible,
+sin necesidad de utilizar media queries.
+
+También utilizamos gap para separar las filas y columnas de
+manera uniforme.
+
+Dentro de cada tarjeta utilizamos Flexbox con flex-direction: column
+para organizar los elementos verticalmente.
+
+Con margin-top: auto logramos que los enlaces de Reservar
+permanezcan en la parte inferior de las tarjetas, aunque
+las descripciones tengan diferentes longitudes.
+
+Las tarjetas conservaron el relleno, los bordes y las esquinas
+redondeadas que habíamos utilizado anteriormente.
+
+Agregamos un séptimo modelo llamado Tándem y comprobamos que
+la cuadrícula permite agregar nuevas bicicletas sin modificar el CSS.
+
+PRUEBAS CON DEVTOOLS
+
+Utilizamos el modo dispositivo del navegador para comprobar
+cómo cambia la cantidad de columnas.
+
+Ancho de 1280 px: ___ columnas.
+Ancho de 900 px: ___ columnas.
+Ancho de 500 px: ___ columnas.
+
+Con estas pruebas comprobamos que la cuadrícula se adapta
+al tamaño de la pantalla.
+
+Ancho de 1280 px: 3 columnas.
+Ancho de 900 px: 3 columnas.
+Ancho de 500 px: 1 columna.
