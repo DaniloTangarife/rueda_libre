@@ -298,3 +298,34 @@ La Solución: Para solucionarlo sin recurrir a !important ni a estilos en línea
 
 Por defecto, el navegador calcula el ancho de un elemento sumando el contenido + padding + bordes (modelo estándar). Al cambiar a box-sizing: border-box, el ancho total declarado (por ejemplo, max-width: 800px o width: 100%) incluye internamente el relleno y los bordes, evitando que los elementos se desborden o crezcan inesperadamente.
 
+RETO - FLEXBOX EN ENCABEZADO Y PIE DE PÁGINA
+
+En este reto utilizamos Flexbox para mejorar la distribución
+del encabezado, el menú de navegación y el pie de página.
+
+Primero organizamos el encabezado con display: flex para
+que el nombre del negocio quedara en un extremo y el menú
+en el otro. Utilizamos justify-content: space-between y
+align-items: center para separarlos y alinearlos.
+
+En el menú utilizamos gap para separar los enlaces y
+eliminamos el inline-block que se utilizaba anteriormente.
+También agregamos flex-wrap: wrap para permitir que los
+enlaces bajen de línea cuando no tengan suficiente espacio.
+
+Después organizamos el pie de página en tres bloques:
+marca, contacto y horario de atención. Utilizamos Flexbox
+para mostrarlos en una fila y alinearlos por la parte superior.
+
+Al reducir el tamaño de la ventana, el encabezado permite
+que el menú baje debajo del nombre del negocio cuando
+no hay suficiente espacio. Los enlaces del menú también
+pueden distribuirse en varias líneas.
+
+En el pie de página, los tres bloques aparecen en una fila
+cuando la pantalla es ancha. Al reducir el ancho, los bloques
+se acomodan en nuevas filas para evitar que se amontonen.
+
+Finalmente, utilizamos el mismo archivo css/styles.css
+para aplicar estos estilos a las tres páginas del sitio.
+

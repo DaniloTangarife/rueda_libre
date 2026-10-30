@@ -65,19 +65,30 @@ header {
     background-color: var(--color-card-bg);
     padding: var(--spacing-md) var(--spacing-lg);
     border-bottom: 1px solid var(--color-border);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+header h1 {
+    margin: 0;
 }
 
 #menu {
     list-style: none;
     padding: 0;
     margin: 0;
+
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: var(--spacing-md);
-}
-
-#menu li {
-    display: inline-block;
 }
 
 #menu a {
@@ -300,7 +311,7 @@ fieldset p label {
     background-color: #25d366;
     color: #ffffff;
     padding: 0.75rem 1.25rem;
-    border-radius: 50px;
+    border-radius: 60px;
     text-decoration: none;
     font-family: var(--font-heading);
     font-weight: 600;
@@ -323,12 +334,34 @@ fieldset p label {
 /* ==========================================
    7. PIE DE PÁGINA (FOOTER)
    ========================================== */
+/* ==========================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================== */
 footer {
     background-color: var(--color-secondary);
     color: #ffffff;
-    text-align: center;
     padding: var(--spacing-lg);
     margin-top: var(--spacing-xl);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+footer > div {
+    flex: 1 1 220px;
+}
+
+footer h3 {
+    color: #ffffff;
+    margin-top: 0;
+}
+
+footer p {
+    margin-top: var(--spacing-sm);
 }
 
 footer a {
