@@ -504,3 +504,76 @@ footer a:hover {
 .tarjeta-ruta p {
     margin: 0;
 }
+
+/* ==========================================
+   11. LAYOUT DE RESERVAS CON GRID
+   ========================================== */
+
+.layout-reservas {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.reserva-formulario {
+    min-width: 0;
+}
+
+.reserva-contacto {
+    min-width: 0;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+}
+
+.reserva-contacto h2,
+.reserva-contacto h3 {
+    margin-top: 0;
+}
+
+
+/* ==========================================
+   12. FILA DE CAMPOS CON FLEXBOX
+   ========================================== */
+
+.fila-formulario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.fila-formulario p {
+    flex: 1;
+    min-width: 0;
+}
+
+.fila-formulario input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   13. ADAPTACIÓN DE RESERVAS A MÓVILES
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .layout-reservas {
+        grid-template-columns: 1fr;
+    }
+
+    .fila-formulario {
+        flex-direction: column;
+    }
+
+    .fila-formulario p {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
