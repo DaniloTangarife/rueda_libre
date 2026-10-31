@@ -375,3 +375,101 @@ al tamaño de la pantalla.
 Ancho de 1280 px: 3 columnas.
 Ancho de 900 px: 3 columnas.
 Ancho de 500 px: 1 columna.
+
+RETO - LAYOUT GENERAL CON GRID Y FLEXBOX
+
+En este reto utilizamos CSS Grid y Flexbox para organizar
+mejor la distribución de las páginas de inicio y reservas.
+
+1. PORTADA PRINCIPAL
+
+Utilizamos CSS Grid para dividir la portada en dos columnas
+del mismo tamaño mediante grid-template-columns: 1fr 1fr.
+
+Elegimos Grid porque necesitábamos organizar dos bloques
+principales: el texto a la izquierda y la imagen a la derecha.
+
+Dentro del bloque de texto utilizamos Flexbox en columna
+para organizar el título, la descripción y el botón.
+
+Con justify-content: center y align-items logramos
+controlar la alineación de los elementos.
+
+
+2. GALERÍA DE RUTAS
+
+Utilizamos CSS Grid con repeat(3, 1fr) para mostrar
+las tres rutas guiadas en una misma fila.
+
+Elegimos Grid porque necesitábamos una distribución
+en filas y columnas, con tarjetas del mismo ancho.
+
+También utilizamos gap para separar las tarjetas.
+
+
+3. PÁGINA DE RESERVAS
+
+Utilizamos CSS Grid para distribuir el formulario
+y la información de contacto en dos columnas.
+
+Con grid-template-columns: 2fr 1fr logramos que
+el formulario ocupara dos partes del espacio y
+la información de contacto una parte.
+
+Elegimos Grid porque necesitábamos controlar
+las proporciones de las columnas.
+
+
+4. FILA DEL FORMULARIO
+
+Utilizamos Flexbox para colocar los campos
+de documento y celular en una misma fila.
+
+Elegimos Flexbox porque solamente necesitábamos
+organizar los elementos en una dirección horizontal.
+
+Con gap separamos los campos y con flex: 1
+permitimos que compartieran el espacio disponible.
+
+
+5. ENCABEZADO
+
+Conservamos Flexbox en el encabezado para mantener
+el nombre del negocio en un extremo y el menú en el otro.
+
+Elegimos Flexbox porque el encabezado necesita
+distribuir sus elementos principalmente en una dimensión.
+
+También conservamos flex-wrap para permitir que
+los enlaces del menú bajen de línea cuando sea necesario.
+
+
+6. PIE DE PÁGINA
+
+Conservamos Flexbox para organizar los tres bloques
+del pie de página: marca, contacto y horario.
+
+Elegimos Flexbox porque necesitamos distribuir
+los bloques horizontalmente y permitir que se acomoden
+en nuevas filas cuando no haya suficiente espacio.
+
+Con justify-content: space-between separamos los
+bloques y con align-items: flex-start los alineamos
+por la parte superior.
+
+
+CONCLUSIÓN
+
+Aprendimos que CSS Grid es útil cuando necesitamos
+organizar elementos en filas y columnas o controlar
+las proporciones de un diseño.
+
+Flexbox es útil cuando necesitamos distribuir y alinear
+elementos principalmente en una sola dirección.
+
+En este reto combinamos ambas técnicas para construir
+una portada, una galería y un formulario mejor organizados.
+
+También conservamos el menú, la flota y las validaciones
+del formulario que habíamos desarrollado anteriormente.
+
