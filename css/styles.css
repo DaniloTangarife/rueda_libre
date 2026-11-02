@@ -63,19 +63,17 @@ img {
 }
 
 /* ==========================================
-   2. ENCABEZADO Y NAVEGACIÓN
+   2. ENCABEZADO Y NAVEGACIÓN (mobile-first)
    ========================================== */
 header {
     background-color: var(--color-card-bg);
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-md);
     border-bottom: 1px solid var(--color-border);
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;      /* móvil: marca arriba, menú debajo */
     align-items: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
 }
 
 header h1 {
@@ -93,10 +91,28 @@ header h1 {
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;     /* móvil: menú centrado */
     align-items: center;
     flex-wrap: wrap;
     gap: var(--spacing-md);
+    width: 100%;
+}
+
+/* Tablet: recupera distribución del MiniReto 1 (marca y menú en extremos) */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    header h1 {
+        text-align: left;
+    }
+    #menu {
+        width: auto;
+        justify-content: flex-end;
+    }
 }
 
 #menu a {
@@ -342,7 +358,7 @@ fieldset p label {
 }
 
 /* ==========================================
-   7. PIE DE PÁGINA (FOOTER)
+   7. PIE DE PÁGINA (mobile-first)
    ========================================== */
 footer {
     background-color: var(--color-secondary);
@@ -351,15 +367,20 @@ footer {
     margin-top: var(--spacing-xl);
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;      /* móvil: bloques apilados */
     gap: var(--spacing-lg);
 }
 
-footer > div {
-    flex: 1 1 220px;
+footer > div { flex: 1 1 220px; }
+
+/* Tablet/escritorio: tres bloques en fila alineados arriba */
+@media (min-width: 768px) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
 }
 
 footer h3 {
@@ -392,11 +413,9 @@ footer a:hover {
     margin-top: var(--spacing-lg);
 }
 
-/* Tarjetas de bicicletas */
 .tarjeta-bicicleta {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: column;      /* sin justify-content: flex-start redundante */
 
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-border);
@@ -445,7 +464,7 @@ footer a:hover {
 
 .portada {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;  /* móvil: una columna */
     gap: var(--spacing-lg);
     align-items: center;
     margin-bottom: var(--spacing-xl);
@@ -459,19 +478,20 @@ footer a:hover {
     gap: var(--spacing-md);
 }
 
-.portada-texto h2 {
-    margin: 0;
-}
-
-.portada-texto p {
-    margin: 0;
-}
+.portada-texto h2, .portada-texto p { margin: 0; }
 
 .portada-imagen img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     display: block;
+}
+
+/* Escritorio: dos columnas */
+@media (min-width: 1200px) {
+    .portada {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* ==========================================
@@ -486,22 +506,16 @@ footer a:hover {
 }
 
 @media (min-width: 768px) {
-    .galeria-rutas {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .galeria-rutas { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (min-width: 1200px) {
-    .galeria-rutas {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .galeria-rutas { grid-template-columns: repeat(3, 1fr); }
 }
 
 .tarjeta-ruta {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
-
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -516,13 +530,7 @@ footer a:hover {
     border-radius: 8px;
 }
 
-.tarjeta-ruta h3 {
-    margin: 0;
-}
-
-.tarjeta-ruta p {
-    margin: 0;
-}
+.tarjeta-ruta h3, .tarjeta-ruta p { margin: 0; }
 
 /* ==========================================
    11. LAYOUT DE RESERVAS CON GRID
@@ -530,9 +538,13 @@ footer a:hover {
 
 .layout-reservas {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
     align-items: start;
+}
+
+@media (min-width: 1200px) {
+    .layout-reservas { grid-template-columns: 2fr 1fr; } /* escritorio 2:1 */
 }
 
 .reserva-formulario {
@@ -547,11 +559,7 @@ footer a:hover {
     padding: var(--spacing-md);
 }
 
-.reserva-contacto h2,
-.reserva-contacto h3 {
-    margin-top: 0;
-}
-
+.reserva-contacto h2, .reserva-contacto h3 { margin-top: 0; }
 
 /* ==========================================
    12. FILA DE CAMPOS CON FLEXBOX
@@ -559,10 +567,16 @@ footer a:hover {
 
 .fila-formulario {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;      /* móvil: apilados */
     gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .fila-formulario {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 }
 
 .fila-formulario p {
@@ -577,22 +591,10 @@ footer a:hover {
 
 
 /* ==========================================
-   13. ADAPTACIÓN DE RESERVAS A MÓVILES
+   13. TABLAS EN MÓVIL Y ESCRITORIO
    ========================================== */
-
-@media (max-width: 768px) {
-
-    .layout-reservas {
-        grid-template-columns: 1fr;
-    }
-
-    .fila-formulario {
-        flex-direction: column;
-    }
-
-    .fila-formulario p {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
+   
+@media (min-width: 768px) {
+    table { font-size: 0.95rem; }
+    th, td { padding: 0.6rem 0.75rem; }
 }

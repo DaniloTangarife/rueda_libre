@@ -473,3 +473,85 @@ una portada, una galería y un formulario mejor organizados.
 También conservamos el menú, la flota y las validaciones
 del formulario que habíamos desarrollado anteriormente.
 
+RETO - ESTILOS MOBILE-FIRST Y RESPONSIVE (v1.5)
+Contexto
+Según las estadísticas del cliente, siete de cada diez visitas llegan desde un celular. El layout de la versión anterior se veía apretado en pantallas pequeñas y las tablas de tarifas obligaban a desplazarse de lado.
+
+¿Qué hice?
+Reorganicé css/styles.css con enfoque mobile-first: los estilos base (sin media query) describen la versión móvil en una sola columna, y las media queries con min-width amplían el layout solo donde el contenido lo necesita.
+
+Estructura del CSS reorganizado:
+
+Base (móvil, sin media query):
+
+header en flex-direction: column con align-items: center; marca arriba y menú debajo centrado.
+
+footer en flex-direction: column con gap.
+
+.portada con grid-template-columns: 1fr.
+
+.galeria-rutas con grid-template-columns: 1fr.
+
+.layout-reservas con grid-template-columns: 1fr.
+
+.fila-formulario con flex-direction: column.
+
+Tablas con font-size: 0.75rem, table-layout: fixed, padding reducido y overflow-wrap: anywhere.
+
+img { max-width: 100%; height: auto; } global.
+
+@media (min-width: 768px) (tablet):
+
+header vuelve a flex-direction: row con justify-content: space-between (recupera la distribución del MiniReto 1).
+
+footer pasa a flex-direction: row con align-items: flex-start y flex-wrap.
+
+.galeria-rutas a repeat(2, 1fr).
+
+.fila-formulario a flex-direction: row.
+
+Tablas con font-size: 0.95rem y mayor padding.
+
+@media (min-width: 1200px) (escritorio):
+
+.portada a 1fr 1fr.
+
+.galeria-rutas a repeat(3, 1fr).
+
+.layout-reservas a 2fr 1fr.
+
+Decisión clave: eliminé el bloque @media (max-width: 768px) que había quedado como residuo del enfoque desktop-first. La versión móvil ya está cubierta por los estilos base, así que ese bloque era redundante y contradecía el enfoque mobile-first del reto.
+
+Problemas responsive encontrados y solución (≥3)
+Encabezado amontonado en móvil (menú pegado a la marca).
+Solución: base header en flex-direction: column con align-items: center y gap; el menú con justify-content: center y flex-wrap. A partir de 768 px se recupera la fila con space-between.
+
+Portada y reservas apretadas en móvil (dos columnas forzadas).
+Solución: pasar el layout a mobile-first: .portada y .layout-reservas con base grid-template-columns: 1fr, y declarar las dos columnas / proporción 2:1 solo con @media (min-width: 1200px).
+
+Fila de documento y celular desbordaba en pantallas pequeñas.
+Solución: .fila-formulario base en flex-direction: column; a partir de 768 px pasa a row con flex: 1 y min-width: 0 en cada campo para evitar desbordes.
+
+Tablas de tarifas obligaban a scroll lateral en celular.
+Solución: base móvil con table-layout: fixed, font-size: 0.75rem, padding reducido y overflow-wrap: anywhere; a partir de 768 px se aumenta la fuente y el relleno. Sin overflow-x.
+
+Imágenes más anchas que su contenedor.
+Solución: regla global img { max-width: 100%; height: auto; } y en tarjetas de flota object-fit: contain con altura fija para uniformidad.
+
+Verificación en DevTools (modo dispositivo)
+360 px: sin scroll horizontal; contenido en una columna; header en columna (marca arriba, menú centrado debajo); tablas legibles completas; footer apilado.
+
+768 px: header y footer en fila; galería en 2 columnas; fila del formulario en fila; tablas con fuente mayor.
+
+1280 px: portada en 2 columnas; reservas en proporción 2:1; galería en 3 columnas; flota en 3 columnas.
+
+Publicación
+v1.5 publicada en GitHub Pages: https://<usuario>.github.io/<repo>/ (reemplaza con tu URL real).
+
+Probada en un celular real: sin scroll horizontal, menú debajo de la marca, tablas legibles, imágenes contenidas.
+
+¿Qué aprendí?
+Aprendí a reorganizar una hoja de estilos con enfoque mobile-first, usando @media (min-width: ...) para ampliar el layout en lugar de corregirlo hacia abajo. También entendí la importancia de las imágenes fluidas, de ajustar las tablas para móvil y de evitar max-width en media queries cuando el enfoque es mobile-first.
+
+Versión: Rueda Libre v1.5 (responsive mobile-first con CSS propio)
+
