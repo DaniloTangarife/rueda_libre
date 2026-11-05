@@ -555,3 +555,47 @@ Aprendí a reorganizar una hoja de estilos con enfoque mobile-first, usando @med
 
 Versión: Rueda Libre v1.5 (responsive mobile-first con CSS propio)
 
+## RETO - CATÁLOGO CON BOOTSTRAP 5.3
+
+**¿Qué hice?**
+
+Creé una página independiente llamada `pruebas/catalogo-bootstrap.html` para reconstruir la sección Nuestra flota de Rueda Libre utilizando Bootstrap 5.3 mediante CDN.
+
+Trasladé los siete modelos de bicicletas de la página principal, conservando sus nombres, descripciones, precios e imágenes.
+
+Para organizar las tarjetas utilicé el sistema de grillas de Bootstrap con las clases `container`, `row`, `g-4`, `col-12`, `col-sm-6`, `col-lg-4` y `col-xl-3`.
+
+También utilicé componentes y utilidades de Bootstrap para presentar las tarjetas y los botones. No enlacé mi archivo `styles.css` ni escribí CSS propio para distribuir la flota.
+
+**Comparación del código**
+
+| Aspecto | CSS propio | Bootstrap 5.3 |
+|---|---|---|
+| Distribución | CSS Grid con `auto-fit` y `minmax` | Sistema de grillas |
+| Líneas de CSS para distribuir la flota | 6 líneas | 0 líneas |
+| Clases principales de distribución | `.grid-flota` | `container`, `row`, `g-4`, `col-12`, `col-sm-6`, `col-lg-4`, `col-xl-3` |
+| Columnas adaptables | Según el espacio disponible | 1, 2, 3 y 4 según los breakpoints |
+
+**¿Qué me dio Bootstrap sin esfuerzo?**
+
+Bootstrap me permitió crear una distribución adaptable a diferentes tamaños de pantalla sin escribir reglas propias de CSS Grid ni utilizar media queries. También pude agregar separación entre las tarjetas mediante `g-4` y utilizar componentes prediseñados para las tarjetas y los botones.
+
+**¿Qué control perdí?**
+
+Con Bootstrap tuve menos control directo sobre los puntos de quiebre, los anchos de las columnas y los espacios, porque estos dependen de los valores establecidos por el framework. En mi versión con CSS propio podía definir esos valores de acuerdo con las necesidades del diseño.
+
+**Pruebas realizadas**
+
+Comprobé la página mediante DevTools, utilizando el modo dispositivo:
+
+- 390 px: una columna.
+- 768 px: dos columnas.
+- 1024 px: tres columnas.
+- 1280 px: cuatro columnas.
+
+También revisé la pestaña Network para verificar la carga de los archivos CSS y JavaScript de Bootstrap.
+
+**Conclusión**
+
+Bootstrap facilita la creación de diseños adaptables porque proporciona clases y componentes listos para utilizar. Por otro lado, CSS propio ofrece mayor libertad para personalizar la distribución. Esta prueba me permitió comparar ambas alternativas y reconocer que Bootstrap puede reducir el tiempo de desarrollo cuando se necesitan diseños responsivos.
+
