@@ -599,3 +599,55 @@ También revisé la pestaña Network para verificar la carga de los archivos CSS
 
 Bootstrap facilita la creación de diseños adaptables porque proporciona clases y componentes listos para utilizar. Por otro lado, CSS propio ofrece mayor libertad para personalizar la distribución. Esta prueba me permitió comparar ambas alternativas y reconocer que Bootstrap puede reducir el tiempo de desarrollo cuando se necesitan diseños responsivos.
 
+Reto: Sección de beneficios y llamada a la acción con Bootstrap
+
+Objetivo: construir la sección «¿Por qué Rueda Libre?» y una franja de llamada a la acción utilizando exclusivamente clases utilitarias de Bootstrap 5.3, sin escribir CSS propio.
+
+Cinco clases consultadas en la documentación oficial:
+
+Clase
+
+Función
+
+p-4
+
+Agrega espacio interno (padding) de nivel 4 alrededor de un elemento.
+
+my-5
+
+Agrega margen vertical de nivel 5, arriba y abajo.
+
+flex-md-row
+
+Organiza los elementos en fila a partir del breakpoint md.
+
+d-none
+
+Oculta un elemento en todos los tamaños de pantalla, salvo que otra clase responsive cambie su visualización.
+
+bg-success
+
+Aplica el color verde de fondo correspondiente al tema de Bootstrap.
+
+Implementación:
+
+Se creó una sección con cuatro beneficios: bicicletas revisadas en cada alquiler, casco y candado incluidos, guías certificados y tres puntos de devolución.
+
+Los beneficios se distribuyeron mediante la grilla de Bootstrap. También se utilizaron utilidades de espaciado, tipografía y color para organizar y destacar la información.
+
+Debajo se construyó una franja con el texto «¿Listo para rodar?» y un enlace destacado hacia la página de reservas. Se utilizaron las clases flex-column y flex-md-row para cambiar la distribución de columna a fila desde el breakpoint md.
+
+Se agregó la imagen ciclista_oculto.jpeg, que permanece oculta en celulares y aparece desde md mediante d-none d-md-block.
+
+Verificación:
+
+La sección se construyó sin CSS propio.
+
+No se agregaron atributos style, etiquetas <style> ni clases inventadas.
+
+La franja cambia de columna a fila desde md.
+
+La imagen decorativa se oculta en celulares y aparece desde md.
+
+Se utilizaron clases compatibles con Bootstrap 5.3.
+
