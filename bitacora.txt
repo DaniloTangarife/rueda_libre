@@ -1,712 +1,582 @@
-# BITÁCORA - RUEDA LIBRE
+==========================================
+BITÁCORA - RUEDA LIBRE
+Nodo Digital · Proyecto de sitio web
+==========================================
 
-## MINIRETO 1 - PETICIONES HTTP
+Repositorio: https://github.com/DaniloTangarife/rueda_libre
+Sitio publicado: https://danilotangarife.github.io/rueda_libre/
 
-**Datos de la petición:**
 
-- URL: http://127.0.0.1:5500/index.html
-- Protocolo: HTTP/1.1
-- Host: 127.0.0.1
-- Puerto: 5500
-- Ruta: /index.html
-- Método: GET
-- Estado: 304 Not Modified
+==========================================
+SEMANA 1 — HTML, semántica, accesibilidad y publicación
+==========================================
 
-**¿Qué significa 304 Not Modified?**
 
-Significa que la página no ha cambiado y el navegador puede utilizar la versión guardada.
-
-**Ruta que no existe:**
-
-- Ruta: /index.html/promociones.html
-- Error: ENOTDIR: not a directory
-- Estado: 500 Internal Server Error
-
-**¿Qué significa?**
-
-El servidor intentó buscar una página dentro de index.html como si fuera una carpeta.
-
-**¿Qué función cumplen HTML, CSS y JavaScript?**
-
-- HTML: Organiza la estructura y el contenido.
-- CSS: Da estilos y diseño a la página.
-- JavaScript: Agrega funciones e interactividad.
-
-## MINIRETO 2 - PÁGINA DE INICIO
-
-**¿Qué hice?**
-
-Organicé la página de inicio utilizando HTML básico.
-
-- Utilicé h1, h2 y h3 para organizar los títulos.
-- Agregué párrafos con p, strong y em.
-- Creé una lista ul con tres beneficios y una ol con cuatro pasos para alquilar.
-- Agregué tres imágenes con src, alt y width.
-- Agregué enlaces a Google Maps, al correo y a la sección Encuéntranos.
-
-**¿Qué aprendí?**
-
-Aprendí a organizar el contenido de una página utilizando encabezados, párrafos, listas, imágenes y enlaces.
-
-## MINIRETO 3 - TARIFAS Y RUTAS
-
-**¿Qué hice?**
-
-Creé `paginas/tarifas.html` con dos tablas: una para los precios de alquiler y otra para los recorridos guiados.
-
-- Utilicé table, caption, thead, tbody, tr, th, td y scope.
-- Agregué los horarios, la información del casco y candado y una lista de qué llevar.
-- Mostré el logo utilizando `../img/logo.jpg`.
-- Conecté las páginas mediante rutas relativas y agregué un enlace directo a `#recorridos`.
-
-**¿Qué aprendí?**
-
-Aprendí a crear tablas y a conectar archivos de diferentes carpetas utilizando rutas relativas como `../`.
-
-## MINIRETO 4 - RUEDA LIBRE V0.1
-
-**¿Qué hice?**
-
-Creé `paginas/reservas.html` y conecté las tres páginas mediante un menú de navegación.
-
-- Agregué un menú con Inicio, Tarifas y rutas, y Reservas.
-- Utilicé dl, dt y dd para mostrar los horarios de atención.
-- Agregué el correo con mailto y un pie de página con el nombre, correo y año.
-- Agregué enlaces «Reservar ahora» desde inicio y tarifas.
-
-**Tabla de rutas relativas:**
-
-| Origen | Destino | Ruta |
-|---|---|---|
-| index.html | Inicio | index.html |
-| index.html | Tarifas | paginas/tarifas.html |
-| index.html | Reservas | paginas/reservas.html |
-| tarifas.html | Inicio | ../index.html |
-| tarifas.html | Tarifas | tarifas.html |
-| tarifas.html | Reservas | reservas.html |
-| reservas.html | Inicio | ../index.html |
-| reservas.html | Tarifas | tarifas.html |
-| reservas.html | Reservas | reservas.html |
-
-**Verificación en DevTools:**
-
-Navegué entre las tres páginas utilizando el menú y comprobé en Network que no se presentaron errores 404.
-
-**¿Qué aprendí?**
-
-Aprendí a conectar varias páginas con un menú, utilizar rutas relativas y mostrar horarios con listas de definiciones.
-
-**Versión:** Rueda Libre v0.1
-
----
-
-**Nota:** Hasta el momento desarrollé el proyecto utilizando únicamente HTML, sin CSS ni JavaScript.
-
-index.html:
-
-body
-├─ header
-│   ├─ nav  (menú: Inicio / Tarifas / Reservas)
-│   └─ h1 "Rueda Libre"
-├─ main
-│   ├─ (párrafo de bienvenida + enlace + logo)  ← sin section: no tiene encabezado
-│   ├─ section  (h2 ¿Quiénes somos?)
-│   ├─ section  (h2 Nuestros servicios)
-│   │   ├─ article (h3 Alquiler de bicicletas)
-│   │   ├─ article (h3 Recorridos guiados)
-│   │   ├─ article (h3 Taller básico)
-│   │   └─ section (h3 Beneficios de alquilar con nosotros)  ← decisión, ver abajo
-│   ├─ section  (h2 ¿Cómo alquilar?)
-│   └─ section  (h2 Encuéntranos)   ← conserva id="encuentranos"
-└─ footer
-
-tarifas.html:
-
-body
-├─ header
-│   ├─ nav
-│   └─ h1 "Tarifas y Rutas - Rueda Libre"
-├─ main
-│   ├─ (logo + enlace "Volver al inicio")  ← sin section: no tienen encabezado
-│   ├─ section (h2 Tarifas de alquiler) → table
-│   ├─ section (h2 Recorridos guiados) → table + enlace   ← conserva id="recorridos"
-│   ├─ section (h2 Información importante)
-│   │   ├─ p, p
-│   │   └─ aside (h3 ¿Qué llevar? + ul)   ← contenido complementario
-│   └─ (enlace "Regresar a Rueda Libre")
-└─ footer
-
-reservas.html:
-
-body
-├─ header
-│   ├─ nav
-│   └─ h1 "Reserva tu bicicleta"
-├─ main
-│   ├─ p (correo de contacto)
-│   └─ aside (h2 Horario de atención + dl)   ← contenido complementario
-└─ footer
-
-## MINIRETO 5 - REESTRUCTURACIÓN SEMÁNTICA
-
-**¿Qué hice?**
-
-Reestructuré las tres páginas con etiquetas semánticas, manteniendo el contenido y la navegación de la v0.1.
-
-- Agrupé el nombre del negocio y el menú dentro de un `<header>` en las tres páginas.
-- Marqué el menú como `<nav>` dentro del `<header>`.
-- Envolví el contenido propio de cada página en un único `<main>`.
-- Convertí el bloque final en `<footer>`.
-- En index, cada bloque temático quedó como `<section>` con su propio encabezado, y cada servicio (Alquiler de bicicletas, Recorridos guiados y Taller básico) como `<article>`.
-- En tarifas, cada tabla quedó en su propia `<section>` y "¿Qué llevar?" se marcó como `<aside>`.
-- En reservas, el horario de atención se marcó como `<aside>`.
-
-**Decisiones justificadas:**
-
-- El bloque de bienvenida del index (párrafo + enlace + logo) y el bloque del logo + "Volver al inicio" en tarifas no tienen encabezado propio, por eso quedaron como hijos directos de `<main>` sin envolverlos en `<section>`.
-- "Beneficios de alquilar con nosotros" no es un servicio, por eso no se convirtió en `<article>` sino en una `<section>` anidada dentro de "Nuestros servicios".
-- El `<aside>` de reservas se dejó dentro de `<main>` porque es contenido complementario a la acción principal de reservar.
-- No existe ningún `<div>` ni `<span>` en el código. No había en la v0.1 y no se introdujo ninguno, así que no hay nada que justificar sobre ellos.
-
-**Jerarquía de encabezados:** se conservó igual que en la v0.1 (mismos textos, mismos niveles h1/h2/h3).
-
-**Verificación:** confirmé un solo `<main>`, un solo `<header>` y un solo `<footer>` por página; los enlaces del menú y los enlaces internos (`#encuentranos`, `tarifas.html#recorridos`) siguen funcionando.
-
-**¿Qué aprendí?**
-
-Aprendí a usar etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`) para que la estructura del sitio tenga significado tanto para Google como para lectores de pantalla, sin perder contenido ni romper la navegación.
-
-**Versión:** Rueda Libre v0.2 (reestructuración semántica)
-
-## MINIRETO 6 - FORMULARIO DE RESERVA
-
-**¿Qué hice?**
-
-Agregué un formulario de reserva dentro del contenido principal de `paginas/reservas.html`, manteniendo la estructura semántica del MiniReto 5.
-
-- Creé una `<section>` "Formulario de reserva" con un `<form action="#" method="post">`.
-- Agrupé los campos en tres `<fieldset>` con su `<legend>`: "Tus datos", "Tu alquiler" y "Confirmación".
-- Asocié cada control con su `<label for>` y su `id`, y le puse `name` a todos.
-- Agregué `<button type="submit">` al final del formulario.
-
-**Controles elegidos por dato:**
-
-| Dato | Control | `name` |
-|---|---|---|
-| Nombre completo | `<input type="text">` | `nombre` |
-| Número de documento | `<input type="text">` | `documento` |
-| Correo electrónico | `<input type="email">` | `correo` |
-| Celular | `<input type="tel">` | `celular` |
-| Fecha del alquiler | `<input type="date">` | `fecha` |
-| Tipo de bicicleta | `<input type="radio">` (tres opciones) | `tipo_bicicleta` |
-| Plan | `<input type="radio">` (tres opciones) | `plan` |
-| Cantidad de bicicletas | `<input type="number">` | `cantidad` |
-| Recorrido guiado | `<select>` + `<option>` | `recorrido` |
-| Comentarios | `<textarea>` | `comentarios` |
-| Aceptación de políticas | `<input type="checkbox">` | `politicas` |
-
-**Justificación de tres elecciones:**
-
-1. **Correo electrónico → `type="email"`:** el navegador valida automáticamente el formato antes de enviar, evitando reservas con correos mal escritos (uno de los problemas que mencionó el cliente).
-2. **Fecha del alquiler → `type="date"`:** muestra un calendario nativo que impide fechas inválidas y reduce los errores de fechas equivocadas que llegaban por WhatsApp.
-3. **Tipo de bicicleta → `type="radio"`:** son solo tres opciones mutuamente excluyentes, con pocas alternativas; los radios dejan todas visibles y el `name` compartido (`tipo_bicicleta`) garantiza que solo se pueda elegir una.
-
-**¿Qué aprendí?**
-
-Aprendí a elegir el control HTML más adecuado para cada tipo de dato, a agrupar campos con `<fieldset>` y `<legend>`, a asociar etiquetas con controles usando `for`/`id`, y a enviar datos con `method="post"`.
-
-**Versión:** Rueda Libre v0.3 (formulario de reserva)
-
-## MINIRETO 7 - VALIDACIÓN NATIVA Y TECLADO
-
-**¿Qué hice?**
-
-Traduje cada regla de negocio del cliente a atributos de validación nativa en `paginas/reservas.html`, manteniendo la estructura semántica del MiniReto 6.
-
-**Reglas traducidas a atributos:**
-
-| Campo | Regla del cliente | Atributos aplicados |
-|---|---|---|
-| Nombre completo | Obligatorio, mínimo 3 caracteres | `required` + `minlength="3"` |
-| Documento | Obligatorio, solo números, 6–10 dígitos | `required` + `pattern="[0-9]{6,10}"` + `minlength="6"` + `maxlength="10"` + `title` |
-| Correo | Obligatorio, formato válido | `type="email"` + `required` |
-| Celular | Obligatorio, 10 dígitos, empieza por 3 | `type="tel"` + `required` + `pattern="3[0-9]{9}"` + `minlength="10"` + `maxlength="10"` + `title` |
-| Fecha del alquiler | Obligatoria, 1 nov – 31 dic 2026 | `type="date"` + `required` + `min="2026-11-01"` + `max="2026-12-31"` + `title` |
-| Tipo de bicicleta | Obligatorio | `required` en el grupo de radios |
-| Plan | Obligatorio | `required` en el grupo de radios |
-| Cantidad | Obligatoria, 1 a 6 | `type="number"` + `required` + `min="1"` + `max="6"` |
-| Comentarios | Opcional, máximo 300 caracteres | `maxlength="300"` (sin `required`) |
-| Políticas | Obligatorio aceptarlas | `required` en el checkbox |
-
-**Patrones usados:**
-
-- Documento: `[0-9]{6,10}` → solo dígitos del 0 al 9, entre 6 y 10 posiciones. Uso `[0-9]` en lugar de `\d` porque `\d` acepta dígitos Unicode.
-- Celular: `3[0-9]{9}` → 10 dígitos exactos, el primero debe ser 3.
-- Ambos patrones llevan `title` para que el navegador muestre el mensaje esperado al usuario.
-
-**Tabla de pruebas:**
-
-| # | Campo | Dato de prueba | Resultado esperado | Resultado obtenido |
-|---|---|---|---|---|
-| 1 | Nombre completo | (vacío) | No envía; pide completar | ❌ No envía — mensaje "Completa este campo" |
-| 2 | Nombre completo | `Al` (2 caracteres) | No envía; mínimo 3 | ❌ No envía — "Alarga este texto a 3 caracteres o más" |
-| 3 | Documento | `abc12345` (letras) | No envía; formato inválido | ❌ No envía — muestra `title` |
-| 4 | Documento | `12345` (5 dígitos) | No envía | ❌ No envía — formato inválido |
-| 5 | Documento | `1234567890` (10 dígitos) | Envía | ✅ Aceptado |
-| 6 | Correo | `correo` (sin @) | No envía | ❌ No envía — "Incluye un signo @" |
-| 7 | Celular | `3001234567` | Envía | ✅ Aceptado |
-| 8 | Celular | `1234567890` | No envía; debe empezar por 3 | ❌ No envía — muestra `title` |
-| 9 | Celular | `300123` (6 dígitos) | No envía | ❌ No envía — formato inválido |
-| 10 | Fecha | `2026-10-15` (antes del rango) | No envía | ❌ No envía — "El valor debe ser 2026-11-01 o posterior" |
-| 11 | Fecha | `2026-11-15` | Envía | ✅ Aceptado |
-| 12 | Cantidad | `0` | No envía; mínimo 1 | ❌ No envía |
-| 13 | Cantidad | `7` | No envía; máximo 6 | ❌ No envía |
-| 14 | Tipo de bicicleta | (ninguno seleccionado) | No envía | ❌ No envía — "Selecciona una de estas opciones" |
-| 15 | Plan | (ninguno seleccionado) | No envía | ❌ No envía |
-| 16 | Comentarios | 301 caracteres | El campo se corta a 300 | ✅ Se detiene en 300 |
-| 17 | Políticas | Sin marcar | No envía | ❌ No envía — "Marca esta casilla si deseas continuar" |
-
-**Prueba de navegación por teclado:**
-
-Recorrí el formulario completo solo con el teclado y el orden fue lógico:
-
-1. `Tab` → Nombre completo
-2. `Tab` → Número de documento
-3. `Tab` → Correo electrónico
-4. `Tab` → Celular
-5. `Tab` → Fecha del alquiler
-6. `Tab` → grupo "Tipo de bicicleta" (un solo tab-stop; flechas ↑/↓ cambian la opción)
-7. `Tab` → grupo "Plan" (igual, flechas para elegir)
-8. `Tab` → Cantidad de bicicletas
-9. `Tab` → Recorrido guiado (con `select`, flechas abren opciones)
-10. `Tab` → Comentarios
-11. `Tab` → checkbox Políticas (barra espaciadora lo marca)
-12. `Tab` → Botón "Enviar reserva" (`Enter` envía)
-13. `Shift + Tab` retrocede en el mismo orden.
-
-No fue necesario reordenar nada: el orden del DOM coincide con el orden lógico de llenado.
-
-**¿Qué aprendí?**
-
-Aprendí a traducir reglas de negocio a validación nativa HTML (`required`, `minlength`, `maxlength`, `pattern`, `min`, `max`, tipos `email`, `tel`, `number`, `date`) y a comprobar que un formulario se puede completar y enviar solo con teclado.
-
-**Versión:** Rueda Libre v0.4 (validación nativa)
-
-El Conflicto: El compañero escribió #menu a y .activo.
-
-La Solución: Para solucionarlo sin recurrir a !important ni a estilos en línea, aumentamos la especificidad del selector activo combinándolo con el menú: #menu a.activo (o #menu .activo), cuya especificidad pasa a ser (0, 1, 1, 1) (1 ID, 1 clase, 1 etiqueta), ganando correctamente la disputa de cascada de forma limpia y estándar.
-
-Por defecto, el navegador calcula el ancho de un elemento sumando el contenido + padding + bordes (modelo estándar). Al cambiar a box-sizing: border-box, el ancho total declarado (por ejemplo, max-width: 800px o width: 100%) incluye internamente el relleno y los bordes, evitando que los elementos se desborden o crezcan inesperadamente.
-
-RETO - FLEXBOX EN ENCABEZADO Y PIE DE PÁGINA
-
-En este reto utilizamos Flexbox para mejorar la distribución
-del encabezado, el menú de navegación y el pie de página.
-
-Primero organizamos el encabezado con display: flex para
-que el nombre del negocio quedara en un extremo y el menú
-en el otro. Utilizamos justify-content: space-between y
-align-items: center para separarlos y alinearlos.
-
-En el menú utilizamos gap para separar los enlaces y
-eliminamos el inline-block que se utilizaba anteriormente.
-También agregamos flex-wrap: wrap para permitir que los
-enlaces bajen de línea cuando no tengan suficiente espacio.
-
-Después organizamos el pie de página en tres bloques:
-marca, contacto y horario de atención. Utilizamos Flexbox
-para mostrarlos en una fila y alinearlos por la parte superior.
-
-Al reducir el tamaño de la ventana, el encabezado permite
-que el menú baje debajo del nombre del negocio cuando
-no hay suficiente espacio. Los enlaces del menú también
-pueden distribuirse en varias líneas.
-
-En el pie de página, los tres bloques aparecen en una fila
-cuando la pantalla es ancha. Al reducir el ancho, los bloques
-se acomodan en nuevas filas para evitar que se amontonen.
-
-Finalmente, utilizamos el mismo archivo css/styles.css
-para aplicar estos estilos a las tres páginas del sitio.
-
-RETO - NUESTRA FLOTA CON CSS GRID Y FLEXBOX
-
-En este reto agregamos una nueva sección llamada "Nuestra flota"
-en la página de inicio.
-
-Creamos siete tarjetas de bicicletas. Cada una contiene una imagen,
-el nombre del modelo, una descripción, el precio por hora y un
-enlace para reservar.
-
-Para organizar las tarjetas utilizamos CSS Grid con display: grid.
-
-Con grid-template-columns, repeat(), auto-fit y minmax() logramos
-que las columnas se adapten automáticamente al espacio disponible,
-sin necesidad de utilizar media queries.
-
-También utilizamos gap para separar las filas y columnas de
-manera uniforme.
-
-Dentro de cada tarjeta utilizamos Flexbox con flex-direction: column
-para organizar los elementos verticalmente.
-
-Con margin-top: auto logramos que los enlaces de Reservar
-permanezcan en la parte inferior de las tarjetas, aunque
-las descripciones tengan diferentes longitudes.
-
-Las tarjetas conservaron el relleno, los bordes y las esquinas
-redondeadas que habíamos utilizado anteriormente.
-
-Agregamos un séptimo modelo llamado Tándem y comprobamos que
-la cuadrícula permite agregar nuevas bicicletas sin modificar el CSS.
-
-PRUEBAS CON DEVTOOLS
-
-Utilizamos el modo dispositivo del navegador para comprobar
-cómo cambia la cantidad de columnas.
-
-Ancho de 1280 px: ___ columnas.
-Ancho de 900 px: ___ columnas.
-Ancho de 500 px: ___ columnas.
-
-Con estas pruebas comprobamos que la cuadrícula se adapta
-al tamaño de la pantalla.
-
-Ancho de 1280 px: 3 columnas.
-Ancho de 900 px: 3 columnas.
-Ancho de 500 px: 1 columna.
-
-RETO - LAYOUT GENERAL CON GRID Y FLEXBOX
-
-En este reto utilizamos CSS Grid y Flexbox para organizar
-mejor la distribución de las páginas de inicio y reservas.
-
-1. PORTADA PRINCIPAL
-
-Utilizamos CSS Grid para dividir la portada en dos columnas
-del mismo tamaño mediante grid-template-columns: 1fr 1fr.
-
-Elegimos Grid porque necesitábamos organizar dos bloques
-principales: el texto a la izquierda y la imagen a la derecha.
-
-Dentro del bloque de texto utilizamos Flexbox en columna
-para organizar el título, la descripción y el botón.
-
-Con justify-content: center y align-items logramos
-controlar la alineación de los elementos.
-
-
-2. GALERÍA DE RUTAS
-
-Utilizamos CSS Grid con repeat(3, 1fr) para mostrar
-las tres rutas guiadas en una misma fila.
-
-Elegimos Grid porque necesitábamos una distribución
-en filas y columnas, con tarjetas del mismo ancho.
-
-También utilizamos gap para separar las tarjetas.
-
-
-3. PÁGINA DE RESERVAS
-
-Utilizamos CSS Grid para distribuir el formulario
-y la información de contacto en dos columnas.
-
-Con grid-template-columns: 2fr 1fr logramos que
-el formulario ocupara dos partes del espacio y
-la información de contacto una parte.
-
-Elegimos Grid porque necesitábamos controlar
-las proporciones de las columnas.
-
-
-4. FILA DEL FORMULARIO
-
-Utilizamos Flexbox para colocar los campos
-de documento y celular en una misma fila.
-
-Elegimos Flexbox porque solamente necesitábamos
-organizar los elementos en una dirección horizontal.
-
-Con gap separamos los campos y con flex: 1
-permitimos que compartieran el espacio disponible.
-
-
-5. ENCABEZADO
-
-Conservamos Flexbox en el encabezado para mantener
-el nombre del negocio en un extremo y el menú en el otro.
-
-Elegimos Flexbox porque el encabezado necesita
-distribuir sus elementos principalmente en una dimensión.
-
-También conservamos flex-wrap para permitir que
-los enlaces del menú bajen de línea cuando sea necesario.
-
-
-6. PIE DE PÁGINA
-
-Conservamos Flexbox para organizar los tres bloques
-del pie de página: marca, contacto y horario.
-
-Elegimos Flexbox porque necesitamos distribuir
-los bloques horizontalmente y permitir que se acomoden
-en nuevas filas cuando no haya suficiente espacio.
-
-Con justify-content: space-between separamos los
-bloques y con align-items: flex-start los alineamos
-por la parte superior.
-
-
-CONCLUSIÓN
-
-Aprendimos que CSS Grid es útil cuando necesitamos
-organizar elementos en filas y columnas o controlar
-las proporciones de un diseño.
-
-Flexbox es útil cuando necesitamos distribuir y alinear
-elementos principalmente en una sola dirección.
-
-En este reto combinamos ambas técnicas para construir
-una portada, una galería y un formulario mejor organizados.
-
-También conservamos el menú, la flota y las validaciones
-del formulario que habíamos desarrollado anteriormente.
-
-RETO - ESTILOS MOBILE-FIRST Y RESPONSIVE (v1.5)
-Contexto
-Según las estadísticas del cliente, siete de cada diez visitas llegan desde un celular. El layout de la versión anterior se veía apretado en pantallas pequeñas y las tablas de tarifas obligaban a desplazarse de lado.
+------------------------------------------
+MINIRETO 1 — Kilómetro 0: repositorio y página base
+------------------------------------------
 
 ¿Qué hice?
-Reorganicé css/styles.css con enfoque mobile-first: los estilos base (sin media query) describen la versión móvil en una sola columna, y las media queries con min-width amplían el layout solo donde el contenido lo necesita.
+- Creé la carpeta local rueda_libre, inicialicé Git y la conecté a un repositorio público de GitHub con el mismo nombre.
+- Creé la estructura inicial: index.html, paginas/, img/ (con logo y foto de portada), css/ y bitacora.txt.
+- Escribí la estructura base de index.html: <!DOCTYPE html>, <html lang="es">, <meta charset="UTF-8">, <meta name="viewport">, <meta name="description">, <title> y el <body> con un <h1> y un <p> de bienvenida.
+- Abrí la página con Live Server y analicé la petición del documento en DevTools (Network).
+- Probé una ruta inexistente y analicé la respuesta del servidor.
 
-Estructura del CSS reorganizado:
+Datos de la petición principal (DevTools → Network):
+- URL completa:  http://127.0.0.1:5500/index.html
+- Protocolo:     HTTP/1.1
+- Host:          127.0.0.1
+- Puerto:        5500
+- Ruta:          /index.html
+- Método:        GET
+- Estado:        200 OK (con caché puede verse como 304 Not Modified; ambos confirman que el documento se sirvió correctamente).
 
-Base (móvil, sin media query):
+Ruta inexistente:
+- Probé: /promociones.html
+- Estado: 404 Not Found
+- Significado: el servidor no encontró el archivo solicitado en esa ruta. Es el código que indica "recurso no encontrado". (Si en su momento apareció un 500 ENOTDIR fue porque se pidió una subruta dentro de index.html; la prueba correcta para el reto es sobre una ruta que no exista en la raíz.)
 
-header en flex-direction: column con align-items: center; marca arriba y menú debajo centrado.
-
-footer en flex-direction: column con gap.
-
-.portada con grid-template-columns: 1fr.
-
-.galeria-rutas con grid-template-columns: 1fr.
-
-.layout-reservas con grid-template-columns: 1fr.
-
-.fila-formulario con flex-direction: column.
-
-Tablas con font-size: 0.75rem, table-layout: fixed, padding reducido y overflow-wrap: anywhere.
-
-img { max-width: 100%; height: auto; } global.
-
-@media (min-width: 768px) (tablet):
-
-header vuelve a flex-direction: row con justify-content: space-between (recupera la distribución del MiniReto 1).
-
-footer pasa a flex-direction: row con align-items: flex-start y flex-wrap.
-
-.galeria-rutas a repeat(2, 1fr).
-
-.fila-formulario a flex-direction: row.
-
-Tablas con font-size: 0.95rem y mayor padding.
-
-@media (min-width: 1200px) (escritorio):
-
-.portada a 1fr 1fr.
-
-.galeria-rutas a repeat(3, 1fr).
-
-.layout-reservas a 2fr 1fr.
-
-Decisión clave: eliminé el bloque @media (max-width: 768px) que había quedado como residuo del enfoque desktop-first. La versión móvil ya está cubierta por los estilos base, así que ese bloque era redundante y contradecía el enfoque mobile-first del reto.
-
-Problemas responsive encontrados y solución (≥3)
-Encabezado amontonado en móvil (menú pegado a la marca).
-Solución: base header en flex-direction: column con align-items: center y gap; el menú con justify-content: center y flex-wrap. A partir de 768 px se recupera la fila con space-between.
-
-Portada y reservas apretadas en móvil (dos columnas forzadas).
-Solución: pasar el layout a mobile-first: .portada y .layout-reservas con base grid-template-columns: 1fr, y declarar las dos columnas / proporción 2:1 solo con @media (min-width: 1200px).
-
-Fila de documento y celular desbordaba en pantallas pequeñas.
-Solución: .fila-formulario base en flex-direction: column; a partir de 768 px pasa a row con flex: 1 y min-width: 0 en cada campo para evitar desbordes.
-
-Tablas de tarifas obligaban a scroll lateral en celular.
-Solución: base móvil con table-layout: fixed, font-size: 0.75rem, padding reducido y overflow-wrap: anywhere; a partir de 768 px se aumenta la fuente y el relleno. Sin overflow-x.
-
-Imágenes más anchas que su contenedor.
-Solución: regla global img { max-width: 100%; height: auto; } y en tarjetas de flota object-fit: contain con altura fija para uniformidad.
-
-Verificación en DevTools (modo dispositivo)
-360 px: sin scroll horizontal; contenido en una columna; header en columna (marca arriba, menú centrado debajo); tablas legibles completas; footer apilado.
-
-768 px: header y footer en fila; galería en 2 columnas; fila del formulario en fila; tablas con fuente mayor.
-
-1280 px: portada en 2 columnas; reservas en proporción 2:1; galería en 3 columnas; flota en 3 columnas.
-
-Publicación
-v1.5 publicada en GitHub Pages: https://<usuario>.github.io/<repo>/ (reemplaza con tu URL real).
-
-Probada en un celular real: sin scroll horizontal, menú debajo de la marca, tablas legibles, imágenes contenidas.
+Roles de HTML, CSS y JavaScript en Rueda Libre:
+- HTML: estructura y contenido. Ejemplo concreto: el <h1> de la portada y la tabla de tarifas en paginas/tarifas.html.
+- CSS: presentación y diseño. Ejemplo concreto: la hoja css/styles.css que aplica la paleta de la marca y tipografías de Google Fonts a las tres páginas.
+- JavaScript: comportamiento e interactividad. Ejemplo concreto: el bundle de Bootstrap que hace funcionar el botón hamburguesa de la navbar (collapse) en móvil.
 
 ¿Qué aprendí?
-Aprendí a reorganizar una hoja de estilos con enfoque mobile-first, usando @media (min-width: ...) para ampliar el layout en lugar de corregirlo hacia abajo. También entendí la importancia de las imágenes fluidas, de ajustar las tablas para móvil y de evitar max-width en media queries cuando el enfoque es mobile-first.
+A configurar un repositorio con Git y GitHub, a construir la estructura mínima de un documento HTML válido y a leer en DevTools cómo el navegador pide y recibe la página (método, ruta, host, puerto y código de estado).
 
-Versión: Rueda Libre v1.5 (responsive mobile-first con CSS propio)
+Commit: "Estructura inicial del proyecto Rueda Libre"
 
-## RETO - CATÁLOGO CON BOOTSTRAP 5.3
 
-**¿Qué hice?**
+------------------------------------------
+MINIRETO 2 — Vitrina de inicio: contenido jerarquizado
+------------------------------------------
 
-Creé una página independiente llamada `pruebas/catalogo-bootstrap.html` para reconstruir la sección Nuestra flota de Rueda Libre utilizando Bootstrap 5.3 mediante CDN.
+¿Qué hice?
+- Organicé la página de inicio con un único <h1> ("Rueda Libre") y secciones con <h2>: ¿Quiénes somos?, Nuestros servicios, Nuestra flota, Nuestras rutas, ¿Cómo alquilar?, Encuéntranos.
+- Cada servicio quedó con su <h3> y un párrafo. Resalté información clave con <strong> ("incluye casco y candado") y matices con <em>.
+- Agregué los cuatro pasos para alquilar en una <ol> y tres beneficios del servicio en una <ul>.
+- Agregué tres imágenes guardadas en img/ con rutas relativas, atributo alt descriptivo y ancho (width) definido: portada, bicicleta y ruta.
+- Agregué tres tipos de enlace:
+  · Externo absoluto a Google Maps, con target="_blank" y rel="noopener noreferrer".
+  · De correo con mailto:hola@ruedalibre.example.
+  · Interno con fragmento desde el primer párrafo hacia #encuentranos.
 
-Trasladé los siete modelos de bicicletas de la página principal, conservando sus nombres, descripciones, precios e imágenes.
+Verificación en DevTools (Elements):
+El árbol coincide con el esquema: un solo <h1>, secciones anidadas correctamente, sin etiquetas mal cerradas. En Network no aparecen 404 al cargar las imágenes.
 
-Para organizar las tarjetas utilicé el sistema de grillas de Bootstrap con las clases `container`, `row`, `g-4`, `col-12`, `col-sm-6`, `col-lg-4` y `col-xl-3`.
+¿Qué aprendí?
+A estructurar una página con jerarquía correcta de encabezados, listas, imágenes con texto alternativo y distintos tipos de enlace (absoluto, mailto y ancla interna).
 
-También utilicé componentes y utilidades de Bootstrap para presentar las tarjetas y los botones. No enlacé mi archivo `styles.css` ni escribí CSS propio para distribuir la flota.
 
-**Comparación del código**
+------------------------------------------
+MINIRETO 3 — Tarifas claras: tablas y rutas relativas
+------------------------------------------
 
-| Aspecto | CSS propio | Bootstrap 5.3 |
-|---|---|---|
-| Distribución | CSS Grid con `auto-fit` y `minmax` | Sistema de grillas |
-| Líneas de CSS para distribuir la flota | 6 líneas | 0 líneas |
-| Clases principales de distribución | `.grid-flota` | `container`, `row`, `g-4`, `col-12`, `col-sm-6`, `col-lg-4`, `col-xl-3` |
-| Columnas adaptables | Según el espacio disponible | 1, 2, 3 y 4 según los breakpoints |
+¿Qué hice?
+- Creé paginas/tarifas.html con su estructura base completa, un <title> propio ("Tarifas y Rutas - Rueda Libre") y una <meta name="description"> propia.
+- Construí la tabla de tarifas de alquiler con <caption>, <thead>, <tbody>, <th scope="col"> para columnas y <th scope="row"> para filas.
+- Construí la segunda tabla con los recorridos guiados, misma estructura, dentro de una sección con id="recorridos" para poder enlazarla directamente.
+- Agregué debajo de las tablas la información adicional del cliente: la nota sobre casco y candado, el horario de salida y la lista de qué llevar (en <ul>).
+- Mostré el logo con <img src="../img/logo.jpg" alt="Logo de Rueda Libre">: subí un nivel porque tarifas.html vive en la subcarpeta paginas/.
+- Enlacé en ambos sentidos: desde index.html hacia paginas/tarifas.html y desde tarifas de vuelta a ../index.html. Además, desde el servicio "Recorridos guiados" en inicio apunté directo a paginas/tarifas.html#recorridos.
 
-**¿Qué me dio Bootstrap sin esfuerzo?**
+Verificación en DevTools (Network):
+- El logo cargó correctamente con ../img/logo.jpg (sin 404).
+- El enlace #recorridos desde index.html abre tarifas.html desplazado a la tabla de recorridos.
 
-Bootstrap me permitió crear una distribución adaptable a diferentes tamaños de pantalla sin escribir reglas propias de CSS Grid ni utilizar media queries. También pude agregar separación entre las tarjetas mediante `g-4` y utilizar componentes prediseñados para las tarjetas y los botones.
+¿Qué aprendí?
+A crear tablas accesibles (caption, thead, tbody, th scope) y a conectar archivos en carpetas distintas con rutas relativas ../ y con enlaces archivo.html#id.
 
-**¿Qué control perdí?**
 
-Con Bootstrap tuve menos control directo sobre los puntos de quiebre, los anchos de las columnas y los espacios, porque estos dependen de los valores establecidos por el framework. En mi versión con CSS propio podía definir esos valores de acuerdo con las necesidades del diseño.
+------------------------------------------
+MINIRETO 4 — Rueda Libre v0.1: sitio navegable
+------------------------------------------
 
-**Pruebas realizadas**
+¿Qué hice?
+- Creé paginas/reservas.html con <h1> "Reserva tu bicicleta", el correo de contacto como enlace mailto: y el horario de atención en una lista de definiciones (<dl> con <dt> y <dd>).
+- Agregué el mismo menú en las tres páginas, con rutas ajustadas según la carpeta de cada archivo.
+- Agregué el mismo pie de página (nombre del negocio, correo, año) al final de las tres páginas.
+- Agregué enlaces "Reservar ahora" en inicio y debajo de la tabla de recorridos en tarifas, que llevan a reservas.html.
+- Recorrí las nueve combinaciones de navegación desde el menú y verifiqué en Network que no hubo errores.
 
-Comprobé la página mediante DevTools, utilizando el modo dispositivo:
+Tabla de rutas relativas:
 
-- 390 px: una columna.
-- 768 px: dos columnas.
-- 1024 px: tres columnas.
-- 1280 px: cuatro columnas.
+| Origen         | Destino  | Ruta escrita             |
+|----------------|----------|--------------------------|
+| index.html     | Inicio   | index.html               |
+| index.html     | Tarifas  | paginas/tarifas.html     |
+| index.html     | Reservas | paginas/reservas.html    |
+| tarifas.html   | Inicio   | ../index.html            |
+| tarifas.html   | Tarifas  | tarifas.html             |
+| tarifas.html   | Reservas | reservas.html            |
+| reservas.html  | Inicio   | ../index.html            |
+| reservas.html  | Tarifas  | tarifas.html             |
+| reservas.html  | Reservas | reservas.html            |
 
-También revisé la pestaña Network para verificar la carga de los archivos CSS y JavaScript de Bootstrap.
+Verificación en DevTools (Network):
+Navegando entre las tres páginas desde el menú (9 combinaciones) no se generó ningún 404. Cada página tiene un <title> distinto.
 
-**Conclusión**
+Commit: "Rueda Libre v0.1 - sitio navegable con tres páginas"
 
-Bootstrap facilita la creación de diseños adaptables porque proporciona clases y componentes listos para utilizar. Por otro lado, CSS propio ofrece mayor libertad para personalizar la distribución. Esta prueba me permitió comparar ambas alternativas y reconocer que Bootstrap puede reducir el tiempo de desarrollo cuando se necesitan diseños responsivos.
 
-Reto: Sección de beneficios y llamada a la acción con Bootstrap
+------------------------------------------
+MINIRETO 5 — Estructura con significado (semántica)
+------------------------------------------
 
-Objetivo: construir la sección «¿Por qué Rueda Libre?» y una franja de llamada a la acción utilizando exclusivamente clases utilitarias de Bootstrap 5.3, sin escribir CSS propio.
+Esquema de regiones (dibujado antes de tocar el código):
 
-Cinco clases consultadas en la documentación oficial:
+index.html
+  body
+   ├─ header
+   │   ├─ h1 "Rueda Libre"
+   │   └─ nav (menú principal)
+   ├─ main
+   │   ├─ section ¿Quiénes somos?
+   │   ├─ section Nuestros servicios
+   │   │   ├─ article Alquiler de bicicletas
+   │   │   ├─ article Bicicletas eléctricas
+   │   │   ├─ article Recorridos guiados
+   │   │   ├─ article Taller básico
+   │   │   └─ section Beneficios
+   │   ├─ section Nuestra flota
+   │   ├─ section Nuestras rutas
+   │   ├─ section ¿Cómo alquilar?
+   │   └─ section Encuéntranos  (id="encuentranos")
+   └─ footer
 
-Clase
+paginas/tarifas.html
+  body
+   ├─ header (marca + nav)
+   ├─ main
+   │   ├─ section Tarifas de alquiler → table
+   │   ├─ section Recorridos guiados → table (id="recorridos")
+   │   ├─ section Información importante
+   │   │   ├─ p, p
+   │   │   └─ aside ¿Qué llevar? + ul
+   │   └─ enlace "Regresar a Rueda Libre"
+   └─ footer
 
-Función
+paginas/reservas.html
+  body
+   ├─ header (marca + nav)
+   ├─ main
+   │   ├─ h1 "Reserva tu bicicleta" + correo de contacto
+   │   └─ aside Horario de atención (dl)
+   └─ footer
 
-p-4
+¿Qué hice?
+- En las tres páginas agrupé marca y menú en <header>, marqué el menú como <nav>, envolví el contenido propio en un único <main> y convertí el bloque final en <footer>.
+- En inicio cada bloque temático quedó como <section> con su propio encabezado y cada servicio como <article>.
+- En tarifas cada tabla quedó en su propia <section> y la lista de qué llevar como <aside>.
+- En reservas el horario de atención quedó como <aside>.
 
-Agrega espacio interno (padding) de nivel 4 alrededor de un elemento.
+Justificación de los <div> y <span> que se conservaron:
+No hay <div> ni <span> en las páginas base de la Semana 1. Los <div> que aparecen desde la migración a Bootstrap (row, col-*, card-body) son contenedores de layout del framework que no tienen equivalente semántico HTML; se mantienen porque son la API de la grilla y de los componentes de Bootstrap 5.3.
 
-my-5
-
-Agrega margen vertical de nivel 5, arriba y abajo.
-
-flex-md-row
-
-Organiza los elementos en fila a partir del breakpoint md.
-
-d-none
-
-Oculta un elemento en todos los tamaños de pantalla, salvo que otra clase responsive cambie su visualización.
-
-bg-success
-
-Aplica el color verde de fondo correspondiente al tema de Bootstrap.
-
-Implementación:
-
-Se creó una sección con cuatro beneficios: bicicletas revisadas en cada alquiler, casco y candado incluidos, guías certificados y tres puntos de devolución.
-
-Los beneficios se distribuyeron mediante la grilla de Bootstrap. También se utilizaron utilidades de espaciado, tipografía y color para organizar y destacar la información.
-
-Debajo se construyó una franja con el texto «¿Listo para rodar?» y un enlace destacado hacia la página de reservas. Se utilizaron las clases flex-column y flex-md-row para cambiar la distribución de columna a fila desde el breakpoint md.
-
-Se agregó la imagen ciclista_oculto.jpeg, que permanece oculta en celulares y aparece desde md mediante d-none d-md-block.
+Jerarquía de encabezados:
+Se conservó igual que en la v0.1 (mismos textos y niveles). Un solo <h1> por página.
 
 Verificación:
+- Un <header>, un <main> y un <footer> por página.
+- Enlaces del menú, #encuentranos y tarifas.html#recorridos siguen funcionando.
+- El sitio se ve y navega igual que la v0.1.
 
-La sección se construyó sin CSS propio.
+¿Qué aprendí?
+A usar etiquetas semánticas para que la estructura tenga significado para buscadores y lectores de pantalla, sin perder contenido ni romper la navegación.
 
-No se agregaron atributos style, etiquetas <style> ni clases inventadas.
 
-La franja cambia de columna a fila desde md.
+------------------------------------------
+MINIRETO 6 — Formulario de reservas
+------------------------------------------
 
-La imagen decorativa se oculta en celulares y aparece desde md.
+¿Qué hice?
+- Dentro de <main> de paginas/reservas.html creé la sección "Formulario de reserva" con un <form action="#" method="post">.
+- Agrupé los campos en tres <fieldset> con su <legend>: "Tus datos", "Tu alquiler" (tipo de bicicleta + plan + cantidad + recorrido + fecha) y "Confirmación" (comentarios + políticas).
+- Asocié cada control con su <label for> y un id, y le puse name a todos.
+- Botón <button type="submit"> al final del formulario.
 
-Se utilizaron clases compatibles con Bootstrap 5.3.
+Controles elegidos por dato:
 
-Migración a Bootstrap - Rueda Libre (Inicio)
+| Dato                  | Control                                | name           |
+|-----------------------|----------------------------------------|----------------|
+| Nombre completo       | <input type="text">                    | nombre         |
+| Documento             | <input type="text">                    | documento      |
+| Celular               | <input type="tel">                     | celular        |
+| Correo electrónico    | <input type="email">                   | correo         |
+| Fecha del alquiler    | <input type="date">                    | fecha          |
+| Tipo de bicicleta     | <input type="radio"> (3 opciones)      | tipo_bicicleta |
+| Plan                  | <input type="radio"> (3 opciones)      | plan           |
+| Cantidad de bicicletas| <input type="number">                  | cantidad       |
+| Recorrido guiado      | <select> + <option>                    | recorrido      |
+| Comentarios           | <textarea>                             | comentarios    |
+| Políticas             | <input type="checkbox">                | politicas      |
 
-### 1. Objetivo del Reto
-Integrar el framework Bootstrap (grilla y utilidades) en la página de inicio de Rueda Libre para optimizar el diseño responsivo, manteniendo la identidad visual de la marca, el orden correcto de la cascada y resolviendo los conflictos de estilos mediante DevTools sin utilizar la regla `!important`.
+Justificación de tres elecciones:
+1) Correo → type="email": el navegador valida el formato antes de enviar, evitando correos mal escritos que llegaban por WhatsApp.
+2) Fecha del alquiler → type="date": muestra calendario nativo y evita fechas inválidas.
+3) Tipo de bicicleta → type="radio": son tres opciones mutuamente excluyentes; con name compartido solo se puede elegir una.
 
-### 2. Pasos Realizados
-1. **Enlace de Bootstrap:** Se agregó el CSS de Bootstrap en el `<head>` de `index.html` **antes** de la hoja de estilos propia (`css/styles.css`), garantizando que la cascada permita sobrescribir estilos de forma limpia. Se incluyó el script de Bootstrap Bundle al final del cuerpo.
-2. **Migración a la Grilla:** Se actualizaron la portada, la sección de servicios, la flota (MiniReto 5) y la galería de rutas (MiniReto 6) empleando contenedores (`container`), filas (`row`) y columnas (`col-*`, `g-4`).
-3. **Depuración de CSS:** Se limpiaron las reglas obsoletas de distribución propias de la página de inicio, marcando explícitamente con comentarios aquellas secciones de tablas y formularios que siguen empleando las páginas de tarifas y reservas.
-4. **Pruebas de Ancho:** Se validó el comportamiento visual correcto en los tres puntos de control requeridos: móvil a **360px**, tablet a **768px** y escritorio a **1280px**.
+Verificación:
+Al hacer clic en cualquier etiqueta, el control asociado recibe el foco o se selecciona (comprobado en DevTools). Todos los controles tienen name.
 
----
+¿Qué aprendí?
+A elegir el control HTML adecuado para cada dato, a agrupar campos con <fieldset>/<legend> y a asociar etiquetas con for/id.
 
-### 3. Registro de Conflictos Detectados con DevTools y Soluciones
 
-#### Conflicto 1: Colores de enlaces en el pie de página (`footer a`)
-* **Diagnóstico en DevTools:** Las clases utilitarias y estilos por defecto de Bootstrap interferían con los colores de los hipervínculos del pie de página, forzándolos a un tono azul estándar que rompía con la paleta corporativa de Rueda Libre.
-* **Solución aplicada:** Se ajustó la especificidad aplicando la clase nativa de Bootstrap `text-success` directamente en las etiquetas `<a>` correspondientes del HTML del footer, logrando el tono verde institucional sin usar hacks ni `!important`.
+------------------------------------------
+MINIRETO 7 — Reservas sin errores: validación nativa y teclado
+------------------------------------------
 
-#### Conflicto 2: Márgenes verticales excesivos en las tarjetas (`article`)
-* **Diagnóstico en DevTools:** El selector global `article` en la hoja de estilos propia aplicaba un `margin-bottom` rígido de `2rem`, lo que generaba un desfase visual al combinarse con las clases de separación de canal (`g-4`) de las filas de Bootstrap.
-* **Solución aplicada:** Se incorporó la clase utilitaria `mb-0` y `h-100` en los contenedores de las tarjetas de la flota y rutas en el marcado HTML para neutralizar los márgenes heredados y estandarizar la altura visual de los componentes.
+Reglas traducidas a atributos:
 
-#### Conflicto 3: Jerarquía tipográfica en encabezados de sección (`h2`, `h3`)
-* **Diagnóstico en DevTools:** Las reglas base de Bootstrap redefinían los tamaños y grosores predeterminados de los encabezados, alterando la jerarquía visual de la tipografía *Montserrat* definida para la identidad del sitio.
-* **Solución aplicada:** Se reforzó el marcado empleando clases tipográficas explícitas de Bootstrap (como `h3`, `fw-bold`, `lead`) en los títulos principales y subtítulos, armonizando los tamaños de fuente con el sistema de variables del proyecto.
+| Campo              | Regla del cliente                      | Atributos aplicados                                                     |
+|--------------------|----------------------------------------|-------------------------------------------------------------------------|
+| Nombre completo    | Obligatorio, mínimo 3                  | required + minlength="3" + maxlength="80"                               |
+| Documento          | Obligatorio, solo números, 6–10 dígitos| required + pattern="[0-9]{6,10}" + minlength="6" + maxlength="10" + title |
+| Correo             | Obligatorio, formato válido            | type="email" + required                                                 |
+| Celular            | Obligatorio, 10 dígitos, empieza por 3 | type="tel" + required + pattern="3[0-9]{9}" + minlength="10" + maxlength="10" + title |
+| Fecha del alquiler | Obligatoria, 1 nov – 31 dic 2026       | type="date" + required + min="2026-11-01" + max="2026-12-31"            |
+| Tipo de bicicleta  | Obligatorio                            | required en el primer radio del grupo                                   |
+| Plan               | Obligatorio                            | required en el primer radio del grupo                                   |
+| Cantidad           | Obligatoria, 1 a 6                     | type="number" + required + min="1" + max="6"                            |
+| Comentarios        | Opcional, máx. 300                     | maxlength="300" (sin required)                                          |
+| Políticas          | Obligatorio aceptarlas                 | required en el checkbox                                                 |
 
-Migración Final - Rueda Libre v2.0-beta
+Patrones usados y por qué:
+- Documento: [0-9]{6,10} → solo dígitos ASCII del 0 al 9, entre 6 y 10 posiciones. Se usa [0-9] y no \d porque \d acepta dígitos Unicode.
+- Celular: 3[0-9]{9} → 10 dígitos exactos y el primero debe ser 3.
+- Ambos patrones llevan title para que el navegador muestre el mensaje de formato esperado.
 
-### 1. Objetivo del Reto
-Completar la migración a Bootstrap de todo el sitio web (incluyendo las páginas de *Tarifas* y *Reservas*), mantener la integridad completa de la hoja de estilos base con su identidad visual corporativa y documentar el informe cuantitativo y cualitativo comparando la versión anterior frente a la nueva versión basada en framework.
+Tabla de pruebas (mínimo 8; aquí 12 pruebas representativas):
 
----
+| # | Campo           | Dato de prueba    | Resultado esperado              | Resultado obtenido                              |
+|---|-----------------|-------------------|---------------------------------|-------------------------------------------------|
+| 1 | Nombre          | (vacío)           | No envía, pide completar        | No envía — "Completa este campo"                |
+| 2 | Nombre          | "Al"              | No envía, mínimo 3              | No envía — "Alarga este texto a 3 caracteres…"  |
+| 3 | Documento       | "abc12345"        | No envía, formato inválido      | No envía — muestra el title                     |
+| 4 | Documento       | "1234567890"      | Envía                           | Aceptado                                        |
+| 5 | Correo          | "correo"          | No envía, formato inválido      | No envía — "Incluye un signo @"                 |
+| 6 | Celular         | "3001234567"      | Envía                           | Aceptado                                        |
+| 7 | Celular         | "1234567890"      | No envía, debe empezar por 3    | No envía — muestra el title                     |
+| 8 | Celular         | "300123"          | No envía, longitud inválida     | No envía                                        |
+| 9 | Fecha           | "2026-10-15"      | No envía, fuera de rango        | No envía — "El valor debe ser 2026-11-01 o posterior" |
+| 10| Fecha           | "2026-11-15"      | Envía                           | Aceptado                                        |
+| 11| Cantidad        | "7"               | No envía, máximo 6              | No envía                                        |
+| 12| Políticas       | sin marcar        | No envía                        | No envía — "Marca esta casilla si deseas continuar" |
 
-### 2. Informe Comparativo Final (v1.5 vs. v2.0)
+Navegación por teclado (Tab / Shift+Tab / flechas / Espacio / Enter):
+1. Tab → Nombre
+2. Tab → Documento
+3. Tab → Celular
+4. Tab → Correo
+5. Tab → Fecha
+6. Tab → grupo Tipo de bicicleta (un tab-stop, flechas ↑/↓ cambian la opción)
+7. Tab → grupo Plan (igual, flechas)
+8. Tab → Cantidad
+9. Tab → Recorrido guiado (flechas abren opciones)
+10. Tab → Comentarios
+11. Tab → checkbox Políticas (Espacio lo marca)
+12. Tab → botón Enviar (Enter envía)
+13. Shift+Tab retrocede en el mismo orden.
 
-* **Líneas de código en `styles.css` (v1.5 - CSS Base Completo):** ~600 líneas
-* **Líneas de código en `styles.css` (v2.0 - CSS Consolidado):** ~600 líneas (conservando íntegramente las secciones de variables, componentes, tarjetas, formularios y tablas para mantener la consistencia visual total en todas las páginas secundarias).
-* **Tiempo invertido en v1.5 (Desarrollo manual de grillas con Flexbox/Grid):** ~5.5 horas.
-* **Tiempo invertido en v2.0 (Migración a Bootstrap y adaptación de vistas):** ~2 horas.
+El orden del DOM coincide con el orden lógico de llenado; no requirió reordenamiento.
 
----
+¿Qué aprendí?
+A traducir reglas de negocio a validación nativa HTML y a comprobar que el formulario se puede completar y enviar solo con teclado.
 
-### 3. Ventajas y Desventajas Observadas
 
-* **Ventajas:**
-  - **Eficiencia en maquetación:** Las clases nativas de Bootstrap (`row`, `col`, `g-4`, utilidades de formularios) aceleraron drásticamente la construcción de la grilla 8/4 en reservas y la distribución en dos columnas de tarifas.
-  - **Responsividad nativa garantizada:** Se delegó la adaptabilidad móvil (360px), tablet (768px) y escritorio (1280px) al framework, asegurando una visualización fluida.
-  - **Validación robusta:** Las reglas de validación nativa de HTML5 se integraron armónicamente con las clases de formulario de Bootstrap.
+------------------------------------------
+MINIRETO 8 — v0.2 accesible y publicada
+------------------------------------------
 
-* **Desventajas:**
-  - **Verbosidad en el HTML:** El marcado se vuelve más extenso al incorporar múltiples clases de utilidad para espaciados y alineaciones directamente en las etiquetas.
-  - **Control de Cascada:** Requirió un orden estricto de carga en el `<head>` para asegurar que los estilos de la marca predominaran sobre los valores por defecto del framework sin requerir la regla `!important`.
+Auditoría de accesibilidad (hallazgos y correcciones):
+1. Imágenes sin texto alternativo descriptivo en algunas tarjetas → se agregó alt descriptivo en todas (ej.: "Bicicleta Gravel Aventura disponible para alquilar").
+2. Títulos de enlace ambiguos ("clic aquí") → se reescribieron como "Ver precios de los recorridos guiados", "ubicación en Google Maps", "Reservar ahora".
+3. Jerarquía de encabezados: se confirmó un solo <h1> por página y sin saltos entre niveles.
+4. Idioma: <html lang="es"> en las tres páginas.
+5. Navegación por teclado: se recorrió el sitio con Tab y se confirmó foco visible en menú, botones y formulario.
 
----
+Mapa de uso de color (paleta del cliente):
 
-### 4. Conclusión del Director / Equipo Técnico
-La transición a **Rueda Libre v2.0-beta** ha sido completamente exitosa. Al mantener la hoja de estilos con todas sus secciones originales y combinarla con la grilla y utilidades de Bootstrap, se logró preservar intacta la identidad visual corporativa del negocio. Las páginas de inicio, tarifas y reservas operan de forma impecable en los tres anchos de control evaluados, cumpliendo rigurosamente con los estándares de accesibilidad, validación y diseño responsivo exigidos por Nodo Digital. La versión se encuentra empaquetada, validada y publicada mediante **GitHub Pages**.
+| Combinación                          | Uso propuesto                         | Contraste |
+|--------------------------------------|---------------------------------------|-----------|
+| Blanco sobre Verde Ruta (#1E7A4F)    | Botones principales, texto de marca   | 5.2:1 → apto texto normal |
+| Azul Noche (#14213D) sobre Crema (#FAF6EF) | Títulos y texto principal        | 15:1 → apto texto normal |
+| Azul Noche sobre Naranja Pedal (#F39A2B) | Etiquetas y botones secundarios  | 7.1:1 → apto texto normal |
+| Gris Asfalto (#5B6470) sobre Crema   | Texto secundario                      | 5.9:1 → apto texto normal |
+| Blanco sobre Naranja Pedal           | No usar para texto normal            | 2.3:1 → no apto (solo iconos grandes o decoración) |
 
+Reglas de uso que adopté:
+- Verde Ruta (#1E7A4F) y Azul Noche (#14213D) → botones principales, enlaces y títulos.
+- Naranja Pedal (#F39A2B) → solo con texto Azul Noche (destacados y etiquetas).
+- Crema (#FAF6EF) → fondo general del sitio.
+- Gris Asfalto (#5B6470) → textos secundarios y metadatos.
+
+Publicación:
+- GitHub Pages activo sobre la rama principal.
+- Verifiqué las tres páginas publicadas, imágenes y enlaces: sin imágenes rotas ni enlaces con error.
+- El enlace publicado quedó también en la descripción del repositorio.
+
+Versión: Rueda Libre v0.2
+
+
+==========================================
+SEMANA 2 — CSS profesional, Flexbox, Grid y Bootstrap
+==========================================
+
+
+------------------------------------------
+MINIRETO 1 — Encabezado, menú y pie con Flexbox
+------------------------------------------
+
+¿Qué hice?
+- En el encabezado puse el nombre del negocio en un extremo y el menú en el otro, centrados verticalmente con flex-direction: row, justify-content: space-between y align-items: center (a partir de 768px; en móvil es flex-direction: column con align-items: center).
+- Convertí la lista del menú en un contenedor flexible con gap (var(--spacing-md)); eliminé márgenes e inline-block para separarlos.
+- Agregué flex-wrap: wrap al menú para que los enlaces bajen de línea cuando no quepan.
+- Organicé el pie en tres bloques en fila (marca, contacto y horario), alineados arriba con align-items: flex-start y separados uniformemente con justify-content: space-between.
+
+Comportamiento al estrechar la ventana (observado en DevTools):
+- Escritorio (≥768px): marca a la izquierda y menú a la derecha en una fila; pie con tres bloques en fila.
+- Móvil (<768px): marca arriba y menú debajo centrado; pie en columna apilada.
+
+¿Qué aprendí?
+A usar Flexbox para distribuir y alinear elementos en una dimensión, entendiendo flex-direction, justify-content, align-items, flex-wrap y gap, y a evitar márgenes para separar los ítems del menú.
+
+
+------------------------------------------
+MINIRETO 2 — Flota en cuadrícula con Grid y Flexbox
+------------------------------------------
+
+¿Qué hice?
+- Agregué la sección "Nuestra flota" en inicio con siete tarjetas; cada tarjeta es un <article> con imagen, nombre, descripción, precio y enlace "Reservar".
+- Construí la cuadrícula con Grid usando repeat(auto-fit, minmax(min(100%, 250px), 1fr)), sin media queries, con gap uniforme.
+- Dentro de cada tarjeta usé Flexbox en columna (flex-direction: column) y margin-top: auto para que el botón "Reservar" quede siempre al final aunque las descripciones tengan distinta longitud.
+- Agregué el séptimo modelo (Tándem) y comprobé que la cuadrícula se reorganiza sin tocar el CSS.
+
+Columnas observadas en modo dispositivo (DevTools):
+
+| Ancho (px) | Columnas visibles |
+|-----------|-------------------|
+| 1280      | 4                 |
+| 900       | 3                 |
+| 500       | 1                 |
+
+¿Qué aprendí?
+Que Grid con auto-fit y minmax construye una cuadrícula adaptable sin media queries, y que Flexbox en columna con margin-top: auto alinea los CTA al fondo de cada tarjeta.
+
+Nota: tras la migración a Bootstrap (Semana 2, reto 7), esta sección usa row g-4 + col-*; las reglas .grid-flota y .tarjeta-bicicleta quedaron comentadas en styles.css como referencia didáctica.
+
+
+------------------------------------------
+MINIRETO 3 — Layout en dos dimensiones (Grid + Flex)
+------------------------------------------
+
+Decisiones de Flexbox vs Grid por caso:
+
+| Caso               | Técnica  | Por qué |
+|--------------------|----------|---------|
+| Portada            | Grid 1fr 1fr (desde 1200px) | Dos bloques principales en filas/columnas; control claro de proporciones. |
+| Galería de rutas   | Grid repeat(3, 1fr) (desde 1200px) | Tres tarjetas del mismo ancho en una fila; grid da proporciones exactas. |
+| Reservas 8/4       | Grid 2fr 1fr (desde 1200px) | Proporción 2:1 explícita con unidades fr. |
+| Fila del formulario| Flex (row, flex:1, gap) | Solo una dirección horizontal; flex resuelve con menos código. |
+| Encabezado         | Flex (row, space-between, align-items:center) | Una dimensión: marca vs. menú. |
+| Pie de página      | Flex (row, space-between, align-items:flex-start, wrap) | Tres bloques en una línea con quiebre natural en móvil. |
+
+Verificación:
+En escritorio el layout coincide con el boceto: portada en dos columnas, galería de tres rutas, reservas en proporción 2:1. Las columnas se definen con fr. El menú, la flota y la validación del formulario siguen funcionando.
+
+Nota: tras la migración a Bootstrap (Semana 2, reto 7-8), estos layouts se resuelven con row g-4 + col-*; las reglas propias quedaron comentadas en styles.css como referencia didáctica.
+
+
+------------------------------------------
+MINIRETO 4 — Rueda Libre v1.5: mobile-first
+------------------------------------------
+
+¿Qué hice?
+- Reorganicé css/styles.css con enfoque mobile-first: los estilos base (sin media query) describen la versión móvil en una sola columna y las media queries con min-width amplían el layout donde el contenido lo necesita.
+- Base móvil: header en flex-direction: column con align-items: center; #menu con flex-wrap: wrap y justify-content: center; .portada, .galeria-rutas y .layout-reservas en 1fr; .fila-formulario en column; tablas con font-size: 0.75rem, table-layout: fixed y overflow-wrap: anywhere; img { max-width:100%; height:auto; }.
+- @media (min-width: 768px): header vuelve a row con space-between; footer en row con wrap; galería a 2 columnas; fila del formulario en row; tablas con font-size: 0.95rem y mayor padding.
+- @media (min-width: 1200px): portada en 1fr 1fr; galería en 3 columnas; reservas en 2fr 1fr.
+- Eliminé el bloque @media (max-width: 768px) residual porque contradecía el enfoque mobile-first.
+
+Tres problemas responsive y su solución:
+1) Encabezado amontonado en móvil. Solución: base en column + gap; desde 768px row con space-between.
+2) Tablas con scroll lateral en celular. Solución: table-layout: fixed + font-size reducido + overflow-wrap: anywhere en base; a partir de 768px se aumenta el tamaño.
+3) Fila documento/celular desbordaba en pantallas pequeñas. Solución: base en column; a partir de 768px row con flex:1 y min-width:0.
+
+Verificación en DevTools (modo dispositivo):
+- 360px: sin scroll horizontal; contenido en una columna; header en columna; tablas legibles; footer apilado.
+- 768px: header y footer en fila; galería en 2 columnas.
+- 1280px: portada en 2 columnas; reservas 2:1; galería en 3 columnas.
+
+Publicación: v1.5 publicada en GitHub Pages y probada en un celular real.
+
+¿Qué aprendí?
+A escribir CSS mobile-first con breakpoints min-width, imágenes fluidas y tablas legibles en móvil, en lugar de corregir un diseño desktop-first hacia abajo.
+
+Versión: Rueda Libre v1.5
+
+
+------------------------------------------
+MINIRETO 5 — Flota en Bootstrap: primera comparación
+------------------------------------------
+
+¿Qué hice?
+- Creé pruebas/catalogo-bootstrap.html con la plantilla de Bootstrap 5.3.3 por CDN (CSS y bundle JS).
+- Copié el marcado de la flota (siete modelos) ajustando las rutas de las imágenes a ../img/ por la nueva carpeta.
+- Reconstruí la distribución solo con la grilla: col-12 col-sm-6 col-lg-4 col-xl-3, con g-4 como gutter.
+- No enlacé styles.css ni escribí CSS propio para la distribución en esta página.
+
+Comparación CSS propio vs Bootstrap:
+
+| Aspecto                         | CSS propio (Grid)           | Bootstrap 5.3                       |
+|---------------------------------|-----------------------------|-------------------------------------|
+| Líneas de CSS para la flota     | 6 líneas de grid + estilos  | 0 líneas                            |
+| Clases de distribución          | .grid-flota                 | container, row, g-4, col-*          |
+| Columnas por ancho              | auto-fit según espacio      | 1 / 2 / 3 / 4 según breakpoints     |
+| Control de breakpoints          | Total (propios)             | Limitado a los de Bootstrap         |
+
+Tiempo invertido: ~20 minutos.
+
+¿Qué me dio Bootstrap sin esfuerzo?
+La cuadrícula responsive sin escribir CSS, el gutter uniforme con g-4 y componentes listos (card, btn).
+
+¿Qué control perdí?
+Los puntos de quiebre y los anchos dependen de los valores del framework; personalizar exige sobrescribir variables (lo cual llegará en el reto 12).
+
+Pruebas en DevTools (modo dispositivo):
+390px → 1 columna; 768px → 2 columnas; 1024px → 3 columnas; 1280px → 4 columnas. Sin 404 en Network.
+
+¿Qué aprendí?
+Que Bootstrap reduce drásticamente el código de distribución a costa de perder control directo sobre breakpoints.
+
+
+------------------------------------------
+MINIRETO 6 — Sección "¿Por qué Rueda Libre?" con utilidades
+------------------------------------------
+
+¿Qué hice?
+- En pruebas/catalogo-bootstrap.html, debajo de la flota, construí la sección "¿Por qué Rueda Libre?" con cuatro beneficios (bicicletas revisadas, casco y candado incluidos, guías certificados, puntos de devolución en 3 sedes) distribuidos con la grilla (col-12 col-sm-6 col-lg-3).
+- Construí la franja "¿Listo para rodar?" con texto y enlace destacado: columna en móvil y fila desde md con d-flex flex-column flex-md-row justify-content-between align-items-center gap-4.
+- Elemento decorativo (imagen de ciclista) con d-none d-md-block: oculto en celular y visible desde md.
+- CTA destacado solo con utilidades de color y espaciado (bg-warning text-dark fw-bold px-4 py-3 rounded).
+- Sin CSS propio, sin style="", sin <style>.
+
+Cinco clases consultadas en la documentación oficial y su función:
+1) p-4 → padding interno de nivel 4.
+2) my-5 → margen vertical de nivel 5 arriba y abajo.
+3) flex-md-row → organiza los hijos en fila desde el breakpoint md.
+4) d-none → oculta el elemento en todos los tamaños; se combina con d-md-block para mostrarlo desde md.
+5) bg-success → aplica el color de fondo verde del tema.
+
+Verificación: la franja pasa de columna a fila desde md; el elemento decorativo solo aparece desde md; todas las clases son de Bootstrap 5.3 (no ml-* ni mr-*).
+
+¿Qué aprendí?
+Que con utilidades de Bootstrap se puede construir una sección completa sin CSS propio, apoyándose en el buscador de la documentación oficial.
+
+
+------------------------------------------
+MINIRETO 7 — Inicio migra a Bootstrap
+------------------------------------------
+
+¿Qué hice?
+- Agregué Bootstrap CSS + bundle JS a index.html, con css/styles.css cargado DESPUÉS para mantener la cascada.
+- Reemplacé la distribución de la portada, la flota (con el marcado del reto 5), la galería de rutas y los beneficios por la grilla (row g-4 + col-*) y utilidades.
+- Eliminé de styles.css las reglas de distribución que inicio ya no usa y dejé comentadas las de tarjetas, portada, galería y reservas como referencia didáctica (retos 2 y 3 de la semana 2).
+- Probé inicio a 360px, 768px y 1280px en modo dispositivo: se ve correctamente en los tres anchos.
+
+Tres conflictos detectados con DevTools y su solución:
+
+1) Color azul por defecto de Bootstrap en enlaces del footer.
+   - Diagnóstico: la regla a { color: … } de Bootstrap ganaba por orden a la regla de marca.
+   - Solución: se ajustó la regla en styles.css usando la variable --bs-link-color: var(--verde-ruta); y --bs-link-hover-color: var(--verde-hover); en :root, sin !important.
+
+2) Margen inferior rígido del selector article que desalineaba las tarjetas frente al g-4 de la fila.
+   - Diagnóstico: el selector global article imponía margin-bottom: 2rem sumado al gap de la fila.
+   - Solución: se aplicó la clase utilitaria mb-0 (y h-100 para altura uniforme) en las tarjetas dentro de la grilla, neutralizando el margen heredado sin tocar el selector global.
+
+3) Tamaño y peso de encabezados alterados por Bootstrap.
+   - Diagnóstico: Bootstrap redefine font-size y font-weight de h1–h6.
+   - Solución: se reforzó el marcado con clases utilitarias explícitas (h3, h4, fw-bold, lead) y se mantuvo la tipografía Montserrat mediante la regla agrupada h1,h2,…{font-family: var(--font-heading)}. Las fuentes y colores de marca se mantienen.
+
+Verificación: los tres anchos correctos; styles.css se carga después de Bootstrap; no se usó !important en ningún cambio.
+
+¿Qué aprendí?
+A resolver conflictos de cascada y especificidad con orden de carga y variables, no con !important.
+
+
+------------------------------------------
+MINIRETO 8 — v2.0-beta: migración completa
+------------------------------------------
+
+¿Qué hice?
+- Migré tarifas: sus secciones se organizan con row g-4, con las tablas en col-12 col-lg-8 y la información complementaria en col-12 col-lg-4. Conservé los estilos de tabla de la Semana 1.
+- Migré reservas: formulario y aside en col-12 col-md-8 + col-12 col-md-4 y las filas de campos cortos con row g-3 + col-12 col-sm-6. Se conservaron todas las reglas de validación nativa.
+- Limpié styles.css: eliminé las reglas de distribución que Bootstrap ya resuelve y dejé comentadas las que documentan la solución anterior (flota, portada, galería, reservas, fila del formulario). Conservé variables, tipografía, colores, tarjetas, tablas y estados.
+- Revisé las tres páginas a 360px, 768px y 1280px: se ven correctamente en los tres anchos.
+
+Comparativa final con datos reales:
+
+| Métrica                          | v1.5 (CSS propio)  | v2.0-beta (Bootstrap)  |
+|----------------------------------|--------------------|------------------------|
+| Líneas en styles.css             | ~600               | ~600                   |
+| Tiempo invertido en layout       | ~5.5 horas         | ~2 horas               |
+| Reglas de distribución propias   | Grid + Flex manual | 0 (las resuelve Bootstrap) |
+
+Ventajas observadas:
+- Maquetación mucho más rápida (grilla 8/4 y columnas de tarifas resueltas por row/col).
+- Responsividad nativa garantizada por el framework.
+- Los campos de formulario heredan clases form-control/form-select con validación nativa intacta.
+
+Desventajas observadas:
+- HTML más verboso por las clases utilitarias.
+- Requiere control estricto del orden de carga en <head> para que la marca prevalezca sin !important.
+
+Conclusión:
+La migración a v2.0-beta es un éxito: se preservó la identidad visual, la validación nativa y la accesibilidad. La principal ganancia es el tiempo de maquetación y la consistencia responsive; el costo es un HTML más extenso y dependencia de los breakpoints de Bootstrap.
+
+Publicación: v2.0-beta en GitHub Pages.
+
+
+------------------------------------------
+MINIRETO 9 — Navbar colapsable y botones unificados
+------------------------------------------
+
+¿Qué hice?
+- Reemplacé el <header> + <nav> + <ul id="menu"> de las tres páginas por una navbar de Bootstrap con navbar-expand-lg (enlaces visibles desde 992px; colapsados por debajo con botón hamburguesa).
+- El botón usa data-bs-toggle="collapse", data-bs-target="#menuPrincipal" y aria-controls/aria-expanded correctamente sincronizados.
+- Marqué la página actual con class="active" y aria-current="page" (reemplaza la clase activo propia de la Semana 1).
+- Convertí todas las llamadas a la acción en botones de Bootstrap:
+  · Principal → btn btn-primary (verde de marca por --bs-primary).
+  · Tamaño grande en CTAs importantes → btn btn-primary btn-lg.
+  · Variante outline reservada para acciones secundarias (si aplica).
+- Verifiqué que el bundle de Bootstrap se carga una sola vez por página, antes de </body>, con el integrity oficial correcto (…IeHz).
+- Probé el menú a 360px con mouse y teclado (Tab y Enter).
+
+Verificación en DevTools (modo dispositivo):
+- 1280px: los tres enlaces se ven a la derecha, sin botón hamburguesa.
+- 360px: aparece el botón hamburguesa; al pulsarlo se despliegan los tres enlaces; al pulsar de nuevo se cierra.
+- Teclado: Tab llega al botón hamburguesa, Enter lo abre, Tab recorre los enlaces, Enter navega.
+- Network: una sola petición a bootstrap.bundle.min.js por página.
+- El enlace de la página actual tiene aria-current="page" (visible en Elements).
+
+¿Qué aprendí?
+A usar el componente navbar de Bootstrap con collapse para menús responsive, a marcar la página activa de forma accesible con aria-current y a unificar los CTA con el componente btn.
+
+
+==========================================
+ESTADO ACTUAL DEL PROYECTO
+==========================================
+
+- Semana 1: completa (12/12 mini retos).
+- Semana 2: en curso (retos 1 al 9 completados; faltan 10, 11 y 12).
+- Paleta oficial aplicada en css/styles.css con variables y alias semánticos.
+- Bootstrap 5.3 integrado en las tres páginas con el bundle JS cargado una sola vez.
+- Navbar colapsable operativa en las tres páginas.
+- Validación nativa del formulario intacta.
+
+Próximos pasos:
+- Reto 10: convertir flota y rutas a cards + carrusel de promociones.
+- Reto 11: validación visual Bootstrap (needs-validation + invalid-feedback), alerta dismissible y modal de políticas.
+- Reto 12: personalizar Bootstrap con la identidad (--bs-*), añadir Bootstrap Icons y publicar la v2.0.

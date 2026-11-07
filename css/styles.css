@@ -1,30 +1,82 @@
 /* ==========================================
-1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   0. NOTAS DE MANTENIMIENTO
+   ==========================================
+   - Paleta oficial Rueda Libre (Semana 1, Reto 8):
+     Verde Ruta    #1E7A4F
+     Naranja Pedal #F39A2B
+     Azul Noche    #14213D
+     Crema         #FAF6EF
+     Gris Asfalto  #5B6470
+   - Este archivo se carga DESPUÉS de Bootstrap 5.3.
+   - Sin !important: los conflictos con Bootstrap se resuelven
+     por orden de carga y especificidad.
+   - Las secciones 8, 9, 10, 11 y 12 conservan (comentadas) las
+     soluciones de layout en CSS propio de la Semana 2, retos 2-4.
+     Hoy Bootstrap las resuelve con su grid; se dejan como
+     referencia de aprendizaje.
+   ========================================== */
+
+
+/* ==========================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
    ========================================== */
 :root {
+    /* Tipografías */
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Open Sans', sans-serif;
 
-    /* Colores corporativos */
-    --gris-asfalto: #334155;
-    --verde-ruta: #10b981;
-    --verde-hover: #059669;
-    --color-primary: #10b981;
-    --color-secondary: #0f172a;
-    --color-accent: #f59e0b;
-    --color-background: #f8fafc;
-    --color-text: #334155;
-    --color-card-bg: #ffffff;
-    --color-border: #cbd5e1;
+    /* ===== Paleta oficial de la marca ===== */
+    --verde-ruta: #1E7A4F;      /* Botones y enlaces */
+    --verde-hover: #155C3B;     /* Hover del verde (más oscuro para contraste) */
+    --naranja-pedal: #F39A2B;   /* Destacados y botones secundarios */
+    --azul-noche: #14213D;      /* Títulos y encabezado */
+    --crema: #FAF6EF;           /* Fondo general */
+    --gris-asfalto: #5B6470;    /* Texto secundario */
+    --blanco: #FFFFFF;
+    --negro-suave: #0F172A;     /* Texto sobre fondos claros muy específicos */
 
-    /* Escala de espaciado */
+    /* Alias semánticos (se usan en los componentes) */
+    --color-primary: var(--verde-ruta);
+    --color-secondary: var(--azul-noche);
+    --color-accent: var(--naranja-pedal);
+    --color-background: var(--crema);
+    --color-text: var(--azul-noche);
+    --color-text-muted: var(--gris-asfalto);
+    --color-card-bg: var(--blanco);
+    --color-border: #D8D2C4;    /* Borde cálido coherente con la Crema */
+    --color-hover-fila: #F2ECDF;/* Hover de filas de tabla (sobre crema) */
+    --color-whatsapp: #25D366;
+    --color-whatsapp-hover: #1EBE5A;
+
+    /* ===== Escala de espaciado (rem) ===== */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
     --spacing-xl: 4rem;
+
+    /* ===== Sobrescritura de variables de Bootstrap (Reto 12 Sem.2) ===== */
+    --bs-primary: var(--verde-ruta);
+    --bs-primary-rgb: 30, 122, 79;
+    --bs-body-font-family: var(--font-body);
+    --bs-body-color: var(--color-text);
+    --bs-body-bg: var(--color-background);
+    --bs-link-color: var(--verde-ruta);
+    --bs-link-hover-color: var(--verde-hover);
+    --bs-border-radius: 8px;
+    --bs-heading-color: var(--azul-noche);
+
+    /* Variables del componente botón principal */
+    --bs-btn-bg: var(--verde-ruta);
+    --bs-btn-border-color: var(--verde-ruta);
+    --bs-btn-hover-bg: var(--verde-hover);
+    --bs-btn-hover-border-color: var(--verde-hover);
+    --bs-btn-active-bg: var(--verde-hover);
+    --bs-btn-active-border-color: var(--verde-hover);
+    --bs-btn-color: var(--blanco);
 }
 
+/* ===== BASE ===== */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -49,7 +101,7 @@ body > a:first-of-type {
     top: -40px;
     left: 0;
     background: var(--color-secondary);
-    color: white;
+    color: var(--blanco);
     padding: 8px;
     z-index: 100;
 }
@@ -61,6 +113,7 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 
 /* ==========================================
    2. ENCABEZADO Y NAVEGACIÓN (mobile-first)
@@ -124,15 +177,16 @@ header h1 {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Especificidad: #menu a.activo = (1,1,1) vence a #menu a = (1,0,1) y a .activo = (0,1,0) */
 #menu a.activo {
     color: var(--verde-ruta);
     font-weight: 600;
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: rgba(30, 122, 79, 0.10);
 }
 
 #menu a:hover {
     color: var(--verde-hover);
-    background-color: rgba(16, 185, 129, 0.08);
+    background-color: rgba(30, 122, 79, 0.08);
 }
 
 #menu a:focus {
@@ -150,7 +204,7 @@ main {
     margin-right: auto;
     padding: var(--spacing-lg) var(--spacing-md);
     /* Margen inferior extra para evitar que el botón flotante tape contenido */
-    padding-bottom: calc(var(--spacing-xl) + 2rem); 
+    padding-bottom: calc(var(--spacing-xl) + 2rem);
 }
 
 
@@ -166,7 +220,7 @@ article {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Tarjeta con etiqueta posicionada (Reto 12) */
+/* Tarjeta con etiqueta posicionada (Reto 12 Sem.1) */
 .tarjeta-con-etiqueta {
     position: relative;
 }
@@ -175,14 +229,14 @@ article {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background-color: var(--color-accent);
-    color: var(--color-secondary);
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.85rem;
     padding: 0.25rem 0.75rem;
     border-radius: 50px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 article img {
@@ -220,20 +274,20 @@ th, td {
 
 th {
     background-color: var(--color-secondary);
-    color: #ffffff;
+    color: var(--blanco);
     font-family: var(--font-heading);
     font-weight: 600;
 }
 
 tr:hover {
-    background-color: #f1f5f9;
+    background-color: var(--color-hover-fila);
 }
 
 /* Botones y llamadas a la acción */
 button[type="submit"], .btn-cta {
     display: inline-block;
     background-color: var(--color-primary);
-    color: #ffffff;
+    color: var(--blanco);
     padding: 0.875rem var(--spacing-lg);
     border: none;
     border-radius: 6px;
@@ -252,6 +306,34 @@ button[type="submit"]:hover, .btn-cta:hover {
 
 button[type="submit"]:focus, .btn-cta:focus {
     outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* Variante propia de botón Naranja Pedal (Reto 12 Sem.2)
+   Azul Noche sobre Naranja Pedal = contraste 7.1:1 → apto texto normal */
+.btn-rl-accent {
+    display: inline-block;
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    padding: 0.875rem var(--spacing-lg);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.btn-rl-accent:hover {
+    background-color: #D97F16; /* Naranja más oscuro para mantener contraste */
+    color: var(--azul-noche);
+}
+
+.btn-rl-accent:focus {
+    outline: 3px solid var(--azul-noche);
     outline-offset: 3px;
 }
 
@@ -306,13 +388,14 @@ textarea {
     font-size: 1rem;
     border: 1px solid var(--color-border);
     border-radius: 6px;
-    background-color: #ffffff;
+    background-color: var(--blanco);
+    color: var(--color-text);
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 0 0 3px rgba(30, 122, 79, 0.25);
 }
 
 input[type="radio"],
@@ -335,8 +418,8 @@ fieldset p label {
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    background-color: #25d366;
-    color: #ffffff;
+    background-color: var(--color-whatsapp);
+    color: var(--blanco);
     padding: 0.75rem 1.25rem;
     border-radius: 60px;
     text-decoration: none;
@@ -348,7 +431,7 @@ fieldset p label {
 }
 
 .whatsapp-flotant:hover {
-    background-color: #20ba5a;
+    background-color: var(--color-whatsapp-hover);
     transform: translateY(-2px);
 }
 
@@ -363,7 +446,7 @@ fieldset p label {
    ========================================== */
 footer {
     background-color: var(--color-secondary);
-    color: #ffffff;
+    color: var(--blanco);
     padding: var(--spacing-lg);
     margin-top: var(--spacing-xl);
 
@@ -385,7 +468,7 @@ footer > div { flex: 1 1 220px; }
 }
 
 footer h3 {
-    color: #ffffff;
+    color: var(--blanco);
     margin-top: 0;
 }
 
@@ -402,10 +485,22 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Clase propia complementaria de Bootstrap (Reto 12 Sem.2) */
+.rl-footer {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    padding: var(--spacing-lg);
+}
+
 
 /* ==========================================
    8. NUESTRA FLOTA - GRID Y FLEXBOX
-   ========================================== */
+   ==========================================
+   REFERENCIA (Semana 2, Reto 2):
+   El sitio actual usa la grilla de Bootstrap (row g-4 + col-*).
+   Se conserva comentado para documentar cómo se resolvía con
+   CSS propio antes de migrar a Bootstrap.
+
 .grid-flota {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
@@ -451,11 +546,19 @@ footer a:hover {
     margin-top: auto;
     text-align: center;
 }
+   ========================================== */
 
 
 /* ==========================================
    9. PORTADA PRINCIPAL CON GRID
-   ========================================== */
+   ==========================================
+   REFERENCIA (Semana 2, Reto 3):
+   En index.html la portada hoy la resuelve la grilla de Bootstrap.
+   Se conserva comentado por aprendizaje. Además, sobre la
+   versión vigente (grid Bootstrap) se aplica `min-height: 60vh`
+   al contenedor de la portada vía clase propia `.rl-portada`
+   (Reto 11 Sem.1).
+
 .portada {
     display: grid;
     grid-template-columns: 1fr;
@@ -486,11 +589,21 @@ footer a:hover {
         grid-template-columns: 1fr 1fr;
     }
 }
+   ========================================== */
+
+/* Clase propia complementaria (Reto 12 Sem.2 + Reto 11 Sem.1) */
+.rl-portada {
+    min-height: 60vh;
+}
 
 
 /* ==========================================
    10. GALERÍA DE RUTAS CON GRID
-   ========================================== */
+   ==========================================
+   REFERENCIA (Semana 2, Reto 3):
+   Hoy se usa `row g-4` + `col-md-4` de Bootstrap en index.html.
+   Se conserva comentado por aprendizaje.
+
 .galeria-rutas {
     display: grid;
     grid-template-columns: 1fr;
@@ -524,11 +637,16 @@ footer a:hover {
 }
 
 .tarjeta-ruta h3, .tarjeta-ruta p { margin: 0; }
+   ========================================== */
 
 
 /* ==========================================
    11. LAYOUT DE RESERVAS CON GRID
-   ========================================== */
+   ==========================================
+   REFERENCIA (Semana 2, Reto 3):
+   Hoy reservas.html usa `col-12 col-md-8` + `col-12 col-md-4`
+   de Bootstrap. Se conserva comentado por aprendizaje.
+
 .layout-reservas {
     display: grid;
     grid-template-columns: 1fr;
@@ -553,11 +671,16 @@ footer a:hover {
 }
 
 .reserva-contacto h2, .reserva-contacto h3 { margin-top: 0; }
+   ========================================== */
 
 
 /* ==========================================
    12. FILA DE CAMPOS CON FLEXBOX
-   ========================================== */
+   ==========================================
+   REFERENCIA (Semana 2, Reto 3):
+   Hoy la fila de campos cortos del formulario usa la grilla
+   de Bootstrap (`row g-3` + `col-sm-6`). Se conserva comentado.
+
 .fila-formulario {
     display: flex;
     flex-direction: column;
@@ -581,6 +704,7 @@ footer a:hover {
     width: 100%;
     box-sizing: border-box;
 }
+   ========================================== */
 
 
 /* ==========================================
@@ -591,37 +715,72 @@ footer a:hover {
     th, td { padding: 0.6rem 0.75rem; }
 }
 
+
 /* ==========================================
-   14. CORRECCIÓN DE RADIO Y CHECKBOX BOOTSTRAP
+   14. CLASES PROPIAS COMPLEMENTARIAS DE BOOTSTRAP
+   ========================================== */
+/* Se aplican SOBRE clases de Bootstrap, sin reemplazarlas.
+   Cumple Reto 12 Sem.2 (3 clases propias mínimo). */
+
+/* Portada con altura mínima en vh (Reto 11 Sem.1) */
+.rl-portada {
+    min-height: 60vh;
+}
+
+/* Título de sección reutilizable */
+.rl-titulo-seccion {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--azul-noche);
+    border-left: 4px solid var(--verde-ruta);
+    padding-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Pie de página con la marca */
+.rl-footer {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    padding: var(--spacing-lg);
+}
+
+
+/* ==========================================
+   15. CORRECCIÓN DE RADIO Y CHECKBOX (sin !important)
+   ==========================================
+   Se sobreescriben solo las propiedades necesarias.
+   Bootstrap carga antes, así que estas reglas ganan por orden
+   de aparición (misma especificidad) sin recurrir a !important.
    ========================================== */
 .form-check {
     position: relative;
     display: block;
-    padding-left: 1.75rem !important; /* Espacio para que el radio quede dentro del recuadro */
+    padding-left: 1.75rem;
     margin-bottom: 0.75rem;
 }
 
-.form-check-input[type="radio"] {
-    position: absolute !important;
-    left: 0.5rem !important; /* Lo desplaza hacia la derecha para que no toque la línea */
-    width: 1.15em !important;
-    height: 1.15em !important;
-    appearance: auto !important;
-    -webkit-appearance: radio !important;
+.form-check .form-check-input[type="radio"],
+.form-check .form-check-input[type="checkbox"] {
+    position: absolute;
+    left: 0.5rem;
+    width: 1.15em;
+    height: 1.15em;
+    appearance: auto;
+    -webkit-appearance: auto;
     cursor: pointer;
 }
 
-.form-check-input[type="checkbox"] {
-    position: absolute !important;
-    left: 0.5rem !important;
-    width: 1.15em !important;
-    height: 1.15em !important;
-    appearance: auto !important;
-    -webkit-appearance: checkbox !important;
-    cursor: pointer;
+.form-check .form-check-input[type="radio"] {
+    -webkit-appearance: radio;
+    appearance: radio;
 }
 
-.form-check-label {
+.form-check .form-check-input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    appearance: checkbox;
+}
+
+.form-check .form-check-label {
     cursor: pointer;
-    font-weight: normal !important;
+    font-weight: normal;
 }

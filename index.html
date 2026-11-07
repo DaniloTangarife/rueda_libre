@@ -3,73 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rueda Libre</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta name="description" content="Alquiler de bicicletas en Medellín. Rutas guiadas, bicis eléctricas y servicio con casco y candado incluidos.">
+    <title>Rueda Libre | Alquiler de bicicletas en Medellín</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
-    <!-- Tu hoja propia cargada DESPUÉS para mantener la cascada -->
+
+    <!-- Hoja propia DESPUÉS de Bootstrap -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
     <a href="#contenido-principal" class="visually-hidden-focusable">Saltar al contenido principal</a>
 
-    <header>
-        <h1>Rueda Libre</h1>
+    <!-- NAVBAR COLAPSABLE (Reto 9 Sem.2) -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Navegación principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-dark" href="index.html">Rueda Libre</a>
 
-        <nav aria-label="Navegación principal">
-            <ul id="menu" class="mb-0">
-                <li><a href="index.html" class="activo">Inicio</a></li>
-                <li><a href="paginas/tarifas.html">Tarifas y rutas</a></li>
-                <li><a href="paginas/reservas.html">Reservas</a></li>
-            </ul>
-        </nav>
-    </header>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menú de navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="paginas/tarifas.html">Tarifas y rutas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="paginas/reservas.html">Reservas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <main id="contenido-principal" class="container py-4">
 
-        <!-- PORTADA PRINCIPAL (Migrada a Grid de Bootstrap) -->
-        <section class="portada row align-items-center mb-5">
+        <!-- PORTADA -->
+        <section class="portada row align-items-center mb-5 rl-portada">
             <div class="portada-texto col-12 col-lg-6 d-flex flex-column align-items-start gap-3">
-                <h2 class="fw-bold">Bienvenido a Rueda Libre</h2>
+                <h1 class="fw-bold">Bienvenido a Rueda Libre</h1>
                 <p class="lead">
-                    Descubre la ciudad sobre dos ruedas.
-                    Alquila una bicicleta y disfruta de nuestras
+                    Descubre la ciudad sobre dos ruedas. Alquila una bicicleta y disfruta de nuestras
                     rutas y recorridos guiados.
+                    <a href="#encuentranos">¿Dónde estamos?</a>
                 </p>
-                <a href="#flota" class="btn-cta btn btn-success">
-                    Conoce nuestra flota
-                </a>
+                <a href="#flota" class="btn btn-primary btn-lg">Conoce nuestra flota</a>
             </div>
             <div class="portada-imagen col-12 col-lg-6 mt-4 mt-lg-0">
-                <img src="img/urbana_clasica.jpeg"
-                    alt="Bicicleta disponible en Rueda Libre" class="img-fluid rounded shadow-sm">
+                <img src="img/urbana_clasica.jpeg" width="600"
+                     alt="Bicicleta disponible en Rueda Libre" class="img-fluid rounded shadow-sm">
             </div>
         </section>
 
         <!-- ¿QUIÉNES SOMOS? -->
         <section class="mb-5">
-            <h2 class="h3 mb-3">¿Quiénes somos?</h2>
+            <h2 class="h3 mb-3 rl-titulo-seccion">¿Quiénes somos?</h2>
             <p>Somos un negocio dedicado al alquiler de bicicletas. Queremos que las personas disfruten de una forma <em>divertida y saludable</em> de recorrer la ciudad.</p>
         </section>
 
-        <!-- NUESTROS SERVICIOS Y BENEFICIOS -->
+        <!-- NUESTROS SERVICIOS -->
         <section class="mb-5">
-            <h2 class="h3 mb-4">Nuestros servicios</h2>
-            
+            <h2 class="h3 mb-4 rl-titulo-seccion">Nuestros servicios</h2>
+
             <div class="row g-4">
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="h-100 mb-0">
                         <h3>Alquiler de bicicletas</h3>
                         <p>Alquilamos bicicletas para pasear y conocer la ciudad. El servicio <strong>incluye casco y candado</strong> para mayor seguridad.</p>
-                        <img src="img/bicicleta.jpeg" alt="Bicicleta disponible para alquilar" class="img-fluid">
+                        <img src="img/bicicleta.jpeg" width="400" alt="Bicicleta disponible para alquilar" class="img-fluid">
                     </article>
                 </div>
 
@@ -78,7 +93,7 @@
                         <span class="etiqueta-nuevo">Nuevo</span>
                         <h3>Bicicletas eléctricas</h3>
                         <p>Disfruta de la ciudad con asistencia eléctrica. Recorre más distancia y sube lomas con menor esfuerzo.</p>
-                        <img src="img/bici_electrica.jpeg" alt="Bicicleta eléctrica disponible para alquilar" class="img-fluid">
+                        <img src="img/bici_electrica.jpeg" width="400" alt="Bicicleta eléctrica disponible para alquilar" class="img-fluid">
                     </article>
                 </div>
 
@@ -86,7 +101,7 @@
                     <article class="h-100 mb-0">
                         <h3>Recorridos guiados</h3>
                         <p>Ofrecemos recorridos en bicicleta para conocer diferentes lugares de una manera <em>divertida</em>.</p>
-                        <img src="img/ruta.png" alt="Ruta para bicicletas" class="img-fluid">
+                        <img src="img/ruta.png" width="400" alt="Ruta para bicicletas" class="img-fluid">
                         <p class="mt-2"><a href="paginas/tarifas.html#recorridos">Ver precios de los recorridos guiados</a></p>
                     </article>
                 </div>
@@ -111,9 +126,9 @@
             </div>
         </section>
 
-        <!-- SECCIÓN NUESTRA FLOTA (MiniReto 5 adaptado a Grilla Bootstrap) -->
+        <!-- NUESTRA FLOTA -->
         <section id="flota" class="mb-5">
-            <h2 class="h3">Nuestra flota</h2>
+            <h2 class="h3 rl-titulo-seccion">Nuestra flota</h2>
             <p class="text-muted">Conoce las bicicletas que tenemos disponibles para alquilar.</p>
 
             <div class="row g-4 mt-2">
@@ -123,7 +138,7 @@
                         <h3>Urbana Clásica</h3>
                         <p>Cómoda y liviana para las ciclorrutas.</p>
                         <p class="precio">$10.000 por hora</p>
-                        <a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar</a>
+                        <a href="paginas/reservas.html" class="btn btn-primary mt-auto">Reservar</a>
                     </article>
                 </div>
 
@@ -133,7 +148,7 @@
                         <h3>Urbana Plegable</h3>
                         <p>Se dobla en segundos; ideal para combinar con el metro.</p>
                         <p class="precio">$12.000 por hora</p>
-                        <a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar</a>
+                        <a href="paginas/reservas.html" class="btn btn-primary mt-auto">Reservar</a>
                     </article>
                 </div>
 
@@ -143,7 +158,7 @@
                         <h3>Montaña Trail</h3>
                         <p>Suspensión delantera y 21 cambios para las subidas.</p>
                         <p class="precio">$15.000 por hora</p>
-                        <a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar</a>
+                        <a href="paginas/reservas.html" class="btn btn-primary mt-auto">Reservar</a>
                     </article>
                 </div>
 
@@ -153,7 +168,7 @@
                         <h3>Gravel Aventura</h3>
                         <p>Para rutas mixtas de asfalto y destapado.</p>
                         <p class="precio">$18.000 por hora</p>
-                        <a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar</a>
+                        <a href="paginas/reservas.html" class="btn btn-primary mt-auto">Reservar</a>
                     </article>
                 </div>
 
@@ -163,7 +178,7 @@
                         <h3>Eléctrica Urbana</h3>
                         <p>Asistencia eléctrica con 45 km de autonomía.</p>
                         <p class="precio">$25.000 por hora</p>
-                        <a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar</a>
+                        <a href="paginas/reservas.html" class="btn btn-primary mt-auto">Reservar</a>
                     </article>
                 </div>
 
@@ -173,7 +188,7 @@
                         <h3>Infantil</h3>
                         <p>Para niños de 6 a 10 años.</p>
                         <p class="precio">$8.000 por hora</p>
-                        <a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar</a>
+                        <a href="paginas/reservas.html" class="btn btn-primary mt-auto">Reservar</a>
                     </article>
                 </div>
 
@@ -183,15 +198,15 @@
                         <h3>Tándem</h3>
                         <p>Para dos personas; perfecta para pasear en pareja.</p>
                         <p class="precio">$20.000 por hora</p>
-                        <a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar</a>
+                        <a href="paginas/reservas.html" class="btn btn-primary mt-auto">Reservar</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- GALERÍA DE RUTAS (MiniReto 6 adaptado a Grilla Bootstrap) -->
+        <!-- GALERÍA DE RUTAS -->
         <section id="rutas" class="mb-5">
-            <h2 class="h3">Nuestras rutas</h2>
+            <h2 class="h3 rl-titulo-seccion">Nuestras rutas</h2>
             <p class="text-muted">Conoce algunos de los recorridos guiados que puedes disfrutar con Rueda Libre.</p>
 
             <div class="row g-4 mt-2">
@@ -223,26 +238,26 @@
 
         <!-- CÓMO ALQUILAR -->
         <section class="mb-5">
-            <h2 class="h3">¿Cómo alquilar?</h2>
+            <h2 class="h3 rl-titulo-seccion">¿Cómo alquilar?</h2>
             <ol class="mb-3">
                 <li>Contáctanos para consultar disponibilidad.</li>
                 <li>Elige la bicicleta que deseas alquilar.</li>
                 <li>Indica la fecha y el tiempo de alquiler.</li>
                 <li>Confirma el alquiler y realiza el pago.</li>
             </ol>
-            <p><a href="paginas/reservas.html" class="btn-cta btn btn-success">Reservar ahora</a></p>
+            <p><a href="paginas/reservas.html" class="btn btn-primary btn-lg">Reservar ahora</a></p>
         </section>
 
         <!-- ENCUÉNTRANOS -->
         <section class="mb-5">
-            <h2 id="encuentranos" class="h3">Encuéntranos</h2>
+            <h2 id="encuentranos" class="h3 rl-titulo-seccion">Encuéntranos</h2>
             <p>Estamos en Medellín. Consulta nuestra <a href="https://www.google.com/maps/search/?api=1&amp;query=Medellin+Colombia" target="_blank" rel="noopener noreferrer">ubicación en Google Maps</a> (referencia general).</p>
             <p>Escríbenos a <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.</p>
         </section>
 
     </main>
 
-    <footer class="text-white py-4">
+    <footer class="rl-footer">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-4">
             <div class="footer-marca">
                 <h3 class="h5">Rueda Libre</h3>
@@ -251,7 +266,7 @@
 
             <div class="footer-contacto">
                 <h3 class="h5">Contacto</h3>
-                <p class="mb-0">Correo: <a href="mailto:hola@ruedalibre.example" class="text-success">hola@ruedalibre.example</a></p>
+                <p class="mb-0">Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
             </div>
 
             <div class="footer-horario">
@@ -262,11 +277,11 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/573000000000" class="whatsapp-flotant btn btn-success" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/573000000000" class="whatsapp-flotant" target="_blank" rel="noopener noreferrer">
         WhatsApp
     </a>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s98+Y5I3E2N3q7g5S1I9v6k8W3s3g3z3g3s3g3s3g" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS Bundle (integrity OFICIAL corregido) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
