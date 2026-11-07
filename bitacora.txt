@@ -599,3 +599,40 @@ A usar el componente card de Bootstrap dentro de la grilla existente y el
 componente carousel con controles accesibles, y a limpiar el CSS propio
 que el framework ya resuelve.
 
+------------------------------------------
+MINIRETO 11 — Reservas confiables: validación visual, alerta y modal
+------------------------------------------
+
+¿Qué hice?
+- Consolidé el formulario en 3 fieldsets ("Tus datos", "Tu alquiler",
+  "Confirmación"), incluyendo el campo "Fecha del alquiler" con
+  min="2026-11-01" y max="2026-12-31".
+- Apliqué las clases de formulario de Bootstrap (form-label, form-control,
+  form-select, form-check, form-check-input, form-check-label) sin perder
+  las reglas de validación nativa (required, pattern, min, max, minlength,
+  maxlength, type email/tel/number/date).
+- Activé la validación visual de Bootstrap con needs-validation + novalidate
+  en el <form> y el script oficial copiado sin cambios antes de </body>.
+- Añadí un invalid-feedback específico por campo obligatorio con mensajes
+  que explican cómo corregir (no "campo inválido").
+- Agregué una alerta informativa dismissible arriba del formulario con el
+  recordatorio de traer el documento original.
+- Creé el modal "Políticas de alquiler" con las 5 políticas en una lista
+  ordenada, que se abre desde un botón junto a la casilla de aceptación y
+  se cierra con su botón, con "Entendido" y con Esc.
+
+Verificación:
+- Enviar el formulario vacío: no se envía; cada campo muestra su mensaje
+  específico debajo y el borde se pinta de rojo (was-validated).
+- Reglas nativas: el celular acepta 3001234567 y rechaza 1234567890 y 300123;
+  el documento rechaza letras; la fecha no acepta días fuera del rango; la
+  cantidad solo admite 1–6.
+- La alerta se cierra con su botón ×.
+- El modal se abre desde el botón "Ver políticas", se cierra con el botón ×,
+  con "Entendido" y con Esc, y muestra las cinco políticas.
+
+¿Qué aprendí?
+A combinar la validación nativa HTML con la validación visual de Bootstrap
+(needs-validation + invalid-feedback) y a integrar los componentes alert y
+modal con texto y comportamiento accesibles.
+

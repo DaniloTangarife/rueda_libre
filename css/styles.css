@@ -842,6 +842,25 @@ footer a:hover {
     }
 }
 
+/* Validación visual Bootstrap con marca (Reto 11 Sem.2) */
+.was-validated .form-control:invalid,
+.was-validated .form-select:invalid,
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #B42318;
+}
+
+.was-validated .invalid-feedback,
+.invalid-feedback {
+    color: #B42318;
+}
+
+.was-validated .form-check-input:invalid ~ .invalid-feedback,
+.form-check-input.is-invalid ~ .invalid-feedback {
+    display: block;
+    color: #B42318;
+}
+
 /* ==========================================
    15. CORRECCIÓN DE RADIO Y CHECKBOX (sin !important)
    ==========================================
