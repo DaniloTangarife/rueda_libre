@@ -718,3 +718,49 @@ Búsqueda en output.css:
 solo genera el CSS de las clases que encuentra escritas como strings.
 bg-pink-500 no existe en index.html, así que no se genera.
 
+------------------------------------------
+MINIRETO 3 (Semana 3) — Cards de las rutas nocturnas
+------------------------------------------
+
+¿Qué hice?
+- En nocturna/index.html agregué la sección "Rutas" con las tres cards:
+  Luces del Centro (Fácil), Miradores de la Ciudad (Medio) y
+  Luna en Las Palmas (Difícil).
+- Cada card incluye: imagen con alto uniforme (h-56) y ancho completo
+  (w-full), etiqueta de nivel, nombre de la ruta, lista de datos
+  (distancia, duración, punto de encuentro), precio destacado y el
+  botón principal del kit (MiniReto 2).
+- Las tres cards comparten EXACTAMENTE la misma estructura y clases base
+  (bg-slate-900, border border-slate-800, rounded-2xl, overflow-hidden,
+  shadow-md, transition-all). Solo cambian los datos y el color de la
+  etiqueta.
+- El nivel se distingue por color Y por texto:
+    Fácil   → bg-emerald-500/20 text-emerald-300  + "Nivel: Fácil"
+    Medio   → bg-amber-500/20  text-amber-300     + "Nivel: Medio"
+    Difícil → bg-rose-500/20   text-rose-300      + "Nivel: Difícil"
+- Jerarquía tipográfica en la lista: <dt> pequeño, gris, uppercase y
+  tracking amplio (text-xs uppercase tracking-wider text-slate-400);
+  <dd> blanco, seminegrita (text-white font-semibold).
+- Efecto hover en la card: hover:shadow-2xl + hover:border-<color>/50
+  con transition-all duration-300. La card no se mueve, solo cambia la
+  sombra y el color del borde.
+- No hay CSS propio: cero <style>, cero style="". Todo el estilo sale de
+  utilidades de Tailwind.
+
+Utilidades aplicadas por familia:
+- Bordes: border, border-slate-800, border-b, hover:border-*,
+  rounded-full, rounded-2xl.
+- Sombras: shadow-md, shadow-lg shadow-emerald-500/30, hover:shadow-2xl.
+- Espaciado: p-6, space-y-4, space-y-2, pb-2, pt-2, mb-10, mx-auto,
+  px-5, py-2.5.
+- Tamaños: w-full, h-56, max-w-2xl, max-w-3xl, mx-auto.
+- Tipografía: text-2xl, text-sm, text-xs, font-bold, font-semibold,
+  font-extrabold, uppercase, tracking-wider, tracking-widest.
+- Colores: bg-slate-900, text-white, text-slate-400, text-emerald-400,
+  bg-emerald-500/20, bg-amber-500/20, bg-rose-500/20, etc.
+- Hover: hover:shadow-2xl, hover:border-*, hover:bg-*.
+
+¿Qué aprendí?
+A construir cards reutilizables con Tailwind usando un grupo de clases
+base compartido, diferenciando variantes solo por color y texto, y a
+aplicar hover sin desplazar el contenido.
