@@ -710,3 +710,11 @@ enfoque de componentes de Bootstrap.
 
 Versión: Rueda Nocturna — prototipo (nocturna/prototipo.html)
 
+Búsqueda en output.css:
+- bg-emerald-500 → SÍ aparece (la usamos en el botón principal).
+- bg-pink-500 → NO aparece (no la usamos en ningún HTML).
+
+¿Por qué? Tailwind es "on-demand": la CLI escanea los archivos HTML y
+solo genera el CSS de las clases que encuentra escritas como strings.
+bg-pink-500 no existe en index.html, así que no se genera.
+
