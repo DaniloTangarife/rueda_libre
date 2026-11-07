@@ -764,3 +764,74 @@ Utilidades aplicadas por familia:
 A construir cards reutilizables con Tailwind usando un grupo de clases
 base compartido, diferenciando variantes solo por color y texto, y a
 aplicar hover sin desplazar el contenido.
+
+------------------------------------------
+MINIRETO 4 (Semana 3) — Kit de componentes
+------------------------------------------
+
+¿Qué hice?
+- Creé nocturna/componentes.html con los cuatro tipos de componente:
+  · 3 botones del kit (principal, secundario, contorno) con hover y focus.
+  · 1 card del MiniReto 3 (ruta Luces del Centro).
+  · 3 alertas: información (azul), éxito (verde) y advertencia (ámbar),
+    cada una con fondo suave, borde lateral de color, título destacado
+    y texto. La alerta de éxito lleva role="status" para que los
+    lectores de pantalla la anuncien como aviso.
+  · 2 campos de formulario (correo y celular) con <label for> asociado,
+    borde, relleno, placeholder, texto de ayuda debajo y foco visible
+    con focus:ring-4.
+- Registré las reglas del kit (abajo).
+- Publiqué en GitHub Pages y verifiqué en línea que output.css carga
+  sin errores 404 y que todo el kit se puede recorrer con Tab.
+
+REGLAS DEL KIT (aplicadas a todos los componentes):
+
+1. Radios de borde:
+   - rounded-full → botones y etiquetas.
+   - rounded-2xl   → cards y contenedores.
+   - rounded-lg    → alertas e inputs.
+
+2. Escala de espaciado:
+   - p-6 en cards y contenedores; p-4 en alertas.
+   - px-8 py-4 → botones grandes.
+   - px-5 py-2.5 → botones pequeños de la card.
+   - px-4 py-3 → inputs.
+   - space-y-2 / space-y-4 / space-y-6 entre elementos.
+
+3. Colores de marca:
+   - Acción principal → emerald-500 / hover emerald-400.
+   - Acción secundaria → amber-400 / hover amber-300.
+   - Peligro / difícil → rose-500.
+   - Información → sky-500.
+   - Fondo base bg-slate-950; superficie bg-slate-900;
+     bordes border-slate-800 / border-slate-700.
+
+4. Tipografía:
+   - Títulos: font-bold / font-extrabold + text-white.
+   - Cuerpo: text-slate-300.
+   - Secundario: text-slate-400 / text-slate-500.
+   - Etiquetas y badges: text-xs uppercase tracking-widest.
+
+5. Estados:
+   - Hover: cambio de color de fondo.
+   - Focus: focus:ring-4 con color a juego.
+   - Transición: transition-colors duration-200 (o duration-300
+     en la card).
+
+6. Accesibilidad:
+   - <label for> en cada input.
+   - role="status" en la alerta de éxito.
+   - Foco visible siempre (ring-4).
+
+Verificación en línea:
+- nocturna/componentes.html carga output.css sin errores 404.
+- Con Tab se recorren los botones, los inputs y el enlace del footer.
+- El foco se ve en todos los elementos.
+
+¿Qué aprendí?
+A construir un kit de componentes consistente con Tailwind usando reglas
+compartidas (radios, espaciado, colores, tipografía, estados) y a integrar
+alertas accesibles y formularios con foco visible sin escribir una sola
+línea de CSS propio.
+
+Versión: Rueda Nocturna — Kit de componentes (nocturna/componentes.html)
