@@ -651,3 +651,30 @@ La imagen decorativa se oculta en celulares y aparece desde md.
 
 Se utilizaron clases compatibles con Bootstrap 5.3.
 
+Migración a Bootstrap - Rueda Libre (Inicio)
+
+### 1. Objetivo del Reto
+Integrar el framework Bootstrap (grilla y utilidades) en la página de inicio de Rueda Libre para optimizar el diseño responsivo, manteniendo la identidad visual de la marca, el orden correcto de la cascada y resolviendo los conflictos de estilos mediante DevTools sin utilizar la regla `!important`.
+
+### 2. Pasos Realizados
+1. **Enlace de Bootstrap:** Se agregó el CSS de Bootstrap en el `<head>` de `index.html` **antes** de la hoja de estilos propia (`css/styles.css`), garantizando que la cascada permita sobrescribir estilos de forma limpia. Se incluyó el script de Bootstrap Bundle al final del cuerpo.
+2. **Migración a la Grilla:** Se actualizaron la portada, la sección de servicios, la flota (MiniReto 5) y la galería de rutas (MiniReto 6) empleando contenedores (`container`), filas (`row`) y columnas (`col-*`, `g-4`).
+3. **Depuración de CSS:** Se limpiaron las reglas obsoletas de distribución propias de la página de inicio, marcando explícitamente con comentarios aquellas secciones de tablas y formularios que siguen empleando las páginas de tarifas y reservas.
+4. **Pruebas de Ancho:** Se validó el comportamiento visual correcto en los tres puntos de control requeridos: móvil a **360px**, tablet a **768px** y escritorio a **1280px**.
+
+---
+
+### 3. Registro de Conflictos Detectados con DevTools y Soluciones
+
+#### Conflicto 1: Colores de enlaces en el pie de página (`footer a`)
+* **Diagnóstico en DevTools:** Las clases utilitarias y estilos por defecto de Bootstrap interferían con los colores de los hipervínculos del pie de página, forzándolos a un tono azul estándar que rompía con la paleta corporativa de Rueda Libre.
+* **Solución aplicada:** Se ajustó la especificidad aplicando la clase nativa de Bootstrap `text-success` directamente en las etiquetas `<a>` correspondientes del HTML del footer, logrando el tono verde institucional sin usar hacks ni `!important`.
+
+#### Conflicto 2: Márgenes verticales excesivos en las tarjetas (`article`)
+* **Diagnóstico en DevTools:** El selector global `article` en la hoja de estilos propia aplicaba un `margin-bottom` rígido de `2rem`, lo que generaba un desfase visual al combinarse con las clases de separación de canal (`g-4`) de las filas de Bootstrap.
+* **Solución aplicada:** Se incorporó la clase utilitaria `mb-0` y `h-100` en los contenedores de las tarjetas de la flota y rutas en el marcado HTML para neutralizar los márgenes heredados y estandarizar la altura visual de los componentes.
+
+#### Conflicto 3: Jerarquía tipográfica en encabezados de sección (`h2`, `h3`)
+* **Diagnóstico en DevTools:** Las reglas base de Bootstrap redefinían los tamaños y grosores predeterminados de los encabezados, alterando la jerarquía visual de la tipografía *Montserrat* definida para la identidad del sitio.
+* **Solución aplicada:** Se reforzó el marcado empleando clases tipográficas explícitas de Bootstrap (como `h3`, `fw-bold`, `lead`) en los títulos principales y subtítulos, armonizando los tamaños de fuente con el sistema de variables del proyecto.
+

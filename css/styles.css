@@ -1,5 +1,5 @@
 /* ==========================================
-   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+1. VARIABLES Y CONFIGURACIÓN GLOBAL
    ========================================== */
 :root {
     --font-heading: 'Montserrat', sans-serif;
@@ -155,7 +155,7 @@ main {
 
 
 /* ==========================================
-   4. COMPONENTES (TARJETAS, TABLAS Y BOTONES)
+   4. COMPONENTES (TARJETAS Y BOTONES)
    ========================================== */
 article {
     background-color: var(--color-card-bg);
@@ -197,38 +197,6 @@ article img {
     margin-right: auto;
 }
 
-/* Tablas */
-table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-    background-color: var(--color-card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    font-size: 0.75rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-th, td {
-    padding: 0.35rem 0.25rem;
-    text-align: left;
-    border-bottom: 1px solid var(--color-border);
-    overflow-wrap: anywhere;
-}
-
-th {
-    background-color: var(--color-secondary);
-    color: #ffffff;
-    font-family: var(--font-heading);
-    font-weight: 600;
-}
-
-tr:hover {
-    background-color: #f1f5f9;
-}
-
 /* Botones y llamadas a la acción */
 button[type="submit"], .btn-cta {
     display: inline-block;
@@ -257,7 +225,7 @@ button[type="submit"]:focus, .btn-cta:focus {
 
 
 /* ==========================================
-   5. FORMULARIOS
+   5. FORMULARIOS (USADO EN PÁGINA DE RESERVAS)
    ========================================== */
 form {
     background-color: var(--color-card-bg);
@@ -401,22 +369,13 @@ footer a:hover {
     text-decoration: underline;
 }
 
+
 /* ==========================================
-   8. NUESTRA FLOTA - GRID Y FLEXBOX
+   8. TARJETAS DE FLOTA (Mantenidas para componentes internos)
    ========================================== */
-
-/* Cuadrícula de bicicletas */
-.grid-flota {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-}
-
 .tarjeta-bicicleta {
     display: flex;
-    flex-direction: column;      /* sin justify-content: flex-start redundante */
-
+    flex-direction: column;
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -424,7 +383,6 @@ footer a:hover {
     margin-bottom: 0;
 }
 
-/* Imágenes de las bicicletas */
 .tarjeta-bicicleta img {
     width: 100%;
     max-width: 100%;
@@ -433,85 +391,31 @@ footer a:hover {
     margin: 0 0 var(--spacing-md) 0;
 }
 
-/* Nombres de las bicicletas */
 .tarjeta-bicicleta h3 {
     margin-top: 0;
     margin-bottom: var(--spacing-sm);
 }
 
-/* Descripción */
 .tarjeta-bicicleta p {
     margin-top: 0;
     margin-bottom: var(--spacing-md);
 }
 
-/* Precio por hora */
 .tarjeta-bicicleta .precio {
     font-weight: bold;
     color: var(--verde-ruta);
     font-size: 1.1rem;
 }
 
-/* Botón de reservar */
 .tarjeta-bicicleta .btn-cta {
     margin-top: auto;
     text-align: center;
 }
 
-/* ==========================================
-   9. PORTADA PRINCIPAL CON GRID
-   ========================================== */
-
-.portada {
-    display: grid;
-    grid-template-columns: 1fr;  /* móvil: una columna */
-    gap: var(--spacing-lg);
-    align-items: center;
-    margin-bottom: var(--spacing-xl);
-}
-
-.portada-texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: var(--spacing-md);
-}
-
-.portada-texto h2, .portada-texto p { margin: 0; }
-
-.portada-imagen img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-}
-
-/* Escritorio: dos columnas */
-@media (min-width: 1200px) {
-    .portada {
-        grid-template-columns: 1fr 1fr;
-    }
-}
 
 /* ==========================================
-   10. GALERÍA DE RUTAS CON GRID
+   9. TARJETAS DE RUTA (Mantenidas)
    ========================================== */
-
-.galeria-rutas {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-}
-
-@media (min-width: 768px) {
-    .galeria-rutas { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1200px) {
-    .galeria-rutas { grid-template-columns: repeat(3, 1fr); }
-}
-
 .tarjeta-ruta {
     display: flex;
     flex-direction: column;
@@ -532,8 +436,10 @@ footer a:hover {
 
 .tarjeta-ruta h3, .tarjeta-ruta p { margin: 0; }
 
+
 /* ==========================================
-   11. LAYOUT DE RESERVAS CON GRID
+   11. LAYOUT DE RESERVAS Y TABLAS 
+   (ESTAS REGLAS TODAVÍA USAN TARIFA Y RESERVAS - REQUERIDO POR EL RETO)
    ========================================== */
 
 .layout-reservas {
@@ -544,7 +450,7 @@ footer a:hover {
 }
 
 @media (min-width: 1200px) {
-    .layout-reservas { grid-template-columns: 2fr 1fr; } /* escritorio 2:1 */
+    .layout-reservas { grid-template-columns: 2fr 1fr; }
 }
 
 .reserva-formulario {
@@ -561,13 +467,9 @@ footer a:hover {
 
 .reserva-contacto h2, .reserva-contacto h3 { margin-top: 0; }
 
-/* ==========================================
-   12. FILA DE CAMPOS CON FLEXBOX
-   ========================================== */
-
 .fila-formulario {
     display: flex;
-    flex-direction: column;      /* móvil: apilados */
+    flex-direction: column;
     gap: var(--spacing-md);
 }
 
@@ -589,11 +491,38 @@ footer a:hover {
     box-sizing: border-box;
 }
 
+/* Tablas (Usadas en tarifas.html) */
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
 
-/* ==========================================
-   13. TABLAS EN MÓVIL Y ESCRITORIO
-   ========================================== */
-   
+th, td {
+    padding: 0.35rem 0.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    overflow-wrap: anywhere;
+}
+
+th {
+    background-color: var(--color-secondary);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f1f5f9;
+}
+
 @media (min-width: 768px) {
     table { font-size: 0.95rem; }
     th, td { padding: 0.6rem 0.75rem; }
