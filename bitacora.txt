@@ -649,3 +649,64 @@ MINIRETO 12 — Rueda Libre v2.0: con identidad propia
 
 ![Antes - v1.5](img/capturas/antes-v1.5.png)
 ![Después - v2.0](img/capturas/despues-v2.0.png)
+
+------------------------------------------
+MINIRETO 1 (Semana 3) — Prototipo de la sección principal con Tailwind Play CDN
+------------------------------------------
+
+¿Qué hice?
+- Creé la carpeta nocturna/ en el repositorio y dentro prototipo.html con la
+  estructura base y el Play CDN de Tailwind CSS.
+- Construí la sección principal con todos los elementos de la campaña:
+  · Etiqueta: "Nuevo · Jueves a sábado" (span con bg-amber-400 + rounded-full).
+  · Título: "Rueda Nocturna" (único h1, text-5xl md:text-7xl font-extrabold).
+  · Subtítulo: "Descubre Medellín en bici cuando se encienden las luces"
+    (p con text-slate-300 y leading-relaxed).
+  · Dos datos destacados: "3 rutas" y "Desde $55.000"
+    (dl + dt/dd con text-3xl md:text-4xl y text-amber-400).
+  · Enlace "Inscríbete" con apariencia de botón.
+- Todo el estilo se aplicó SOLO con utilidades de Tailwind: sin <style>,
+  sin style="" y sin clases de Bootstrap.
+
+Familias de utilidades usadas:
+- Espaciado: px-6, py-16, pt-4, space-y-8, space-y-1, gap-8, gap-12, px-4, py-1,
+  px-8, py-4.
+- Tamaños: w-full, max-w-3xl, max-w-2xl.
+- Colores: bg-slate-950, text-slate-100, bg-amber-400, text-slate-900,
+  text-white, text-slate-300, text-slate-400, text-amber-400, bg-emerald-500,
+  hover:bg-emerald-400.
+- Tipografía: text-5xl md:text-7xl, text-lg md:text-2xl, text-xs, text-3xl
+  md:text-4xl, font-extrabold, font-bold, font-semibold, leading-tight,
+  leading-relaxed, tracking-tight, tracking-widest, uppercase.
+
+Comparación del botón "Inscríbete": Bootstrap (Semana 2) vs Tailwind (Semana 3)
+-------------------------------------------------------------------------------
+Semana 2 (Bootstrap):
+    <a href="..." class="btn btn-primary btn-lg">Inscríbete</a>
+  → Una sola clase btn-primary trae fondo, color de texto, padding, radio,
+    estados hover/focus y transición desde el framework.
+
+Semana 3 (Tailwind, utility-first):
+    <a href="..." class="inline-block bg-emerald-500 hover:bg-emerald-400
+        focus:outline-none focus:ring-4 focus:ring-emerald-300/50
+        text-slate-900 text-lg font-bold px-8 py-4 rounded-full
+        transition-colors duration-200">Inscríbete</a>
+  → Cada propiedad visual se declara explícitamente con una clase utilitaria.
+
+Diferencia clave entre un framework de componentes y uno utility-first:
+- Bootstrap (componentes): te da componentes y clases semánticas ya
+  empaquetados (btn, card, navbar). Ahorra tiempo y garantiza consistencia,
+  pero si quieres un botón fuera del diseño del framework necesitas
+  sobrescribir variables o CSS propio.
+- Tailwind (utility-first): te da clases atómicas (una propiedad por clase)
+  y compones el diseño directamente en el HTML. Da control total y evita
+  CSS muerto, pero el HTML es más verboso y el diseño se aprende leyendo
+  clases.
+
+¿Qué aprendí?
+A prototipar una sección completa con Tailwind Play CDN sin instalar nada,
+usando solo utilidades, y a contrastar el enfoque utility-first con el
+enfoque de componentes de Bootstrap.
+
+Versión: Rueda Nocturna — prototipo (nocturna/prototipo.html)
+
