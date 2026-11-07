@@ -564,19 +564,38 @@ Verificación en DevTools (modo dispositivo):
 ¿Qué aprendí?
 A usar el componente navbar de Bootstrap con collapse para menús responsive, a marcar la página activa de forma accesible con aria-current y a unificar los CTA con el componente btn.
 
+------------------------------------------
+MINIRETO 10 — La flota en cards y promociones que rotan
+------------------------------------------
 
-==========================================
-ESTADO ACTUAL DEL PROYECTO
-==========================================
+¿Qué hice?
+- Convertí cada modelo de la flota en una card de Bootstrap con card-img-top,
+  card-body, card-title, card-text, precio y botón "Reservar". La grilla se
+  mantiene (row g-4 + col-12 col-sm-6 col-lg-4 col-xl-3) y todas las cards usan
+  h-100 para igualar altura; el botón queda al final con d-flex flex-column + mt-auto.
+- Convertí también las tarjetas de la galería de rutas en cards (row g-4 + col-md-4).
+- Agregué un carrusel de promociones en inicio con tres slides:
+  · Martes 2x1 en bicicletas urbanas.
+  · 20 % de descuento en eléctricas de lunes a jueves.
+  · Recorrido gratis si cumples años.
+  El carrusel tiene indicadores, controles prev/next con texto accesible
+  (visually-hidden) y avance automático con data-bs-ride="carousel".
+- Cada imagen del carrusel tiene alt descriptivo.
+- Eliminé de styles.css las reglas de tarjetas propias que ya no se usaban
+  (.tarjeta-bicicleta, .tarjeta-ruta, .grid-flota, .galeria-rutas, article img).
+  Conservé comentadas las reglas de portada, reservas y fila del formulario
+  como referencia didáctica.
 
-- Semana 1: completa (12/12 mini retos).
-- Semana 2: en curso (retos 1 al 9 completados; faltan 10, 11 y 12).
-- Paleta oficial aplicada en css/styles.css con variables y alias semánticos.
-- Bootstrap 5.3 integrado en las tres páginas con el bundle JS cargado una sola vez.
-- Navbar colapsable operativa en las tres páginas.
-- Validación nativa del formulario intacta.
+Verificación en DevTools:
+- Las cards de una misma fila tienen la misma altura y sus CTA quedan alineados al fondo.
+- El carrusel avanza solo y responde a los controles con teclado (Tab + Enter).
+- Los controles del carrusel exponen "Promoción anterior" y "Siguiente promoción"
+  a los lectores de pantalla.
+- Sin reglas de tarjetas huérfanas en styles.css.
+- Sin errores 404 en Network.
 
-Próximos pasos:
-- Reto 10: convertir flota y rutas a cards + carrusel de promociones.
-- Reto 11: validación visual Bootstrap (needs-validation + invalid-feedback), alerta dismissible y modal de políticas.
-- Reto 12: personalizar Bootstrap con la identidad (--bs-*), añadir Bootstrap Icons y publicar la v2.0.
+¿Qué aprendí?
+A usar el componente card de Bootstrap dentro de la grilla existente y el
+componente carousel con controles accesibles, y a limpiar el CSS propio
+que el framework ya resuelve.
+

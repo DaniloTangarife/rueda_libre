@@ -11,9 +11,9 @@
    - Sin !important: los conflictos con Bootstrap se resuelven
      por orden de carga y especificidad.
    - Las secciones 8, 9, 10, 11 y 12 conservan (comentadas) las
-     soluciones de layout en CSS propio de la Semana 2, retos 2-4.
-     Hoy Bootstrap las resuelve con su grid; se dejan como
-     referencia de aprendizaje.
+     soluciones de layout en CSS propio de la Semana 2, retos 1-4,
+     que Bootstrap ya resuelve hoy. Se dejan como referencia de
+     aprendizaje para la bitácora.
    ========================================== */
 
 
@@ -117,14 +117,20 @@ img {
 
 /* ==========================================
    2. ENCABEZADO Y NAVEGACIÓN (mobile-first)
-   ========================================== */
+   ==========================================
+   REFERENCIA (Semana 2, Reto 1): hoy la navegación
+   se resuelve con la navbar colapsable de Bootstrap
+   (Semana 2, Reto 9). Estas reglas describen la
+   solución anterior con Flexbox propio y se conservan
+   comentadas como documentación para la bitácora.
+
 header {
     background-color: var(--color-card-bg);
     padding: var(--spacing-md);
     border-bottom: 1px solid var(--color-border);
 
     display: flex;
-    flex-direction: column;      /* móvil: marca arriba, menú debajo */
+    flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
 }
@@ -144,14 +150,13 @@ header h1 {
 
     display: flex;
     flex-direction: row;
-    justify-content: center;     /* móvil: menú centrado */
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: var(--spacing-md);
     width: 100%;
 }
 
-/* Tablet: recupera distribución del MiniReto 1 (marca y menú en extremos) */
 @media (min-width: 768px) {
     header {
         flex-direction: row;
@@ -177,7 +182,7 @@ header h1 {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Especificidad: #menu a.activo = (1,1,1) vence a #menu a = (1,0,1) y a .activo = (0,1,0) */
+// Especificidad: #menu a.activo = (1,1,1) vence a #menu a = (1,0,1) y a .activo = (0,1,0)
 #menu a.activo {
     color: var(--verde-ruta);
     font-weight: 600;
@@ -193,6 +198,7 @@ header h1 {
     outline: 3px solid var(--color-accent);
     outline-offset: 2px;
 }
+   ========================================== */
 
 
 /* ==========================================
@@ -209,18 +215,17 @@ main {
 
 
 /* ==========================================
-   4. COMPONENTES (TARJETAS, TABLAS Y BOTONES)
+   4. COMPONENTES (TABLAS Y BOTONES)
+   ==========================================
+   Nota: los bloques de tarjetas propias (.tarjeta-bicicleta,
+   .tarjeta-ruta, .grid-flota, .galeria-rutas) se eliminaron
+   en el Reto 10 Sem.2 porque hoy la flota y las rutas se
+   resuelven con el componente card de Bootstrap.
+   El selector global `article` y `article img` también se
+   eliminaron porque ahora todo usa card / card-body.
    ========================================== */
-article {
-    background-color: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
 
-/* Tarjeta con etiqueta posicionada (Reto 12 Sem.1) */
+/* Etiqueta "Nuevo" sobre cards (Reto 12 Sem.1) */
 .tarjeta-con-etiqueta {
     position: relative;
 }
@@ -237,18 +242,7 @@ article {
     padding: 0.25rem 0.75rem;
     border-radius: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-article img {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    border-radius: 6px;
-    margin-top: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    z-index: 2;
 }
 
 /* Tablas generales */
@@ -443,7 +437,12 @@ fieldset p label {
 
 /* ==========================================
    7. PIE DE PÁGINA (mobile-first)
-   ========================================== */
+   ==========================================
+   REFERENCIA (Semana 2, Reto 1): la versión con
+   Flexbox propio está comentada abajo; hoy el pie
+   se resuelve con utilidades de Bootstrap y la clase
+   propia .rl-footer. Se conserva como documentación.
+
 footer {
     background-color: var(--color-secondary);
     color: var(--blanco);
@@ -451,13 +450,12 @@ footer {
     margin-top: var(--spacing-xl);
 
     display: flex;
-    flex-direction: column;      /* móvil: bloques apilados */
+    flex-direction: column;
     gap: var(--spacing-lg);
 }
 
 footer > div { flex: 1 1 220px; }
 
-/* Tablet/escritorio: tres bloques en fila alineados arriba */
 @media (min-width: 768px) {
     footer {
         flex-direction: row;
@@ -484,22 +482,17 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
-/* Clase propia complementaria de Bootstrap (Reto 12 Sem.2) */
-.rl-footer {
-    background-color: var(--azul-noche);
-    color: var(--crema);
-    padding: var(--spacing-lg);
-}
+   ========================================== */
 
 
 /* ==========================================
    8. NUESTRA FLOTA - GRID Y FLEXBOX
    ==========================================
    REFERENCIA (Semana 2, Reto 2):
-   El sitio actual usa la grilla de Bootstrap (row g-4 + col-*).
-   Se conserva comentado para documentar cómo se resolvía con
-   CSS propio antes de migrar a Bootstrap.
+   Esta sección documenta cómo se construía la flota
+   con CSS Grid + Flexbox antes de migrar a las cards
+   de Bootstrap (Semana 2, Retos 7 y 10). Se conserva
+   comentada como referencia de aprendizaje.
 
 .grid-flota {
     display: grid;
@@ -553,11 +546,9 @@ footer a:hover {
    9. PORTADA PRINCIPAL CON GRID
    ==========================================
    REFERENCIA (Semana 2, Reto 3):
-   En index.html la portada hoy la resuelve la grilla de Bootstrap.
-   Se conserva comentado por aprendizaje. Además, sobre la
-   versión vigente (grid Bootstrap) se aplica `min-height: 60vh`
-   al contenedor de la portada vía clase propia `.rl-portada`
-   (Reto 11 Sem.1).
+   En index.html la portada hoy la resuelve la grilla
+   de Bootstrap (row + col-lg-6). Se conserva comentado
+   como referencia de aprendizaje.
 
 .portada {
     display: grid;
@@ -591,18 +582,14 @@ footer a:hover {
 }
    ========================================== */
 
-/* Clase propia complementaria (Reto 12 Sem.2 + Reto 11 Sem.1) */
-.rl-portada {
-    min-height: 60vh;
-}
-
 
 /* ==========================================
    10. GALERÍA DE RUTAS CON GRID
    ==========================================
    REFERENCIA (Semana 2, Reto 3):
-   Hoy se usa `row g-4` + `col-md-4` de Bootstrap en index.html.
-   Se conserva comentado por aprendizaje.
+   Hoy la galería de rutas usa cards dentro de la
+   grilla de Bootstrap (row g-4 + col-md-4). Se
+   conserva comentado como referencia de aprendizaje.
 
 .galeria-rutas {
     display: grid;
@@ -644,8 +631,9 @@ footer a:hover {
    11. LAYOUT DE RESERVAS CON GRID
    ==========================================
    REFERENCIA (Semana 2, Reto 3):
-   Hoy reservas.html usa `col-12 col-md-8` + `col-12 col-md-4`
-   de Bootstrap. Se conserva comentado por aprendizaje.
+   Hoy reservas.html usa col-12 col-md-8 +
+   col-12 col-md-4 de Bootstrap. Se conserva comentado
+   como referencia de aprendizaje.
 
 .layout-reservas {
     display: grid;
@@ -678,8 +666,9 @@ footer a:hover {
    12. FILA DE CAMPOS CON FLEXBOX
    ==========================================
    REFERENCIA (Semana 2, Reto 3):
-   Hoy la fila de campos cortos del formulario usa la grilla
-   de Bootstrap (`row g-3` + `col-sm-6`). Se conserva comentado.
+   Hoy la fila de campos cortos del formulario usa
+   row g-3 + col-sm-6 de Bootstrap. Se conserva
+   comentado como referencia de aprendizaje.
 
 .fila-formulario {
     display: flex;
@@ -718,9 +707,10 @@ footer a:hover {
 
 /* ==========================================
    14. CLASES PROPIAS COMPLEMENTARIAS DE BOOTSTRAP
+   ==========================================
+   Se aplican SOBRE clases de Bootstrap, sin reemplazarlas.
+   Cumple Reto 12 Sem.2 (3 clases propias mínimo).
    ========================================== */
-/* Se aplican SOBRE clases de Bootstrap, sin reemplazarlas.
-   Cumple Reto 12 Sem.2 (3 clases propias mínimo). */
 
 /* Portada con altura mínima en vh (Reto 11 Sem.1) */
 .rl-portada {
@@ -744,13 +734,121 @@ footer a:hover {
     padding: var(--spacing-lg);
 }
 
+/* Imagen superior de las cards de flota y rutas (Reto 10 Sem.2) */
+.rl-card-img {
+    height: 180px;
+    object-fit: contain;
+    background-color: var(--crema);
+    padding: var(--spacing-sm);
+}
+
+/* Precio de las cards de flota (usa la variable de marca) */
+.card .precio {
+    color: var(--verde-ruta);
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   Carrusel de promociones (Reto 10 Sem.2)
+   ========================================== */
+
+/* Contenedor con fondo crema para que las imágenes
+   de producto (fondo blanco) se integren con la marca. */
+.rl-carrusel {
+    background-color: var(--crema);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Imagen del slide: contain para no recortar la bicicleta
+   y altura responsive por breakpoint. */
+.rl-carrusel-img {
+    height: 320px;
+    object-fit: contain;
+    background-color: var(--crema);
+    padding: var(--spacing-md);
+}
+
+/* Bloque de texto sólido debajo de la imagen (no superpuesto),
+   para que siempre sea legible sobre cualquier foto. */
+.rl-carrusel-texto {
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+}
+
+.rl-carrusel-texto h3 {
+    color: var(--crema);
+    margin: 0;
+}
+
+.rl-carrusel-texto p {
+    color: var(--crema);
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Controles con buen contraste sobre el fondo crema */
+.rl-carrusel .carousel-control-prev,
+.rl-carrusel .carousel-control-next {
+    width: 48px;
+    opacity: 1;
+}
+
+.rl-carrusel .carousel-control-prev-icon,
+.rl-carrusel .carousel-control-next-icon {
+    background-color: var(--verde-ruta);
+    border-radius: 50%;
+    padding: 1.25rem;
+    background-size: 55%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.rl-carrusel .carousel-indicators [data-bs-target] {
+    background-color: var(--azul-noche);
+    opacity: 0.35;
+}
+
+.rl-carrusel .carousel-indicators .active {
+    background-color: var(--verde-ruta);
+    opacity: 1;
+}
+
+/* Alturas responsive de la imagen del carrusel */
+@media (max-width: 991.98px) {
+    .rl-carrusel-img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .rl-carrusel-img {
+        height: 200px;
+        padding: var(--spacing-sm);
+    }
+
+    .rl-carrusel-texto {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .rl-carrusel-texto h3 {
+        font-size: 1rem;
+    }
+
+    .rl-carrusel-texto p {
+        font-size: 0.875rem;
+    }
+}
 
 /* ==========================================
    15. CORRECCIÓN DE RADIO Y CHECKBOX (sin !important)
    ==========================================
    Se sobreescriben solo las propiedades necesarias.
-   Bootstrap carga antes, así que estas reglas ganan por orden
-   de aparición (misma especificidad) sin recurrir a !important.
+   Bootstrap carga antes, así que estas reglas ganan por
+   orden de aparición (misma especificidad) sin recurrir
+   a !important.
    ========================================== */
 .form-check {
     position: relative;
