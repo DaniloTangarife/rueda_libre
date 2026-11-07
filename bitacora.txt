@@ -678,3 +678,35 @@ Integrar el framework Bootstrap (grilla y utilidades) en la página de inicio de
 * **Diagnóstico en DevTools:** Las reglas base de Bootstrap redefinían los tamaños y grosores predeterminados de los encabezados, alterando la jerarquía visual de la tipografía *Montserrat* definida para la identidad del sitio.
 * **Solución aplicada:** Se reforzó el marcado empleando clases tipográficas explícitas de Bootstrap (como `h3`, `fw-bold`, `lead`) en los títulos principales y subtítulos, armonizando los tamaños de fuente con el sistema de variables del proyecto.
 
+Migración Final - Rueda Libre v2.0-beta
+
+### 1. Objetivo del Reto
+Completar la migración a Bootstrap de todo el sitio web (incluyendo las páginas de *Tarifas* y *Reservas*), mantener la integridad completa de la hoja de estilos base con su identidad visual corporativa y documentar el informe cuantitativo y cualitativo comparando la versión anterior frente a la nueva versión basada en framework.
+
+---
+
+### 2. Informe Comparativo Final (v1.5 vs. v2.0)
+
+* **Líneas de código en `styles.css` (v1.5 - CSS Base Completo):** ~600 líneas
+* **Líneas de código en `styles.css` (v2.0 - CSS Consolidado):** ~600 líneas (conservando íntegramente las secciones de variables, componentes, tarjetas, formularios y tablas para mantener la consistencia visual total en todas las páginas secundarias).
+* **Tiempo invertido en v1.5 (Desarrollo manual de grillas con Flexbox/Grid):** ~5.5 horas.
+* **Tiempo invertido en v2.0 (Migración a Bootstrap y adaptación de vistas):** ~2 horas.
+
+---
+
+### 3. Ventajas y Desventajas Observadas
+
+* **Ventajas:**
+  - **Eficiencia en maquetación:** Las clases nativas de Bootstrap (`row`, `col`, `g-4`, utilidades de formularios) aceleraron drásticamente la construcción de la grilla 8/4 en reservas y la distribución en dos columnas de tarifas.
+  - **Responsividad nativa garantizada:** Se delegó la adaptabilidad móvil (360px), tablet (768px) y escritorio (1280px) al framework, asegurando una visualización fluida.
+  - **Validación robusta:** Las reglas de validación nativa de HTML5 se integraron armónicamente con las clases de formulario de Bootstrap.
+
+* **Desventajas:**
+  - **Verbosidad en el HTML:** El marcado se vuelve más extenso al incorporar múltiples clases de utilidad para espaciados y alineaciones directamente en las etiquetas.
+  - **Control de Cascada:** Requirió un orden estricto de carga en el `<head>` para asegurar que los estilos de la marca predominaran sobre los valores por defecto del framework sin requerir la regla `!important`.
+
+---
+
+### 4. Conclusión del Director / Equipo Técnico
+La transición a **Rueda Libre v2.0-beta** ha sido completamente exitosa. Al mantener la hoja de estilos con todas sus secciones originales y combinarla con la grilla y utilidades de Bootstrap, se logró preservar intacta la identidad visual corporativa del negocio. Las páginas de inicio, tarifas y reservas operan de forma impecable en los tres anchos de control evaluados, cumpliendo rigurosamente con los estándares de accesibilidad, validación y diseño responsivo exigidos por Nodo Digital. La versión se encuentra empaquetada, validada y publicada mediante **GitHub Pages**.
+
