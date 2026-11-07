@@ -636,3 +636,16 @@ A combinar la validación nativa HTML con la validación visual de Bootstrap
 (needs-validation + invalid-feedback) y a integrar los componentes alert y
 modal con texto y comportamiento accesibles.
 
+------------------------------------------
+MINIRETO 12 — Rueda Libre v2.0: con identidad propia
+------------------------------------------
+
+¿Qué hice?
+- Sobrescribí las variables globales de Bootstrap en css/styles.css:
+  --bs-primary, --bs-primary-rgb, --bs-body-font-family, --bs-link-color,
+  --bs-link-hover-color, --bs-border-radius, --bs-heading-color y las
+  variables del botón (--bs-btn-bg, --bs-btn-hover-bg, --bs-btn-active-bg, etc.).
+- Creé la variante .btn-rl-accent con Naranja Pedal y texto Az
+
+![Antes - v1.5](img/capturas/antes-v1.5.png)
+![Después - v2.0](img/capturas/despues-v2.0.png)
