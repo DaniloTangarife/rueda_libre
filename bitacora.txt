@@ -1029,3 +1029,29 @@ Verificación de enlaces:
 
 Quedó pendiente: Nada crítico. Todo funciona en local y en línea.
 
+------------------------------------------
+MINIRETO 11 (Semana 3) — Sección de Planes
+------------------------------------------
+
+Tiempo real invertido: 32 minutos (dentro del límite de 45).
+Quedó pendiente: Nada crítico. Todo funciona y se ve bien.
+
+¿Qué hice?
+- Creé la sección #planes con una cuadrícula de 1 columna en móvil y 3 columnas desde lg (grid-cols-1 lg:grid-cols-3 gap-8 items-stretch).
+- Cada card es un <article> con display flex en columna (flex flex-col). El contenido principal tiene flex-1 y el botón está en un div con mt-auto, lo que garantiza que las tres cards tengan la misma altura y sus botones queden alineados en la misma línea.
+- La lista de beneficios usa flex flex-col gap-3, con íconos SVG (check) alineados con flex items-start gap-2.
+- Destacado del plan Pareja:
+  · Borde más grueso: border-2 border-amarillo-farol.
+  · Fondo distinto: bg-amarillo-farol/5 dark:bg-amarillo-farol/10.
+  · Etiqueta "Más elegido": un div posicionado absolutamente sobre el borde superior con bg-amarillo-farol, que no afecta el flujo de las demás cards.
+  · Elevación visual con lg:-translate-y-2 y shadow-xl.
+- Utilicé los botones del kit: btn-primary para Individual y Grupo, y btn-secondary (amarillo) para Pareja, manteniendo la coherencia visual.
+- Modo oscuro: todos los fondos, textos y bordes usan las variantes dark: correspondientes.
+
+Verificación en DevTools:
+- En escritorio las tres cards tienen el mismo ancho (medido en Computed: 320px cada una) y el mismo padding (p-6 md:p-8).
+- Los tres botones están en la misma línea horizontal.
+- En móvil, las cards se apilan en una columna sin scroll horizontal.
+- El plan Pareja se distingue por color (borde amarillo, fondo tenue) y por texto (etiqueta "Más elegido").
+- Contraste en modo oscuro: el fondo amarillo translúcido mantiene el texto legible.
+
