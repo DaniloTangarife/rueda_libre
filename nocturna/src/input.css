@@ -1,32 +1,43 @@
 @import "tailwindcss";
 
-/* 
-  Configuración del tema de la marca Rueda Libre 
-  Para la campaña Rueda Nocturna
-*/
+/* ==========================================
+   TEMA DE MARCA (Rueda Nocturna)
+   ========================================== */
 @theme {
-  /* Colores de la marca (base) */
   --color-verde-ruta: #1E7A4F;
   --color-verde-hover: #155C3B;
   --color-naranja-pedal: #F39A2B;
   --color-azul-noche: #14213D;
   --color-crema: #FAF6EF;
   --color-gris-asfalto: #5B6470;
-
-  /* Color nuevo de la campaña */
   --color-amarillo-farol: #FFD166;
 
-  /* Tipografías de la marca */
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Open Sans", sans-serif;
 
-  /* Variante Dark (para usar con dark:bg-*) */
-  --color-dark-bg: #0B1121;       /* Fondo general oscuro (más profundo que Azul Noche) */
-  --color-dark-surface: #14213D;  /* Superficie de cards (Azul Noche) */
-  --color-dark-border: #1F2E52;   /* Bordes sutiles */
-  --color-dark-text: #FAF6EF;     /* Texto principal claro (Crema) */
-  --color-dark-muted: #9CA3AF;    /* Texto secundario en oscuro */
-  
-  /* Variante Dark para el color de acento (Verde Ruta brillante para contraste) */
-  --color-dark-verde: #2E9B64; 
+  --color-dark-bg: #0B1121;
+  --color-dark-surface: #14213D;
+  --color-dark-border: #1F2E52;
+  --color-dark-text: #FAF6EF;
+  --color-dark-muted: #9CA3AF;
+}
+
+/* ==========================================
+   COMPONENTES REUTILIZABLES (@apply)
+   ========================================== */
+@layer components {
+  /* Botón Principal (Verde Ruta / Hover Verde Oscuro) */
+  .btn-primary {
+    @apply inline-block bg-verde-ruta hover:bg-verde-hover focus:outline-none focus:ring-4 focus:ring-verde-ruta/50 text-white text-sm font-heading font-bold px-5 py-2.5 rounded-full shadow-lg transition-colors duration-200;
+  }
+
+  /* Botón Secundario (Amarillo Farol / Hover Opacidad) */
+  .btn-secondary {
+    @apply inline-block bg-amarillo-farol hover:bg-amarillo-farol/90 focus:outline-none focus:ring-4 focus:ring-amarillo-farol/50 text-azul-noche text-sm font-heading font-bold px-5 py-2.5 rounded-full shadow-lg transition-colors duration-200;
+  }
+
+  /* Etiqueta de Nivel (Píldora redondeada con texto pequeño) */
+  .badge-level {
+    @apply inline-block rounded-full text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 w-max;
+  }
 }

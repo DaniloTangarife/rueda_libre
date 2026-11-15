@@ -926,3 +926,48 @@ Verificación en DevTools:
 ¿Qué aprendí?
 A personalizar el tema de Tailwind con @theme, generando utilidades propias a partir de variables CSS, y a implementar modo oscuro con la variante dark: asegurando que las combinaciones de color cumplan con los estándares de accesibilidad (WCAG).
 
+------------------------------------------
+MINIRETO 8 (Semana 3) — Refactorización y comparativa de frameworks
+------------------------------------------
+
+1. Identificación de clases repetidas
+Al revisar la landing, las clases que más se repetían eran:
+- Los botones principales (Inscríbete): 4 veces con 15 clases idénticas.
+- Las etiquetas de nivel (badge): 3 veces con 11 clases casi idénticas.
+- Las clases de fondo de las cards: 3 veces con 9 clases idénticas.
+
+2. Refactorización con @apply
+Para limpiar el HTML, creé tres clases personalizadas en la capa de componentes (`@layer components` en `input.css`):
+- `.btn-primary`: botón verde de acción principal.
+- `.btn-secondary`: botón amarillo farol (CTA de la franja).
+- `.badge-level`: etiqueta redondeada para el nivel de dificultad.
+El HTML pasó de tener botones con 15 clases a solo 1 clase. Esto mejora la legibilidad, no rompe el modo oscuro y la página se ve exactamente igual que antes.
+
+3. Generación del CSS minificado y medición
+Para medir el tamaño real del CSS de Tailwind, ejecuté el CLI con la opción `--minify`:
+    npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify
+Luego abrí la landing en el navegador y, en DevTools → Network, filtré por "CSS" y "JS":
+- CSS de Tailwind (output.css minificado): ~18 KB.
+- JS de Tailwind: 0 KB (Tailwind no usa JavaScript por defecto).
+
+En la versión principal (v2.0 con Bootstrap), al revisar Network para la misma landing, el peso era:
+- Bootstrap CSS (v5.3.3 CDN minificado): ~232 KB.
+- Bootstrap JS Bundle (v5.3.3 CDN minificado): ~80 KB.
+- Total aproximado en la v2.0: ~312 KB solo en el framework.
+
+4. Comparativa de frameworks (Bootstrap vs Tailwind)
+
+| Criterio | Bootstrap (v2.0) | Tailwind (v3 Nocturna) |
+|----------|------------------|--------------------------|
+| Curva de aprendizaje | Baja al inicio (clases como btn, card listas para usar), pero alta si quieres personalizar profundo (peleas con especificidad y !important). | Media-alta al inicio (debes conocer las utilidades), pero una vez entiendes el sistema, el control es total y no hay CSS "basura". |
+| Personalización | Limitada. Para salir del diseño estándar tienes que sobrescribir variables (--bs-*) o escribir CSS propio, lo que a veces genera conflictos de cascada. | Total. El @theme permite definir exactamente los colores, fuentes y espaciados de la marca, y las utilidades se generan a partir de ahí. |
+| Tamaño final | Pesado. El CSS y JS de Bootstrap suman ~312 KB (cargando todo el framework). | Ligero. Tailwind genera CSS on-demand: solo lo que usas. El archivo minificado para esta landing pesa ~18 KB y no requiere JS. |
+| Casos de uso | Ideal para prototipos rápidos, paneles de administración o proyectos donde la identidad visual no es prioridad y se necesita velocidad. | Ideal para sitios con identidad de marca fuerte, landings de campaña, o cuando el rendimiento y el peso del CSS son críticos. |
+
+5. Recomendación para Rueda Libre
+Recomiendo Tailwind CSS para la próxima versión de todo el sitio de Rueda Libre.
+Razones basadas en los datos:
+- El peso: Tailwind reduce el peso del framework en más de un 90 % (18 KB vs 312 KB), lo que mejora los tiempos de carga, especialmente en celulares (que es el 70 % del tráfico de la campaña).
+- La identidad: Rueda Libre tiene una paleta de marca muy definida (Verde Ruta, Naranja Pedal, etc.) y Tailwind con @theme permite aplicarla de forma consistente sin conflictos.
+- La curva: aunque requiere aprender las utilidades, el equipo ya tiene experiencia con ambas herramientas, y la curva se compensa con creces con el control y la limpieza del HTML resultante.
+

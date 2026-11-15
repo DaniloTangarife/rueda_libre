@@ -6,33 +6,30 @@
     <meta name="description" content="Rueda Nocturna: descubre Medellín en bici cuando se encienden las luces. Nuevo, jueves a sábado.">
     <title>Rueda Nocturna | Rueda Libre</title>
 
-    <!-- Google Fonts: Montserrat y Open Sans -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- CSS generado por Tailwind CLI -->
     <link href="./src/output.css" rel="stylesheet">
 </head>
 <body class="font-body bg-crema text-azul-noche dark:bg-dark-bg dark:text-dark-text antialiased transition-colors duration-300">
 
-    <!-- ============ ENCABEZADO (Header) ============ -->
+    <!-- ============ ENCABEZADO ============ -->
     <header class="border-b border-gris-asfalto/20 bg-azul-noche dark:bg-dark-bg dark:border-dark-border transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
-            <!-- Logo -->
+            
             <a href="#" class="text-xl font-heading font-extrabold text-crema tracking-tight">
                 Rueda<span class="text-amarillo-farol">Nocturna</span>
             </a>
 
-            <!-- Navegación -->
             <nav class="flex items-center gap-6">
                 <div class="hidden md:flex items-center gap-6">
                     <a href="#rutas" class="text-sm font-semibold text-crema/80 hover:text-crema transition-colors">Rutas</a>
                     <a href="#como-funciona" class="text-sm font-semibold text-crema/80 hover:text-crema transition-colors">¿Cómo funciona?</a>
                 </div>
-                <a href="#inscripcion" class="inline-block bg-amarillo-farol hover:bg-amarillo-farol/90 focus:outline-none focus:ring-4 focus:ring-amarillo-farol/50 text-azul-noche text-sm font-heading font-bold px-5 py-2.5 rounded-full shadow-lg shadow-amarillo-farol/30 transition-all duration-200">
-                    Inscríbete
-                </a>
+                <!-- Botón Refactorizado -->
+                <a href="#inscripcion" class="btn-secondary">Inscríbete</a>
             </nav>
         </div>
     </header>
@@ -42,7 +39,7 @@
         <section class="bg-azul-noche dark:bg-dark-bg transition-colors duration-300">
             <div class="max-w-5xl mx-auto px-6 py-20 md:py-32 flex items-center justify-center min-h-[70vh]">
                 <div class="w-full max-w-3xl space-y-8 text-center md:text-left">
-                    <span class="inline-block rounded-full bg-amarillo-farol text-azul-noche text-xs font-heading font-bold uppercase tracking-widest px-4 py-1 shadow-sm">
+                    <span class="inline-block bg-amarillo-farol text-azul-noche text-xs font-heading font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-sm">
                         Nuevo · Jueves a sábado
                     </span>
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold leading-tight tracking-tight text-crema">
@@ -68,7 +65,7 @@
         <!-- ============ SECCIÓN RUTAS ============ -->
         <section id="rutas" class="max-w-5xl mx-auto px-6 py-16 md:py-24">
             <div class="text-center mb-10 space-y-2">
-                <span class="inline-block rounded-full bg-verde-ruta/10 dark:bg-verde-ruta/20 text-verde-ruta dark:text-verde-ruta text-xs font-heading font-bold uppercase tracking-widest px-4 py-1">
+                <span class="inline-block bg-verde-ruta/10 dark:bg-verde-ruta/20 text-verde-ruta dark:text-verde-ruta text-xs font-heading font-bold uppercase tracking-widest px-4 py-1 rounded-full">
                     Jueves a sábado · 7:00 p. m.
                 </span>
                 <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-azul-noche dark:text-crema">Rutas</h2>
@@ -80,7 +77,8 @@
                 <article class="bg-white dark:bg-dark-surface border border-gris-asfalto/20 dark:border-dark-border rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-verde-ruta/50 transition-all duration-300 flex flex-col">
                     <img src="../img/ciudad_rio.jpg" alt="Decoración navidad sobre el río Medellín" class="w-full h-56 object-cover">
                     <div class="p-6 space-y-4 flex-1 flex flex-col">
-                        <span class="inline-block rounded-full bg-verde-ruta/10 text-verde-ruta dark:bg-verde-ruta/20 dark:text-verde-ruta text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 w-max">Nivel: Fácil</span>
+                        <!-- Etiqueta Refactorizada -->
+                        <span class="badge-level bg-verde-ruta/10 text-verde-ruta dark:bg-verde-ruta/20 dark:text-verde-ruta">Nivel: Fácil</span>
                         <h3 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Ciudad del Río</h3>
                         <dl class="space-y-2 text-sm flex-1 font-body">
                             <div class="flex justify-between border-b border-gris-asfalto/20 dark:border-dark-border pb-2">
@@ -98,7 +96,8 @@
                         </dl>
                         <div class="flex items-center justify-between pt-2">
                             <p class="text-2xl font-heading font-extrabold text-verde-ruta dark:text-verde-ruta">$55.000</p>
-                            <a href="../paginas/reservas.html" class="inline-block bg-verde-ruta hover:bg-verde-hover focus:outline-none focus:ring-4 focus:ring-verde-ruta/50 text-white text-sm font-heading font-bold px-5 py-2.5 rounded-full shadow-lg transition-colors duration-200">Inscríbete</a>
+                            <!-- Botón Refactorizado -->
+                            <a href="../paginas/reservas.html" class="btn-primary">Inscríbete</a>
                         </div>
                     </div>
                 </article>
@@ -107,7 +106,7 @@
                 <article class="bg-white dark:bg-dark-surface border border-gris-asfalto/20 dark:border-dark-border rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-naranja-pedal/50 transition-all duration-300 flex flex-col">
                     <img src="../img/mirador.jpg" alt="Un mirador de Medellín" class="w-full h-56 object-cover">
                     <div class="p-6 space-y-4 flex-1 flex flex-col">
-                        <span class="inline-block rounded-full bg-naranja-pedal/10 text-naranja-pedal dark:bg-naranja-pedal/20 dark:text-naranja-pedal text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 w-max">Nivel: Medio</span>
+                        <span class="badge-level bg-naranja-pedal/10 text-naranja-pedal dark:bg-naranja-pedal/20 dark:text-naranja-pedal">Nivel: Medio</span>
                         <h3 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Miradores de la Ciudad</h3>
                         <dl class="space-y-2 text-sm flex-1 font-body">
                             <div class="flex justify-between border-b border-gris-asfalto/20 dark:border-dark-border pb-2">
@@ -125,7 +124,7 @@
                         </dl>
                         <div class="flex items-center justify-between pt-2">
                             <p class="text-2xl font-heading font-extrabold text-verde-ruta dark:text-verde-ruta">$75.000</p>
-                            <a href="../paginas/reservas.html" class="inline-block bg-verde-ruta hover:bg-verde-hover focus:outline-none focus:ring-4 focus:ring-verde-ruta/50 text-white text-sm font-heading font-bold px-5 py-2.5 rounded-full shadow-lg transition-colors duration-200">Inscríbete</a>
+                            <a href="../paginas/reservas.html" class="btn-primary">Inscríbete</a>
                         </div>
                     </div>
                 </article>
@@ -134,7 +133,7 @@
                 <article class="bg-white dark:bg-dark-surface border border-gris-asfalto/20 dark:border-dark-border rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-gris-asfalto/50 transition-all duration-300 flex flex-col">
                     <img src="../img/palmas.jpg" alt="Las Palmas Medellín" class="w-full h-56 object-cover">
                     <div class="p-6 space-y-4 flex-1 flex flex-col">
-                        <span class="inline-block rounded-full bg-gris-asfalto/10 text-gris-asfalto dark:bg-gris-asfalto/30 dark:text-crema text-xs font-heading font-bold uppercase tracking-widest px-3 py-1 w-max">Nivel: Difícil</span>
+                        <span class="badge-level bg-gris-asfalto/10 text-gris-asfalto dark:bg-gris-asfalto/30 dark:text-crema">Nivel: Difícil</span>
                         <h3 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Luna en Las Palmas</h3>
                         <dl class="space-y-2 text-sm flex-1 font-body">
                             <div class="flex justify-between border-b border-gris-asfalto/20 dark:border-dark-border pb-2">
@@ -152,7 +151,7 @@
                         </dl>
                         <div class="flex items-center justify-between pt-2">
                             <p class="text-2xl font-heading font-extrabold text-verde-ruta dark:text-verde-ruta">$95.000</p>
-                            <a href="../paginas/reservas.html" class="inline-block bg-verde-ruta hover:bg-verde-hover focus:outline-none focus:ring-4 focus:ring-verde-ruta/50 text-white text-sm font-heading font-bold px-5 py-2.5 rounded-full shadow-lg transition-colors duration-200">Inscríbete</a>
+                            <a href="../paginas/reservas.html" class="btn-primary">Inscríbete</a>
                         </div>
                     </div>
                 </article>
@@ -199,9 +198,8 @@
                     <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-azul-noche">¿Listo para rodar?</h2>
                     <p class="text-azul-noche/80 text-lg font-semibold">Los cupos son limitados. Asegura tu lugar en la próxima ruta.</p>
                 </div>
-                <a href="../paginas/reservas.html" class="inline-block bg-azul-noche hover:bg-azul-noche/90 text-crema text-lg font-heading font-bold px-8 py-4 rounded-full shadow-lg transition-colors duration-200 whitespace-nowrap">
-                    Inscríbete ahora
-                </a>
+                <!-- Botón Refactorizado (usa btn-secondary pero con tamaño más grande) -->
+                <a href="../paginas/reservas.html" class="btn-secondary text-lg px-8 py-4">Inscríbete ahora</a>
             </div>
         </section>
     </main>
