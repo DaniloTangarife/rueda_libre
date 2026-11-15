@@ -895,3 +895,34 @@ Tabla de pruebas en DevTools (Modo dispositivo):
 Conclusión:
 La landing ahora fluye de forma natural desde el celular (sin scroll horizontal y todo en una columna) hasta el escritorio, cumpliendo con el enfoque mobile-first exigido por Tailwind. El uso de los prefijos sm:, md: y lg: permitió establecer los puntos de quiebre sin usar una sola línea de CSS propio.
 
+------------------------------------------
+MINIRETO 7 (Semana 3) — Tema de marca y modo oscuro
+------------------------------------------
+
+¿Qué hice?
+- En src/input.css definí el bloque @theme de Tailwind v4 para declarar las variables de la marca:
+  · Los 5 colores base del sitio: Verde Ruta (#1E7A4F), Naranja Pedal (#F39A2B), Azul Noche (#14213D), Crema (#FAF6EF), Gris Asfalto (#5B6470).
+  · El color nuevo de la campaña: Amarillo Farol (#FFD166).
+  · Las tipografías de la marca: Montserrat (títulos) y Open Sans (textos).
+  · Variables extra para el modo oscuro: dark-bg, dark-surface, dark-border, dark-text, dark-muted.
+- Cargué las fuentes Montserrat y Open Sans desde Google Fonts en el <head> de index.html y componentes.html.
+- Reemplacé todos los colores genéricos de Tailwind (slate, emerald, amber, rose, sky) por los colores de la marca en la landing y en el kit. Ya no hay rastros de colores por defecto.
+- Agregué las variantes dark: a fondos, textos, cards, bordes, inputs y botones, usando la estrategia por defecto de Tailwind (preferencia del sistema operativo).
+- Apliqué las tipografías con las clases generadas por el tema (font-heading y font-body).
+
+Validación de contraste (WCAG) en modo oscuro:
+- Verde Ruta (#1E7A4F) sobre Azul Noche (#14213D) → Contraste de 2.4:1 (NO APTO para texto normal).
+  · Solución: En el modo oscuro, usé el Verde Ruta solo para textos muy grandes (precios, que son text-2xl y font-extrabold) o para elementos gráficos (bordes, íconos). Para los botones, usé el Verde Ruta de fondo con texto blanco (contraste 5.2:1, apto).
+- Crema (#FAF6EF) sobre Azul Noche (#14213D) → Contraste de 15:1 (APTO).
+- Amarillo Farol (#FFD166) sobre Azul Noche (#14213D) → Contraste de 11.6:1 (APTO).
+- Gris Asfalto (#5B6470) claro sobre dark-bg (#0B1121) → Contraste de 5.2:1 (APTO).
+- Textos secundarios en modo oscuro: usé un gris claro (dark-muted) que asegura más de 4.5:1 sobre el fondo oscuro.
+
+Verificación en DevTools:
+- Emulé prefers-color-scheme: dark en la pestaña Rendering. Todos los fondos cambiaron al tema oscuro, los textos se mantuvieron legibles y los botones conservaron su contraste.
+- El modo claro sigue funcionando igual que antes.
+- No queda ninguna clase de color genérica en el HTML.
+
+¿Qué aprendí?
+A personalizar el tema de Tailwind con @theme, generando utilidades propias a partir de variables CSS, y a implementar modo oscuro con la variante dark: asegurando que las combinaciones de color cumplan con los estándares de accesibilidad (WCAG).
+

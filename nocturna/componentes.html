@@ -6,84 +6,81 @@
     <meta name="description" content="Kit de componentes de Rueda Nocturna: botones, cards, alertas y campos de formulario.">
     <title>Kit de componentes | Rueda Nocturna</title>
 
-    <!-- CSS generado por Tailwind CLI -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link href="./src/output.css" rel="stylesheet">
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
+<body class="font-body bg-crema text-azul-noche dark:bg-dark-bg dark:text-dark-text antialiased transition-colors duration-300">
 
-    <!-- ===== ENCABEZADO DE LA PÁGINA ===== -->
     <header class="px-6 py-16 max-w-5xl mx-auto text-center space-y-4">
-        <span class="inline-block rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-widest px-4 py-1">
+        <span class="inline-block rounded-full bg-verde-ruta/10 text-verde-ruta dark:bg-verde-ruta/20 dark:text-verde-ruta text-xs font-heading font-bold uppercase tracking-widest px-4 py-1">
             Design System · v1
         </span>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white">Kit de componentes</h1>
-        <p class="text-slate-400 max-w-2xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-azul-noche dark:text-crema">Kit de componentes</h1>
+        <p class="text-gris-asfalto dark:text-dark-muted max-w-2xl mx-auto">
             Todos los componentes de Rueda Nocturna reunidos en una sola página para verificar consistencia antes de armar la landing.
         </p>
     </header>
 
     <main class="px-6 pb-24 max-w-5xl mx-auto space-y-16">
 
-        <!-- =============================================
-             1. BOTONES
-             ============================================= -->
+        <!-- 1. BOTONES -->
         <section class="space-y-6">
-            <div class="border-l-4 border-emerald-500 pl-4">
-                <h2 class="text-2xl font-bold text-white">Botones</h2>
-                <p class="text-slate-400 text-sm">Tres variantes del kit con hover y focus visible.</p>
+            <div class="border-l-4 border-verde-ruta pl-4">
+                <h2 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Botones</h2>
+                <p class="text-gris-asfalto dark:text-dark-muted text-sm">Tres variantes del kit con hover y focus visible.</p>
             </div>
 
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-                <p class="text-xs uppercase tracking-widest text-slate-500 font-semibold">Variantes</p>
+            <div class="bg-white dark:bg-dark-surface border border-gris-asfalto/20 dark:border-dark-border rounded-2xl p-6 space-y-4 transition-colors duration-300">
+                <p class="text-xs uppercase tracking-widest text-gris-asfalto dark:text-dark-muted font-semibold">Variantes</p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#" class="inline-block bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/50 text-slate-900 text-lg font-bold px-8 py-4 rounded-full shadow-lg shadow-emerald-500/30 transition-colors duration-200">
+                    <a href="#" class="inline-block bg-verde-ruta hover:bg-verde-hover focus:outline-none focus:ring-4 focus:ring-verde-ruta/50 text-white text-lg font-heading font-bold px-8 py-4 rounded-full shadow-lg transition-colors duration-200">
                         Inscríbete
                     </a>
-                    <a href="#" class="inline-block bg-amber-400 hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-300/50 text-slate-900 text-lg font-bold px-8 py-4 rounded-full shadow-lg shadow-amber-500/30 transition-colors duration-200">
+                    <a href="#" class="inline-block bg-amarillo-farol hover:bg-amarillo-farol/90 focus:outline-none focus:ring-4 focus:ring-amarillo-farol/50 text-azul-noche text-lg font-heading font-bold px-8 py-4 rounded-full shadow-lg transition-colors duration-200">
                         Más información
                     </a>
-                    <a href="#" class="inline-block border-2 border-slate-500 hover:border-white hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-400/50 text-slate-100 text-lg font-bold px-8 py-4 rounded-full transition-colors duration-200">
+                    <a href="#" class="inline-block border-2 border-azul-noche dark:border-crema hover:bg-azul-noche/10 dark:hover:bg-crema/10 focus:outline-none focus:ring-4 focus:ring-azul-noche/50 text-azul-noche dark:text-crema text-lg font-heading font-bold px-8 py-4 rounded-full transition-colors duration-200">
                         Contacto
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- =============================================
-             2. CARD
-             ============================================= -->
+        <!-- 2. CARD -->
         <section class="space-y-6">
-            <div class="border-l-4 border-emerald-500 pl-4">
-                <h2 class="text-2xl font-bold text-white">Card</h2>
-                <p class="text-slate-400 text-sm">Estructura reutilizable del MiniReto 3.</p>
+            <div class="border-l-4 border-verde-ruta pl-4">
+                <h2 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Card</h2>
+                <p class="text-gris-asfalto dark:text-dark-muted text-sm">Estructura reutilizable del MiniReto 3.</p>
             </div>
 
-            <article class="max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-emerald-500/50 transition-all duration-300">
-                <img src="../img/ciudad_rio.jpg"
-                     alt="Ciclistas en la ruta Luces del Centro"
-                     class="w-full h-56 object-cover">
+            <article class="max-w-2xl bg-white dark:bg-dark-surface border border-gris-asfalto/20 dark:border-dark-border rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-verde-ruta/50 transition-all duration-300">
+                <img src="../img/ciudad_rio.jpg" alt="Ciclistas en la ruta Luces del Centro" class="w-full h-56 object-cover">
                 <div class="p-6 space-y-4">
-                    <span class="inline-block rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-widest px-3 py-1">
+                    <span class="inline-block rounded-full bg-verde-ruta/10 text-verde-ruta dark:bg-verde-ruta/20 dark:text-verde-ruta text-xs font-heading font-bold uppercase tracking-widest px-3 py-1">
                         Nivel: Fácil
                     </span>
-                    <h3 class="text-2xl font-bold text-white">Ciudad del Río</h3>
-                    <dl class="space-y-2 text-sm">
-                        <div class="flex justify-between border-b border-slate-800 pb-2">
-                            <dt class="text-slate-400 uppercase tracking-wider text-xs">Distancia</dt>
-                            <dd class="text-white font-semibold">10 km</dd>
+                    <h3 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Ciudad del Río</h3>
+                    <dl class="space-y-2 text-sm font-body">
+                        <div class="flex justify-between border-b border-gris-asfalto/20 dark:border-dark-border pb-2">
+                            <dt class="text-gris-asfalto dark:text-dark-muted uppercase tracking-wider text-xs">Distancia</dt>
+                            <dd class="text-azul-noche dark:text-crema font-semibold">10 km</dd>
                         </div>
-                        <div class="flex justify-between border-b border-slate-800 pb-2">
-                            <dt class="text-slate-400 uppercase tracking-wider text-xs">Duración</dt>
-                            <dd class="text-white font-semibold">2 h</dd>
+                        <div class="flex justify-between border-b border-gris-asfalto/20 dark:border-dark-border pb-2">
+                            <dt class="text-gris-asfalto dark:text-dark-muted uppercase tracking-wider text-xs">Duración</dt>
+                            <dd class="text-azul-noche dark:text-crema font-semibold">2 h</dd>
                         </div>
                         <div class="flex justify-between">
-                            <dt class="text-slate-400 uppercase tracking-wider text-xs">Punto de encuentro</dt>
-                            <dd class="text-white font-semibold">Sede Rueda Libre</dd>
+                            <dt class="text-gris-asfalto dark:text-dark-muted uppercase tracking-wider text-xs">Punto de encuentro</dt>
+                            <dd class="text-azul-noche dark:text-crema font-semibold">Sede Rueda Libre</dd>
                         </div>
                     </dl>
                     <div class="flex items-center justify-between pt-2">
-                        <p class="text-2xl font-extrabold text-emerald-400">$55.000</p>
-                        <a href="#" class="inline-block bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/50 text-slate-900 text-sm font-bold px-5 py-2.5 rounded-full shadow-lg shadow-emerald-500/30 transition-colors duration-200">
+                        <p class="text-2xl font-heading font-extrabold text-verde-ruta dark:text-verde-ruta">$55.000</p>
+                        <a href="#" class="inline-block bg-verde-ruta hover:bg-verde-hover focus:outline-none focus:ring-4 focus:ring-verde-ruta/50 text-white text-sm font-heading font-bold px-5 py-2.5 rounded-full shadow-lg transition-colors duration-200">
                             Inscríbete
                         </a>
                     </div>
@@ -91,76 +88,59 @@
             </article>
         </section>
 
-        <!-- =============================================
-             3. ALERTAS
-             ============================================= -->
+        <!-- 3. ALERTAS -->
         <section class="space-y-6">
-            <div class="border-l-4 border-emerald-500 pl-4">
-                <h2 class="text-2xl font-bold text-white">Alertas</h2>
-                <p class="text-slate-400 text-sm">Tres variantes: información, éxito y advertencia.</p>
+            <div class="border-l-4 border-verde-ruta pl-4">
+                <h2 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Alertas</h2>
+                <p class="text-gris-asfalto dark:text-dark-muted text-sm">Tres variantes: información, éxito y advertencia.</p>
             </div>
 
             <div class="space-y-4">
-
-                <!-- Alerta INFO: borde lateral azul -->
-                <div class="bg-sky-500/10 border-l-4 border-sky-500 rounded-lg p-4 pl-5">
-                    <h3 class="text-sky-300 font-bold mb-1">Información</h3>
-                    <p class="text-slate-300 text-sm">Las inscripciones cierran 24 horas antes de cada ruta.</p>
+                <!-- Alerta INFO: usando gris asfalto -->
+                <div class="bg-gris-asfalto/10 border-l-4 border-gris-asfalto rounded-lg p-4 pl-5 dark:bg-gris-asfalto/20 dark:border-gris-asfalto/50">
+                    <h3 class="text-gris-asfalto dark:text-crema font-heading font-bold mb-1">Información</h3>
+                    <p class="text-azul-noche/80 dark:text-dark-muted text-sm">Las inscripciones cierran 24 horas antes de cada ruta.</p>
                 </div>
 
-                <!-- Alerta ÉXITO: borde lateral verde, role="status" para lectores -->
-                <div role="status"
-                     class="bg-emerald-500/10 border-l-4 border-emerald-500 rounded-lg p-4 pl-5">
-                    <h3 class="text-emerald-300 font-bold mb-1">Inscripción confirmada</h3>
-                    <p class="text-slate-300 text-sm">Tu cupo en la ruta Ciudad del Río está reservado. Te esperamos el jueves.</p>
+                <!-- Alerta ÉXITO: Verde Ruta -->
+                <div role="status" class="bg-verde-ruta/10 border-l-4 border-verde-ruta rounded-lg p-4 pl-5 dark:bg-verde-ruta/20">
+                    <h3 class="text-verde-ruta font-heading font-bold mb-1">Inscripción confirmada</h3>
+                    <p class="text-azul-noche/80 dark:text-dark-muted text-sm">Tu cupo en la ruta Ciudad del Río está reservado. Te esperamos el jueves.</p>
                 </div>
 
-                <!-- Alerta ADVERTENCIA: borde lateral ámbar -->
-                <div class="bg-amber-500/10 border-l-4 border-amber-500 rounded-lg p-4 pl-5">
-                    <h3 class="text-amber-300 font-bold mb-1">Advertencia</h3>
-                    <p class="text-slate-300 text-sm">Lleva ropa reflectiva. La ruta por Las Palmas tiene ascensos exigentes.</p>
+                <!-- Alerta ADVERTENCIA: Naranja Pedal -->
+                <div class="bg-naranja-pedal/10 border-l-4 border-naranja-pedal rounded-lg p-4 pl-5 dark:bg-naranja-pedal/20">
+                    <h3 class="text-naranja-pedal font-heading font-bold mb-1">Advertencia</h3>
+                    <p class="text-azul-noche/80 dark:text-dark-muted text-sm">Lleva ropa reflectiva. La ruta por Las Palmas tiene ascensos exigentes.</p>
                 </div>
-
             </div>
         </section>
 
-        <!-- =============================================
-             4. CAMPOS DE FORMULARIO
-             ============================================= -->
+        <!-- 4. CAMPOS DE FORMULARIO -->
         <section class="space-y-6">
-            <div class="border-l-4 border-emerald-500 pl-4">
-                <h2 class="text-2xl font-bold text-white">Campos de formulario</h2>
-                <p class="text-slate-400 text-sm">Etiqueta visible, borde, relleno, placeholder, texto de ayuda y foco visible.</p>
+            <div class="border-l-4 border-verde-ruta pl-4">
+                <h2 class="text-2xl font-heading font-bold text-azul-noche dark:text-crema">Campos de formulario</h2>
+                <p class="text-gris-asfalto dark:text-dark-muted text-sm">Etiqueta visible, borde, relleno, placeholder, texto de ayuda y foco visible.</p>
             </div>
 
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6 max-w-xl">
+            <div class="bg-white dark:bg-dark-surface border border-gris-asfalto/20 dark:border-dark-border rounded-2xl p-6 space-y-6 max-w-xl transition-colors duration-300">
 
-                <!-- Campo 1: Correo -->
                 <div class="space-y-2">
-                    <label for="correo" class="block text-sm font-semibold text-slate-200">
+                    <label for="correo" class="block text-sm font-heading font-semibold text-azul-noche dark:text-crema">
                         Correo electrónico
                     </label>
-                    <input type="email"
-                           id="correo"
-                           name="correo"
-                           placeholder="tu@correo.com"
-                           autocomplete="email"
-                           class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/30 transition-colors duration-200">
-                    <p class="text-xs text-slate-500">Te enviaremos la confirmación de tu cupo a este correo.</p>
+                    <input type="email" id="correo" name="correo" placeholder="tu@correo.com" autocomplete="email"
+                           class="w-full bg-transparent border border-gris-asfalto/30 dark:border-dark-border rounded-lg px-4 py-3 text-azul-noche dark:text-crema placeholder:text-gris-asfalto/50 dark:placeholder:text-dark-muted/50 focus:outline-none focus:border-verde-ruta focus:ring-4 focus:ring-verde-ruta/30 transition-colors duration-200">
+                    <p class="text-xs text-gris-asfalto dark:text-dark-muted">Te enviaremos la confirmación de tu cupo a este correo.</p>
                 </div>
 
-                <!-- Campo 2: Celular -->
                 <div class="space-y-2">
-                    <label for="celular" class="block text-sm font-semibold text-slate-200">
+                    <label for="celular" class="block text-sm font-heading font-semibold text-azul-noche dark:text-crema">
                         Celular
                     </label>
-                    <input type="tel"
-                           id="celular"
-                           name="celular"
-                           placeholder="300 123 4567"
-                           autocomplete="tel"
-                           class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/30 transition-colors duration-200">
-                    <p class="text-xs text-slate-500">10 dígitos, sin espacios. Lo usaremos solo para coordinar la ruta.</p>
+                    <input type="tel" id="celular" name="celular" placeholder="300 123 4567" autocomplete="tel"
+                           class="w-full bg-transparent border border-gris-asfalto/30 dark:border-dark-border rounded-lg px-4 py-3 text-azul-noche dark:text-crema placeholder:text-gris-asfalto/50 dark:placeholder:text-dark-muted/50 focus:outline-none focus:border-verde-ruta focus:ring-4 focus:ring-verde-ruta/30 transition-colors duration-200">
+                    <p class="text-xs text-gris-asfalto dark:text-dark-muted">10 dígitos, sin espacios. Lo usaremos solo para coordinar la ruta.</p>
                 </div>
 
             </div>
@@ -168,9 +148,8 @@
 
     </main>
 
-    <!-- ===== PIE DE PÁGINA ===== -->
-    <footer class="border-t border-slate-800 px-6 py-8 text-center text-slate-500 text-sm">
-        <p>Rueda Nocturna · Kit de componentes v1 · <a href="./index.html" class="text-emerald-400 hover:text-emerald-300 underline underline-offset-4">Volver a la landing</a></p>
+    <footer class="border-t border-gris-asfalto/20 dark:border-dark-border px-6 py-8 text-center text-gris-asfalto dark:text-dark-muted text-sm transition-colors duration-300">
+        <p>Rueda Nocturna · Kit de componentes v1 · <a href="./index.html" class="text-verde-ruta dark:text-amarillo-farol hover:underline underline-offset-4 font-semibold">Volver a la landing</a></p>
     </footer>
 
 </body>
