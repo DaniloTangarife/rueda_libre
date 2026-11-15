@@ -13,16 +13,21 @@
 
     <!-- ============ ENCABEZADO (Header) ============ -->
     <header class="border-b border-slate-800">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Mobile: columna | Desktop (md): fila -->
+        <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
             <!-- Logo -->
             <a href="#" class="text-xl font-extrabold text-white tracking-tight">
                 Rueda<span class="text-emerald-400">Nocturna</span>
             </a>
 
-            <!-- Navegación y CTA -->
+            <!-- Navegación: oculta en móvil, visible desde md -->
             <nav class="flex items-center gap-6">
-                <a href="#rutas" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Rutas</a>
-                <a href="#como-funciona" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">¿Cómo funciona?</a>
+                <!-- Enlaces ocultos en móvil -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#rutas" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">Rutas</a>
+                    <a href="#como-funciona" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors">¿Cómo funciona?</a>
+                </div>
+                <!-- Botón visible siempre -->
                 <a href="#inscripcion" class="inline-block bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/50 text-slate-900 text-sm font-bold px-5 py-2.5 rounded-full shadow-lg shadow-emerald-500/30 transition-colors duration-200">
                     Inscríbete
                 </a>
@@ -37,7 +42,8 @@
                 <span class="inline-block rounded-full bg-amber-400 text-slate-900 text-xs font-bold uppercase tracking-widest px-4 py-1">
                     Nuevo · Jueves a sábado
                 </span>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-white">
+                <!-- Letra más grande desde lg -->
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight text-white">
                     Rueda Nocturna
                 </h1>
                 <p class="text-lg md:text-2xl text-slate-300 leading-relaxed max-w-2xl mx-auto md:mx-0">
@@ -57,7 +63,8 @@
         </section>
 
         <!-- ============ SECCIÓN RUTAS (Reto 3) ============ -->
-        <section id="rutas" class="max-w-5xl mx-auto px-6 py-16">
+        <!-- Más relleno vertical en pantallas grandes -->
+        <section id="rutas" class="max-w-5xl mx-auto px-6 py-16 md:py-24">
             <div class="text-center mb-10 space-y-2">
                 <span class="inline-block rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-widest px-4 py-1">
                     Jueves a sábado · 7:00 p. m.
@@ -66,8 +73,8 @@
                 <p class="text-slate-400">Tres recorridos guiados con bicicleta, casco, luces LED, chaleco reflectivo y guía.</p>
             </div>
 
-            <!-- Grid de 3 columnas -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Grid Mobile-First: 1 col móvil, 2 sm (640px), 3 lg (1024px) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- CARD 1 -->
                 <article class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col">
                     <img src="../img/ciudad_rio.jpg" alt="Decoración navidad sobre el río Medellín" class="w-full h-56 object-cover">
@@ -151,16 +158,16 @@
             </div>
         </section>
 
-        <!-- ============ SECCIÓN ¿CÓMO FUNCIONA? (Reto 5) ============ -->
-        <section id="como-funciona" class="bg-slate-900 border-y border-slate-800 py-16">
+        <!-- ============ SECCIÓN ¿CÓMO FUNCIONA? ============ -->
+        <section id="como-funciona" class="bg-slate-900 border-y border-slate-800 py-16 md:py-24">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-10 space-y-2">
                     <h2 class="text-4xl md:text-5xl font-extrabold text-white">¿Cómo funciona?</h2>
                     <p class="text-slate-400">Sigue estos cuatro pasos para vivir la experiencia nocturna.</p>
                 </div>
 
-                <!-- Grid de 4 columnas para los pasos -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Grid Mobile-First: 1 col móvil, 2 sm (640px), 4 lg (1024px) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Paso 1 -->
                     <div class="text-center space-y-3">
                         <div class="w-16 h-16 mx-auto bg-emerald-500/20 text-emerald-300 rounded-full flex items-center justify-center text-2xl font-bold">1</div>
@@ -189,8 +196,8 @@
             </div>
         </section>
 
-        <!-- ============ FRANJA DE INSCRIPCIÓN (Reto 5) ============ -->
-        <section id="inscripcion" class="max-w-5xl mx-auto px-6 py-16">
+        <!-- ============ FRANJA DE INSCRIPCIÓN ============ -->
+        <section id="inscripcion" class="max-w-5xl mx-auto px-6 py-16 md:py-24">
             <div class="bg-emerald-500 rounded-2xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl shadow-emerald-500/20">
                 <div class="space-y-2">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">¿Listo para rodar?</h2>
@@ -203,7 +210,7 @@
         </section>
     </main>
 
-    <!-- ============ PIE DE PÁGINA (Reto 5) ============ -->
+    <!-- ============ PIE DE PÁGINA ============ -->
     <footer class="border-t border-slate-800 bg-slate-950">
         <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
             <!-- Bloque 1: Marca -->

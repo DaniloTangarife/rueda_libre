@@ -863,3 +863,35 @@ Verificación en DevTools:
 ¿Qué aprendí?
 A estructurar una landing completa de principio a fin con Tailwind, usando contenedores consistentes (max-w-* mx-auto px-*), etiquetas semánticas para navegación interna y el sistema de Grid para distribuir bloques de contenido de forma uniforme.
 
+------------------------------------------
+MINIRETO 6 (Semana 3) — Landing responsive (Mobile-First)
+------------------------------------------
+
+¿Qué revisé a 360 px (celular) y qué se rompía?
+1. El encabezado tenía los enlaces, el logo y el botón en una sola fila, lo que causaba desbordamiento (scroll horizontal) y amontonamiento de los textos.
+2. La grilla de rutas se veía muy apretada al intentar mostrar las 3 columnas fijas en el celular (el texto de las cards se desbordaba y las imágenes se achicaban demasiado).
+3. Los 4 pasos de "¿Cómo funciona?" también intentaban estar en una fila, comprimiéndose innecesariamente.
+4. La franja de inscripción (CTA) y el pie de página tenían contenido desalineado y pegado.
+
+¿Qué hice?
+- Reescribí las clases de layout con enfoque mobile-first:
+  · Las clases sin prefijo corresponden al celular (1 columna).
+  · Usé sm: (640px) para tablet pequeña (2 columnas).
+  · Usé lg: (1024px) para escritorio (3 y 4 columnas).
+- Rutas: cambié a grid-cols-1 sm:grid-cols-2 lg:grid-cols-3.
+- Pasos: cambié a grid-cols-1 sm:grid-cols-2 lg:grid-cols-4.
+- Encabezado: apilado por defecto (flex-col), y en fila desde md (md:flex-row). Oculté los enlaces de navegación en el celular con hidden md:flex, dejando solo visible el botón "Inscríbete".
+- Ajusté tamaños de letra y espaciados: el h1 del hero ahora crece a lg:text-8xl; el padding de las secciones aumentó con py-16 md:py-24.
+
+Tabla de pruebas en DevTools (Modo dispositivo):
+
+| Ancho  | Header (logo + botón)        | Rutas (columnas) | Pasos (columnas) | CTA / Footer      | Scroll horizontal |
+|--------|------------------------------|------------------|------------------|-------------------|-------------------|
+| 360px  | Apilado (columna)            | 1                | 1                | Apilado (columna) | No                |
+| 768px  | En fila (enlaces visibles)   | 2                | 2                | En fila           | No                |
+| 1024px | En fila                      | 3                | 4                | En fila           | No                |
+| 1280px | En fila (contenedor 5xl)     | 3                | 4                | En fila           | No                |
+
+Conclusión:
+La landing ahora fluye de forma natural desde el celular (sin scroll horizontal y todo en una columna) hasta el escritorio, cumpliendo con el enfoque mobile-first exigido por Tailwind. El uso de los prefijos sm:, md: y lg: permitió establecer los puntos de quiebre sin usar una sola línea de CSS propio.
+

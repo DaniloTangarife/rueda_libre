@@ -52,6 +52,8 @@
     --text-5xl--line-height: 1;
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
+    --text-8xl: 6rem;
+    --text-8xl--line-height: 1;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
@@ -217,6 +219,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -237,6 +242,9 @@
   }
   .grid {
     display: grid;
+  }
+  .hidden {
+    display: none;
   }
   .inline-block {
     display: inline-block;
@@ -775,15 +783,17 @@
     --tw-outline-style: none;
     outline-style: none;
   }
+  @media (width >= 40rem) {
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   @media (width >= 48rem) {
     .md\:mx-0 {
       margin-inline: 0px;
     }
-    .md\:grid-cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .md\:grid-cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    .md\:flex {
+      display: flex;
     }
     .md\:flex-row {
       flex-direction: row;
@@ -794,11 +804,17 @@
     .md\:justify-start {
       justify-content: flex-start;
     }
+    .md\:gap-0 {
+      gap: 0px;
+    }
     .md\:gap-12 {
       gap: calc(var(--spacing) * 12);
     }
     .md\:p-12 {
       padding: calc(var(--spacing) * 12);
+    }
+    .md\:py-24 {
+      padding-block: calc(var(--spacing) * 24);
     }
     .md\:py-32 {
       padding-block: calc(var(--spacing) * 32);
@@ -824,6 +840,18 @@
     .md\:text-7xl {
       font-size: var(--text-7xl);
       line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+  @media (width >= 64rem) {
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .lg\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .lg\:text-8xl {
+      font-size: var(--text-8xl);
+      line-height: var(--tw-leading, var(--text-8xl--line-height));
     }
   }
 }
