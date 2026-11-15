@@ -971,3 +971,35 @@ Razones basadas en los datos:
 - La identidad: Rueda Libre tiene una paleta de marca muy definida (Verde Ruta, Naranja Pedal, etc.) y Tailwind con @theme permite aplicarla de forma consistente sin conflictos.
 - La curva: aunque requiere aprender las utilidades, el equipo ya tiene experiencia con ambas herramientas, y la curva se compensa con creces con el control y la limpieza del HTML resultante.
 
+------------------------------------------
+MINIRETO 9 (Semana 3) — Formulario de inscripción (Contrarreloj)
+------------------------------------------
+
+Tiempo real invertido: 38 minutos (dentro del límite de 40).
+Quedó pendiente: Nada crítico. Se cumplieron todos los requisitos de validación, accesibilidad y diseño responsive. Como mejora futura, me gustaría añadir validación visual con JavaScript (tipo Bootstrap) para mostrar mensajes de error personalizados, pero por ahora la validación nativa del navegador es suficiente.
+
+¿Qué hice?
+- Construí la sección #inscripcion con el formulario completo, agrupado en tres <fieldset> con su <legend>: "Tus datos", "Detalles de la salida" y "Confirmación".
+- Asocié cada control con su <label for> y asigné un name a cada uno.
+- Utilicé los controles adecuados:
+  · Texto: nombre.
+  · Email: correo.
+  · Tel: celular.
+  · Select: ruta, día y nivel de experiencia.
+  · Number: acompañantes (0 a 3).
+  · Radio: bicicleta propia (sí/no).
+  · Checkbox: aceptación de condiciones.
+- Apliqué validación nativa: required en todos, minlength="3" en nombre, pattern="3[0-9]{9}" + minlength="10" + maxlength="10" + title en celular, min="0" max="3" en acompañantes.
+- Di estilo con los campos del kit (focus:ring, dark:bg-transparent) y usé grid grid-cols-1 md:grid-cols-2 para los campos cortos (correo/celular, ruta/día, acompañantes/experiencia).
+- Incluí soporte para modo oscuro en todos los campos.
+
+Pruebas realizadas:
+1. Formulario vacío: el navegador bloquea el envío y resalta el primer campo vacío.
+2. Nombre con 2 caracteres ("Al"): bloquea y pide mínimo 3.
+3. Celular inválido ("1234567890"): bloquea y muestra el title.
+4. Celular válido ("3001234567"): permite continuar.
+5. Acompañantes "4": bloquea por el max="3".
+6. Aceptación de condiciones sin marcar: bloquea el envío.
+7. Formulario completo y válido: envía correctamente.
+8. Navegación con teclado (Tab, Shift+Tab, flechas en selects, espacio en checkbox/radio, Enter en submit): el foco sigue un orden lógico y visible gracias a los estados focus:ring.
+
