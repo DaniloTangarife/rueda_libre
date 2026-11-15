@@ -835,3 +835,31 @@ alertas accesibles y formularios con foco visible sin escribir una sola
 línea de CSS propio.
 
 Versión: Rueda Nocturna — Kit de componentes (nocturna/componentes.html)
+
+------------------------------------------
+MINIRETO 5 (Semana 3) — Layout completo de la landing
+------------------------------------------
+
+¿Qué hice?
+- Estructuré nocturna/index.html con etiquetas semánticas: <header>, <main> y <footer>.
+- Envolví el contenido de todas las secciones en el mismo contenedor centrado usando max-w-5xl mx-auto px-6 (equivalente al container de Tailwind).
+- Construí el <header> con flex (flex items-center justify-between): logo a la izquierda, enlaces de navegación y botón "Inscríbete" a la derecha.
+- Agregué las secciones que faltaban con sus respectivos id para las anclas: #rutas, #como-funciona y #inscripcion.
+- Distribuí las tres cards de rutas en una cuadrícula de tres columnas con grid grid-cols-1 md:grid-cols-3 gap-8.
+- Construí la sección "¿Cómo funciona?" con cuatro pasos en un grid grid-cols-1 md:grid-cols-4 gap-8.
+- Organicé el <footer> en tres bloques (marca, enlaces y contacto) usando flex flex-col md:flex-row justify-between.
+- Copié los componentes exactos del kit (botones, cards, tipografías) sin crear variantes nuevas.
+
+Justificación de Grid vs Flex en "¿Cómo funciona?":
+Usé CSS Grid (grid-cols-4) para los pasos porque es un layout bidimensional: necesito alinear los cuatro bloques tanto en el eje horizontal (columnas iguales) como en el vertical (que el círculo numérico y el texto queden perfectamente alineados entre sí). Flexbox en este caso me obligaría a asignar anchos manuales (flex-1) y controlar los saltos de línea, mientras que Grid reparte el espacio automáticamente en fracciones iguales.
+
+Verificación en DevTools:
+- En escritorio (≥768px), el encabezado muestra logo, enlaces y botón en una fila.
+- Las rutas se ven en tres columnas y los pasos en cuatro columnas.
+- Los enlaces del header hacen scroll suave a cada sección (anclas #rutas, #como-funciona, #inscripcion).
+- No hay CSS propio ni estilos en línea; todo es Tailwind.
+- output.css está actualizado con las clases nuevas.
+
+¿Qué aprendí?
+A estructurar una landing completa de principio a fin con Tailwind, usando contenedores consistentes (max-w-* mx-auto px-*), etiquetas semánticas para navegación interna y el sistema de Grid para distribuir bloques de contenido de forma uniforme.
+
