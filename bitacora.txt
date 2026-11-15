@@ -1003,3 +1003,29 @@ Pruebas realizadas:
 7. Formulario completo y válido: envía correctamente.
 8. Navegación con teclado (Tab, Shift+Tab, flechas en selects, espacio en checkbox/radio, Enter en submit): el foco sigue un orden lógico y visible gracias a los estados focus:ring.
 
+------------------------------------------
+MINIRETO 10 (Semana 3) — Integración de la landing y el sitio
+------------------------------------------
+
+Tiempo real invertido: 28 minutos (dentro del límite de 40).
+
+¿Qué hice?
+- En el sitio v2.0 (Bootstrap), agregué el enlace "Rueda Nocturna" a la navbar de las tres páginas (index.html, paginas/tarifas.html, paginas/reservas.html). Usé el ícono bi-moon-stars de Bootstrap Icons.
+- En el carrusel de promociones del index.html, añadí una cuarta diapositiva que promociona la campaña con un botón "Ver campaña" que lleva a nocturna/index.html. También actualicé los indicadores (de 3 a 4).
+- En la landing (nocturna/index.html), cambié el logo para que apunte a ../index.html (inicio del sitio principal) y agregué un botón "Reservar bici" que lleva a ../paginas/reservas.html.
+- Ajusté las rutas relativas:
+  · Desde nocturna/index.html hacia la raíz: ../index.html.
+  · Desde nocturna/index.html hacia reservas: ../paginas/reservas.html.
+  · Desde index.html (raíz) hacia la landing: nocturna/index.html.
+  · Desde paginas/*.html hacia la landing: ../nocturna/index.html.
+- Verifiqué la coherencia de marca: mismos valores hexadecimales (#1E7A4F para Verde Ruta, #14213D para Azul Noche, etc.) en styles.css y en input.css; mismas fuentes (Montserrat y Open Sans) cargadas en ambos; mismos datos de contacto en los pies de página.
+
+Verificación de enlaces:
+- Desde la navbar del sitio principal (en las 3 páginas) se llega a la landing.
+- Desde el carrusel del inicio se llega a la landing.
+- Desde la landing se vuelve al inicio y se va a reservas.
+- Probado en local (Live Server) y en GitHub Pages: sin errores 404.
+- La campaña se ve integrada con la marca del sitio principal (mismos colores y fuentes).
+
+Quedó pendiente: Nada crítico. Todo funciona en local y en línea.
+

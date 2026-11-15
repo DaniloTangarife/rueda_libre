@@ -19,17 +19,27 @@
     <header class="border-b border-gris-asfalto/20 bg-azul-noche dark:bg-dark-bg dark:border-dark-border transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
             
-            <a href="#" class="text-xl font-heading font-extrabold text-crema tracking-tight">
+            <!-- Logo: ahora va al inicio del sitio principal -->
+            <a href="../index.html" class="text-xl font-heading font-extrabold text-crema tracking-tight flex items-center gap-2">
                 Rueda<span class="text-amarillo-farol">Nocturna</span>
             </a>
 
-            <nav class="flex items-center gap-6">
+            <nav class="flex items-center gap-4 md:gap-6">
+                <!-- Enlaces de la landing (ocultos en móvil) -->
                 <div class="hidden md:flex items-center gap-6">
                     <a href="#rutas" class="text-sm font-semibold text-crema/80 hover:text-crema transition-colors">Rutas</a>
                     <a href="#como-funciona" class="text-sm font-semibold text-crema/80 hover:text-crema transition-colors">¿Cómo funciona?</a>
                 </div>
-                <!-- Botón Refactorizado -->
-                <a href="#inscripcion" class="btn-secondary">Inscríbete</a>
+                
+                <!-- Botones: Reservar bici y Inscríbete -->
+                <div class="flex items-center gap-3">
+                    <!-- Enlace al sitio principal (Reservas) -->
+                    <a href="../paginas/reservas.html" class="hidden sm:inline-block text-sm font-semibold text-crema/80 hover:text-crema transition-colors">
+                        Reservar bici
+                    </a>
+                    <!-- Botón para ir al formulario en la misma landing -->
+                    <a href="#inscripcion" class="btn-secondary">Inscríbete</a>
+                </div>
             </nav>
         </div>
     </header>
