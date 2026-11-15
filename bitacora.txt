@@ -1055,3 +1055,37 @@ Verificación en DevTools:
 - El plan Pareja se distingue por color (borde amarillo, fondo tenue) y por texto (etiqueta "Más elegido").
 - Contraste en modo oscuro: el fondo amarillo translúcido mantiene el texto legible.
 
+------------------------------------------
+MINIRETO 12 (Semana 3) — Lanzamiento final y demo
+------------------------------------------
+
+Tiempo real invertido: 40 minutos.
+
+Lista de verificación final (ambos productos):
+✅ Estructura semántica (header, nav, main, section, article, aside, footer).
+✅ Accesibilidad: alt descriptivo en imágenes, jerarquía de encabezados correcta, contraste WCAG, navegación completa con teclado.
+✅ Formularios: validación nativa (required, pattern, min/max) y visual (Bootstrap con needs-validation).
+✅ Responsive probado en 360px, 768px y 1280px sin scroll horizontal.
+✅ Modo claro y oscuro en la landing (emulado con prefers-color-scheme en DevTools).
+✅ Cero errores 404 en Network.
+✅ Sin estilos en línea (excepto una corrección de z-index en Bootstrap para el carrusel).
+✅ output.css minificado y subido al repositorio.
+✅ Validador W3C: la landing y reservas.html pasan sin errores críticos (solo advertencias menores de atributos SVG).
+✅ README.md completo con descripción, enlaces, páginas, tecnologías, comparativa de frameworks, capturas y aprendizajes.
+✅ Commits descriptivos: 36 commits (uno por cada MiniReto y ajustes).
+✅ GitHub Pages actualizado con el sitio v2.0 y la landing.
+
+Demo preparada (3 minutos):
+- Contexto del cliente (30s): Rueda Libre quiere promocionar su campaña nocturna y recibir inscripciones por internet.
+- Recorrido en vivo (90s): Inicio del sitio → clic en "Rueda Nocturna" en el menú → landing de la campaña → mostrar modo oscuro → ir a la sección de planes → formulario de inscripción.
+- Decisiones técnicas (60s): 
+  1) Elegí Tailwind para la landing por su ligereza (18KB vs 312KB de Bootstrap) y su capacidad de personalizar la marca con @theme.
+  2) Usé la estrategia mobile-first con clases responsive (sm:, md:, lg:) para garantizar que la campaña funcione en celulares, que representan el 70% del tráfico.
+
+Retroalimentación recibida:
+- El recorrido es fluido y el cambio entre claro/oscuro impacta positivamente.
+- Sugerencia: mostrar el formulario en móvil durante la demo para destacar el responsive.
+- Punto a mejorar: acortar la explicación de las decisiones técnicas (usar solo 1 minuto).
+- El enlace a Rueda Nocturna desde el carrusel es claro y funcional.
+
+Tiempo real de la demo: 2 minutos 50 segundos.
