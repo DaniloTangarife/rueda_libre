@@ -21,26 +21,29 @@ Proyecto de desarrollo web front-end para un negocio de alquiler de bicicletas e
 
 ## 📂 Estructura del repositorio
 
+```text
 rueda_libre/
-├── index.html # Inicio del sitio (Bootstrap)
-├── paginas/
-│ ├── tarifas.html # Tarifas y rutas (Bootstrap)
-│ └── reservas.html # Formulario de reservas (Bootstrap)
 ├── css/
-│ └── styles.css # Hoja de estilos propia del sitio (Bootstrap)
-├── img/ # Imágenes del proyecto (incluye capturas/)
+│   └── styles.css              # Hoja de estilos propia del sitio (Bootstrap)
+├── img/                        # Imágenes del proyecto (incluye capturas/)
+├── nocturna/                   # LANDING CON TAILWIND
+│   ├── src/
+│   │   ├── input.css           # Tema con @theme y @apply
+│   │   └── output.css          # CSS generado y minificado
+│   ├── .gitignore              # Excluye node_modules/
+│   ├── componentes.html        # Kit de componentes
+│   ├── index.html              # Landing principal
+│   ├── package.json            # Dependencias de Tailwind (CLI)
+│   ├── package-lock.json       # Registro de dependencias
+│   └── prototipo.html          # Prototipo inicial (Play CDN)
+├── paginas/
+│   ├── reservas.html           # Formulario de reservas (Bootstrap)
+│   └── tarifas.html            # Tarifas y rutas (Bootstrap)
 ├── pruebas/
-│ └── catalogo-bootstrap.html # Prueba comparativa con Bootstrap
-├── nocturna/ # LANDING CON TAILWIND
-│ ├── index.html # Landing principal
-│ ├── componentes.html # Kit de componentes
-│ ├── prototipo.html # Prototipo inicial (Play CDN)
-│ └── src/
-│ ├── input.css # Tema con @theme y @apply
-│ └── output.css # CSS generado y minificado
-├── bitacora.txt # Bitácora de proceso
-└── README.md # Este archivo
-
+│   └── catalogo-bootstrap.html # Prueba comparativa con Bootstrap
+├── bitacora.txt                # Bitácora de proceso
+├── index.html                  # Inicio del sitio (Bootstrap)
+└── README.md                   # Este archivo
 
 ## 🛠️ Tecnologías aplicadas
 
