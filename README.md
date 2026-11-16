@@ -21,6 +21,8 @@ Proyecto de desarrollo web front-end para un negocio de alquiler de bicicletas e
 
 ## 📂 Estructura del repositorio
 
+## 📂 Estructura del repositorio
+
 ```text
 rueda_libre/
 ├── css/
@@ -44,6 +46,7 @@ rueda_libre/
 ├── bitacora.txt                # Bitácora de proceso
 ├── index.html                  # Inicio del sitio (Bootstrap)
 └── README.md                   # Este archivo
+```
 
 ## 🛠️ Tecnologías aplicadas
 
