@@ -11,16 +11,14 @@ Sitio publicado: https://danilotangarife.github.io/rueda_libre/
 SEMANA 1 — HTML, semántica, accesibilidad y publicación
 ==========================================
 
-
 ------------------------------------------
 MINIRETO 1 — Kilómetro 0: repositorio y página base
 ------------------------------------------
-
 ¿Qué hice?
-- Creé la carpeta local rueda_libre, inicialicé Git y la conecté a un repositorio público de GitHub con el mismo nombre.
-- Creé la estructura inicial: index.html, paginas/, img/ (con logo y foto de portada), css/ y bitacora.txt.
+- Creé la carpeta local rueda_libre, inicialicé Git y la conecté a un repositorio público de GitHub.
+- Creé la estructura inicial: index.html, paginas/, img/ (con logo), css/ y bitacora.txt.
 - Escribí la estructura base de index.html: <!DOCTYPE html>, <html lang="es">, <meta charset="UTF-8">, <meta name="viewport">, <meta name="description">, <title> y el <body> con un <h1> y un <p> de bienvenida.
-- Abrí la página con Live Server y analicé la petición del documento en DevTools (Network).
+- Abrí la página con Live Server y analicé la petición en DevTools (Network).
 - Probé una ruta inexistente y analicé la respuesta del servidor.
 
 Datos de la petición principal (DevTools → Network):
@@ -30,75 +28,64 @@ Datos de la petición principal (DevTools → Network):
 - Puerto:        5500
 - Ruta:          /index.html
 - Método:        GET
-- Estado:        200 OK (con caché puede verse como 304 Not Modified; ambos confirman que el documento se sirvió correctamente).
+- Estado:        200 OK
 
 Ruta inexistente:
 - Probé: /promociones.html
 - Estado: 404 Not Found
-- Significado: el servidor no encontró el archivo solicitado en esa ruta. Es el código que indica "recurso no encontrado". (Si en su momento apareció un 500 ENOTDIR fue porque se pidió una subruta dentro de index.html; la prueba correcta para el reto es sobre una ruta que no exista en la raíz.)
+- Significado: el servidor no encontró el recurso solicitado.
 
-Roles de HTML, CSS y JavaScript en Rueda Libre:
-- HTML: estructura y contenido. Ejemplo concreto: el <h1> de la portada y la tabla de tarifas en paginas/tarifas.html.
-- CSS: presentación y diseño. Ejemplo concreto: la hoja css/styles.css que aplica la paleta de la marca y tipografías de Google Fonts a las tres páginas.
-- JavaScript: comportamiento e interactividad. Ejemplo concreto: el bundle de Bootstrap que hace funcionar el botón hamburguesa de la navbar (collapse) en móvil.
+Roles de HTML, CSS y JavaScript:
+- HTML: estructura y contenido (ej. el <h1> de la portada y la tabla de tarifas).
+- CSS: presentación (ej. css/styles.css con la paleta y tipografías).
+- JavaScript: interactividad (ej. el bundle de Bootstrap para el menú hamburguesa).
 
 ¿Qué aprendí?
-A configurar un repositorio con Git y GitHub, a construir la estructura mínima de un documento HTML válido y a leer en DevTools cómo el navegador pide y recibe la página (método, ruta, host, puerto y código de estado).
+A configurar un repositorio con Git y GitHub, crear un documento HTML válido y leer en DevTools cómo el navegador pide y recibe la página.
 
 Commit: "Estructura inicial del proyecto Rueda Libre"
-
 
 ------------------------------------------
 MINIRETO 2 — Vitrina de inicio: contenido jerarquizado
 ------------------------------------------
-
 ¿Qué hice?
 - Organicé la página de inicio con un único <h1> ("Rueda Libre") y secciones con <h2>: ¿Quiénes somos?, Nuestros servicios, Nuestra flota, Nuestras rutas, ¿Cómo alquilar?, Encuéntranos.
-- Cada servicio quedó con su <h3> y un párrafo. Resalté información clave con <strong> ("incluye casco y candado") y matices con <em>.
-- Agregué los cuatro pasos para alquilar en una <ol> y tres beneficios del servicio en una <ul>.
-- Agregué tres imágenes guardadas en img/ con rutas relativas, atributo alt descriptivo y ancho (width) definido: portada, bicicleta y ruta.
-- Agregué tres tipos de enlace:
-  · Externo absoluto a Google Maps, con target="_blank" y rel="noopener noreferrer".
-  · De correo con mailto:hola@ruedalibre.example.
-  · Interno con fragmento desde el primer párrafo hacia #encuentranos.
+- Cada servicio quedó con su <h3> y un párrafo. Usé <strong> y <em>.
+- Agregué los cuatro pasos en una <ol> y tres beneficios en una <ul>.
+- Agregué tres imágenes en img/ con rutas relativas, alt descriptivo y width definido.
+- Agregué tres tipos de enlace: absoluto a Google Maps con target="_blank", mailto:hola@ruedalibre.example y un ancla interna a #encuentranos.
 
 Verificación en DevTools (Elements):
-El árbol coincide con el esquema: un solo <h1>, secciones anidadas correctamente, sin etiquetas mal cerradas. En Network no aparecen 404 al cargar las imágenes.
+Un solo <h1>, secciones anidadas correctamente y sin errores 404 en Network.
 
 ¿Qué aprendí?
-A estructurar una página con jerarquía correcta de encabezados, listas, imágenes con texto alternativo y distintos tipos de enlace (absoluto, mailto y ancla interna).
-
+A estructurar una página con jerarquía de encabezados, listas, imágenes con alt y distintos tipos de enlace.
 
 ------------------------------------------
 MINIRETO 3 — Tarifas claras: tablas y rutas relativas
 ------------------------------------------
-
 ¿Qué hice?
-- Creé paginas/tarifas.html con su estructura base completa, un <title> propio ("Tarifas y Rutas - Rueda Libre") y una <meta name="description"> propia.
-- Construí la tabla de tarifas de alquiler con <caption>, <thead>, <tbody>, <th scope="col"> para columnas y <th scope="row"> para filas.
-- Construí la segunda tabla con los recorridos guiados, misma estructura, dentro de una sección con id="recorridos" para poder enlazarla directamente.
-- Agregué debajo de las tablas la información adicional del cliente: la nota sobre casco y candado, el horario de salida y la lista de qué llevar (en <ul>).
-- Mostré el logo con <img src="../img/logo.jpg" alt="Logo de Rueda Libre">: subí un nivel porque tarifas.html vive en la subcarpeta paginas/.
-- Enlacé en ambos sentidos: desde index.html hacia paginas/tarifas.html y desde tarifas de vuelta a ../index.html. Además, desde el servicio "Recorridos guiados" en inicio apunté directo a paginas/tarifas.html#recorridos.
+- Creé paginas/tarifas.html con estructura base, <title> y <meta description> propios.
+- Construí dos tablas con <caption>, <thead>, <tbody>, <th scope="col"> y <th scope="row">.
+- La segunda tabla (recorridos) está en una sección con id="recorridos".
+- Agregué la información adicional en párrafos y una <ul>.
+- Mostré el logo con <img src="../img/logo.png" alt="Logo de Rueda Libre">.
+- Enlacé index.html → paginas/tarifas.html y viceversa; desde inicio apunté a paginas/tarifas.html#recorridos.
 
 Verificación en DevTools (Network):
-- El logo cargó correctamente con ../img/logo.jpg (sin 404).
-- El enlace #recorridos desde index.html abre tarifas.html desplazado a la tabla de recorridos.
+El logo cargó sin 404 y el enlace #recorridos abre la página en la tabla correcta.
 
 ¿Qué aprendí?
-A crear tablas accesibles (caption, thead, tbody, th scope) y a conectar archivos en carpetas distintas con rutas relativas ../ y con enlaces archivo.html#id.
-
+A crear tablas accesibles y a conectar archivos en carpetas distintas con rutas relativas ../ y enlaces archivo.html#id.
 
 ------------------------------------------
 MINIRETO 4 — Rueda Libre v0.1: sitio navegable
 ------------------------------------------
-
 ¿Qué hice?
-- Creé paginas/reservas.html con <h1> "Reserva tu bicicleta", el correo de contacto como enlace mailto: y el horario de atención en una lista de definiciones (<dl> con <dt> y <dd>).
-- Agregué el mismo menú en las tres páginas, con rutas ajustadas según la carpeta de cada archivo.
-- Agregué el mismo pie de página (nombre del negocio, correo, año) al final de las tres páginas.
-- Agregué enlaces "Reservar ahora" en inicio y debajo de la tabla de recorridos en tarifas, que llevan a reservas.html.
-- Recorrí las nueve combinaciones de navegación desde el menú y verifiqué en Network que no hubo errores.
+- Creé paginas/reservas.html con <h1> "Reserva tu bicicleta", enlace mailto: y horario en <dl>/<dt>/<dd>.
+- Agregué el mismo menú y pie de página a las tres páginas.
+- Agregué enlaces "Reservar ahora" en inicio y en tarifas.
+- Recorrí las 9 combinaciones de navegación desde el menú sin errores 404.
 
 Tabla de rutas relativas:
 
@@ -115,15 +102,13 @@ Tabla de rutas relativas:
 | reservas.html  | Reservas | reservas.html            |
 
 Verificación en DevTools (Network):
-Navegando entre las tres páginas desde el menú (9 combinaciones) no se generó ningún 404. Cada página tiene un <title> distinto.
+Navegando entre las tres páginas no se generó ningún 404. Cada página tiene un <title> distinto.
 
 Commit: "Rueda Libre v0.1 - sitio navegable con tres páginas"
-
 
 ------------------------------------------
 MINIRETO 5 — Estructura con significado (semántica)
 ------------------------------------------
-
 Esquema de regiones (dibujado antes de tocar el código):
 
 index.html
@@ -142,7 +127,7 @@ index.html
    │   ├─ section Nuestra flota
    │   ├─ section Nuestras rutas
    │   ├─ section ¿Cómo alquilar?
-   │   └─ section Encuéntranos  (id="encuentranos")
+   │   └─ section Encuéntranos (id="encuentranos")
    └─ footer
 
 paginas/tarifas.html
@@ -166,16 +151,16 @@ paginas/reservas.html
    └─ footer
 
 ¿Qué hice?
-- En las tres páginas agrupé marca y menú en <header>, marqué el menú como <nav>, envolví el contenido propio en un único <main> y convertí el bloque final en <footer>.
-- En inicio cada bloque temático quedó como <section> con su propio encabezado y cada servicio como <article>.
-- En tarifas cada tabla quedó en su propia <section> y la lista de qué llevar como <aside>.
-- En reservas el horario de atención quedó como <aside>.
+- En las tres páginas agrupé marca y menú en <header>, marqué el menú como <nav>, envolví el contenido en un único <main> y convertí el bloque final en <footer>.
+- En inicio cada bloque temático es <section> con su encabezado y cada servicio es <article>.
+- En tarifas cada tabla está en su propia <section> y la lista de qué llevar es <aside>.
+- En reservas el horario de atención es <aside>.
 
 Justificación de los <div> y <span> que se conservaron:
-No hay <div> ni <span> en las páginas base de la Semana 1. Los <div> que aparecen desde la migración a Bootstrap (row, col-*, card-body) son contenedores de layout del framework que no tienen equivalente semántico HTML; se mantienen porque son la API de la grilla y de los componentes de Bootstrap 5.3.
+No hay <div> ni <span> en las páginas base de la Semana 1. Los <div> que aparecen desde la migración a Bootstrap (row, col-*, card-body) son contenedores de layout del framework que no tienen equivalente semántico; se mantienen porque son la API de la grilla y de los componentes de Bootstrap 5.3.
 
 Jerarquía de encabezados:
-Se conservó igual que en la v0.1 (mismos textos y niveles). Un solo <h1> por página.
+Se conservó igual que en la v0.1. Un solo <h1> por página.
 
 Verificación:
 - Un <header>, un <main> y un <footer> por página.
@@ -183,18 +168,16 @@ Verificación:
 - El sitio se ve y navega igual que la v0.1.
 
 ¿Qué aprendí?
-A usar etiquetas semánticas para que la estructura tenga significado para buscadores y lectores de pantalla, sin perder contenido ni romper la navegación.
-
+A usar etiquetas semánticas para que la estructura tenga significado para buscadores y lectores de pantalla.
 
 ------------------------------------------
 MINIRETO 6 — Formulario de reservas
 ------------------------------------------
-
 ¿Qué hice?
-- Dentro de <main> de paginas/reservas.html creé la sección "Formulario de reserva" con un <form action="#" method="post">.
-- Agrupé los campos en tres <fieldset> con su <legend>: "Tus datos", "Tu alquiler" (tipo de bicicleta + plan + cantidad + recorrido + fecha) y "Confirmación" (comentarios + políticas).
-- Asocié cada control con su <label for> y un id, y le puse name a todos.
-- Botón <button type="submit"> al final del formulario.
+- Dentro de <main> de paginas/reservas.html creé la sección "Formulario de reserva" con <form action="#" method="post">.
+- Agrupé los campos en tres <fieldset> con su <legend>: "Tus datos", "Tu alquiler" y "Confirmación".
+- Asocié cada control con <label for> e id, y le puse name a todos.
+- Botón <button type="submit"> al final.
 
 Controles elegidos por dato:
 
@@ -213,21 +196,19 @@ Controles elegidos por dato:
 | Políticas             | <input type="checkbox">                | politicas      |
 
 Justificación de tres elecciones:
-1) Correo → type="email": el navegador valida el formato antes de enviar, evitando correos mal escritos que llegaban por WhatsApp.
+1) Correo → type="email": el navegador valida el formato antes de enviar.
 2) Fecha del alquiler → type="date": muestra calendario nativo y evita fechas inválidas.
-3) Tipo de bicicleta → type="radio": son tres opciones mutuamente excluyentes; con name compartido solo se puede elegir una.
+3) Tipo de bicicleta → type="radio": son opciones mutuamente excluyentes; con name compartido solo se puede elegir una.
 
 Verificación:
-Al hacer clic en cualquier etiqueta, el control asociado recibe el foco o se selecciona (comprobado en DevTools). Todos los controles tienen name.
+Al hacer clic en cualquier etiqueta, el control asociado recibe el foco o se selecciona. Todos los controles tienen name.
 
 ¿Qué aprendí?
 A elegir el control HTML adecuado para cada dato, a agrupar campos con <fieldset>/<legend> y a asociar etiquetas con for/id.
 
-
 ------------------------------------------
 MINIRETO 7 — Reservas sin errores: validación nativa y teclado
 ------------------------------------------
-
 Reglas traducidas a atributos:
 
 | Campo              | Regla del cliente                      | Atributos aplicados                                                     |
@@ -248,7 +229,7 @@ Patrones usados y por qué:
 - Celular: 3[0-9]{9} → 10 dígitos exactos y el primero debe ser 3.
 - Ambos patrones llevan title para que el navegador muestre el mensaje de formato esperado.
 
-Tabla de pruebas (mínimo 8; aquí 12 pruebas representativas):
+Tabla de pruebas (12 pruebas representativas):
 
 | # | Campo           | Dato de prueba    | Resultado esperado              | Resultado obtenido                              |
 |---|-----------------|-------------------|---------------------------------|-------------------------------------------------|
@@ -265,13 +246,13 @@ Tabla de pruebas (mínimo 8; aquí 12 pruebas representativas):
 | 11| Cantidad        | "7"               | No envía, máximo 6              | No envía                                        |
 | 12| Políticas       | sin marcar        | No envía                        | No envía — "Marca esta casilla si deseas continuar" |
 
-Navegación por teclado (Tab / Shift+Tab / flechas / Espacio / Enter):
+Navegación por teclado:
 1. Tab → Nombre
 2. Tab → Documento
 3. Tab → Celular
 4. Tab → Correo
 5. Tab → Fecha
-6. Tab → grupo Tipo de bicicleta (un tab-stop, flechas ↑/↓ cambian la opción)
+6. Tab → grupo Tipo de bicicleta (un tab-stop, flechas cambian la opción)
 7. Tab → grupo Plan (igual, flechas)
 8. Tab → Cantidad
 9. Tab → Recorrido guiado (flechas abren opciones)
@@ -280,78 +261,160 @@ Navegación por teclado (Tab / Shift+Tab / flechas / Espacio / Enter):
 12. Tab → botón Enviar (Enter envía)
 13. Shift+Tab retrocede en el mismo orden.
 
-El orden del DOM coincide con el orden lógico de llenado; no requirió reordenamiento.
+El orden del DOM coincide con el orden lógico de llenado.
 
 ¿Qué aprendí?
 A traducir reglas de negocio a validación nativa HTML y a comprobar que el formulario se puede completar y enviar solo con teclado.
 
-
 ------------------------------------------
 MINIRETO 8 — v0.2 accesible y publicada
 ------------------------------------------
-
 Auditoría de accesibilidad (hallazgos y correcciones):
-1. Imágenes sin texto alternativo descriptivo en algunas tarjetas → se agregó alt descriptivo en todas (ej.: "Bicicleta Gravel Aventura disponible para alquilar").
+1. Imágenes sin alt descriptivo → se agregó alt en todas.
 2. Títulos de enlace ambiguos ("clic aquí") → se reescribieron como "Ver precios de los recorridos guiados", "ubicación en Google Maps", "Reservar ahora".
-3. Jerarquía de encabezados: se confirmó un solo <h1> por página y sin saltos entre niveles.
+3. Jerarquía de encabezados: se confirmó un solo <h1> por página y sin saltos.
 4. Idioma: <html lang="es"> en las tres páginas.
-5. Navegación por teclado: se recorrió el sitio con Tab y se confirmó foco visible en menú, botones y formulario.
+5. Navegación por teclado: se recorrió el sitio con Tab y se confirmó foco visible.
 
 Mapa de uso de color (paleta del cliente):
 
 | Combinación                          | Uso propuesto                         | Contraste |
 |--------------------------------------|---------------------------------------|-----------|
-| Blanco sobre Verde Ruta (#1E7A4F)    | Botones principales, texto de marca   | 5.2:1 → apto texto normal |
+| Blanco sobre Verde Ruta (#1E7A4F)    | Botones principales                   | 5.2:1 → apto texto normal |
 | Azul Noche (#14213D) sobre Crema (#FAF6EF) | Títulos y texto principal        | 15:1 → apto texto normal |
 | Azul Noche sobre Naranja Pedal (#F39A2B) | Etiquetas y botones secundarios  | 7.1:1 → apto texto normal |
 | Gris Asfalto (#5B6470) sobre Crema   | Texto secundario                      | 5.9:1 → apto texto normal |
-| Blanco sobre Naranja Pedal           | No usar para texto normal            | 2.3:1 → no apto (solo iconos grandes o decoración) |
+| Blanco sobre Naranja Pedal           | No usar para texto normal            | 2.3:1 → no apto |
 
-Reglas de uso que adopté:
-- Verde Ruta (#1E7A4F) y Azul Noche (#14213D) → botones principales, enlaces y títulos.
-- Naranja Pedal (#F39A2B) → solo con texto Azul Noche (destacados y etiquetas).
-- Crema (#FAF6EF) → fondo general del sitio.
-- Gris Asfalto (#5B6470) → textos secundarios y metadatos.
+Reglas de uso adoptadas:
+- Verde Ruta y Azul Noche → botones, enlaces y títulos.
+- Naranja Pedal → solo con texto Azul Noche.
+- Crema → fondo general.
+- Gris Asfalto → textos secundarios.
 
 Publicación:
 - GitHub Pages activo sobre la rama principal.
-- Verifiqué las tres páginas publicadas, imágenes y enlaces: sin imágenes rotas ni enlaces con error.
-- El enlace publicado quedó también en la descripción del repositorio.
+- Verifiqué las tres páginas publicadas sin imágenes rotas ni enlaces con error.
+- El enlace publicado quedó en la descripción del repositorio.
 
 Versión: Rueda Libre v0.2
+
+------------------------------------------
+MINIRETO 9 — La identidad de Rueda Libre (CSS externo)
+------------------------------------------
+¿Qué hice?
+- Creé css/styles.css y lo enlacé en las tres páginas.
+- Cargué Montserrat (títulos) y Open Sans (textos) desde Google Fonts con preconnect.
+- Declaré variables en :root: cinco colores (--verde-ruta, --naranja-pedal, --azul-noche, --crema, --gris-asfalto), dos familias tipográficas (--font-heading, --font-body) y una escala de espaciado de 5 tamaños en rem (--spacing-xs a --spacing-xl).
+- Apliqué al body: font-family: var(--font-body), color: var(--color-text), background-color: var(--color-background).
+- Apliqué la fuente de títulos a h1-h6 con un solo selector agrupado.
+- Verifiqué que no quedaran style="" ni <style> en ningún HTML.
+
+Comprobación de herencia en DevTools (Styles y Computed):
+- Propiedad que se HEREDA: font-family. El body tiene font-family: var(--font-body) (Open Sans) y los párrafos la heredan sin declararla.
+- Propiedad que NO se hereda: margin. Aunque el body tenga margin: 0, los párrafos tienen su propio margin-bottom: var(--spacing-md) declarado en la regla form p, y no heredan el margen del body.
+
+Verificación en Network:
+Las tres páginas cargan styles.css y las dos fuentes sin errores.
+
+¿Qué aprendí?
+A crear una hoja externa con variables, tipografías de Google Fonts y colores de marca aplicados por herencia, y a comprobar en DevTools qué propiedades se heredan y cuáles no.
+
+------------------------------------------
+MINIRETO 10 — Navegación con estados y sin conflictos
+------------------------------------------
+¿Qué hice?
+- Agregué las reglas del compañero: #menu a { color: var(--gris-asfalto); } y .activo { color: var(--verde-ruta); font-weight: 600; }.
+- Asigné id="menu" a la lista del menú y la clase activo al enlace de la página actual en cada página.
+
+Análisis del conflicto de especificidad:
+- #menu a → especificidad (1,0,1): 1 id + 0 clases + 1 elemento.
+- .activo → especificidad (0,1,0): 0 ids + 1 clase + 0 elementos.
+- Resultado: #menu a gana porque tiene mayor especificidad (1,0,1 > 0,1,0). La clase .activo por sí sola nunca se aplicaba.
+- Solución sin !important: escribí el selector combinado #menu a.activo, cuya especificidad es (1,1,1) y vence a #menu a (1,0,1). Se aplicó el color verde y el peso 600 al enlace activo.
+
+- Estilicé los enlaces del menú con el selector descendiente #menu a y definí :hover y :focus con outline visible.
+- Creé la clase .btn-cta para los enlaces de llamada a la acción con apariencia de botón y estados hover/focus.
+- Definí un indicador de foco visible para los campos del formulario con box-shadow y border-color en input:focus.
+- Recorrí las tres páginas con Tab y comprobé que el foco siempre se ve.
+
+Verificación de contraste:
+El color Verde Ruta (#1E7A4F) sobre Crema (#FAF6EF) tiene 4.8:1, cumple con 4.5:1 para texto normal.
+
+¿Qué aprendí?
+A resolver conflictos de cascada y especificidad calculando los pesos, sin recurrir a !important, y a definir estados :hover y :focus visibles.
+
+------------------------------------------
+MINIRETO 11 — Modelo de caja
+------------------------------------------
+¿Qué hice?
+- Apliqué box-sizing: border-box a todos los elementos con *, *::before, *::after.
+- Limité el ancho del contenido principal con max-width: 65rem y márgenes automáticos para centrarlo.
+- Di a la portada una altura mínima relativa al alto de la ventana: min-height: 60vh.
+- Convertí cada servicio en tarjeta con padding, border, border-radius y separación usando la escala de variables.
+- Mejoré las tablas con padding en celdas, bordes y encabezados con fondo Azul Noche que cumple contraste.
+- Ordené el formulario: etiquetas sobre los campos, campos a todo el ancho, separación entre grupos.
+- Mostré las opciones del menú en una fila con display: flex.
+
+Medición en DevTools (Computed) del ancho total de una tarjeta:
+- Con box-sizing: content-box (valor por defecto): el ancho medido era 250px de contenido + 32px de padding + 2px de border = 284px.
+- Con box-sizing: border-box (aplicado): el ancho medido es 250px en total, incluyendo padding y border.
+Diferencia: 34px menos con border-box, lo que evita desbordes.
+
+¿Qué aprendí?
+A controlar el tamaño y el espaciado de los elementos con el box model, box-sizing: border-box y unidades relativas (rem, %, vh).
+
+------------------------------------------
+MINIRETO 12 — Rueda Libre v1.0: lanzamiento
+------------------------------------------
+¿Qué hice?
+- Agregué la etiqueta "Nuevo" a la tarjeta del servicio de bicicletas eléctricas con position: absolute en la esquina superior, sin desplazar el contenido.
+- Agregué en las tres páginas un enlace "WhatsApp" con position: fixed en la esquina inferior derecha, visible al hacer scroll.
+- Aseguré que el enlace no tape el contenido del final: main tiene padding-bottom: calc(var(--spacing-xl) + 2rem).
+- Revisé la consistencia de las tres páginas: mismo encabezado, menú, títulos, botones y pie.
+- Eliminé reglas duplicadas o sin uso y organicé styles.css por secciones comentadas: variables, base, navegación, componentes, formulario, flotantes, pie.
+- Revisé en DevTools que no hubiera declaraciones tachadas inesperadas ni errores 404, y recorrí el sitio con teclado.
+- Publiqué la v1.0 con commit de lanzamiento y verifiqué en GitHub Pages.
+
+Las cinco verificaciones:
+1. Etiqueta "Nuevo" anclada a su tarjeta sin desplazar contenido: ✔
+2. WhatsApp visible siempre, no tapa contenido y se puede enfocar con teclado: ✔
+3. Las tres páginas comparten estilo desde una sola hoja: ✔
+4. styles.css organizado por secciones comentadas: ✔
+5. Sitio v1.0 publicado sin errores (enlaces, imágenes, fuentes, estados, validación): ✔
+
+Resumen de la Semana 1:
+Construí un sitio de tres páginas (inicio, tarifas, reservas) con HTML semántico, formulario validado, accesibilidad auditada, identidad visual con variables CSS y publicación en GitHub Pages. Aprendí a resolver conflictos de especificidad, a controlar el box model y a usar posicionamiento para elementos flotantes.
+Mejoraría: unificar antes los estilos de las tres páginas y documentar los contrastes desde el principio.
 
 
 ==========================================
 SEMANA 2 — CSS profesional, Flexbox, Grid y Bootstrap
 ==========================================
 
-
 ------------------------------------------
 MINIRETO 1 — Encabezado, menú y pie con Flexbox
 ------------------------------------------
-
 ¿Qué hice?
 - En el encabezado puse el nombre del negocio en un extremo y el menú en el otro, centrados verticalmente con flex-direction: row, justify-content: space-between y align-items: center (a partir de 768px; en móvil es flex-direction: column con align-items: center).
-- Convertí la lista del menú en un contenedor flexible con gap (var(--spacing-md)); eliminé márgenes e inline-block para separarlos.
+- Convertí la lista del menú en un contenedor flexible con gap; eliminé márgenes e inline-block.
 - Agregué flex-wrap: wrap al menú para que los enlaces bajen de línea cuando no quepan.
-- Organicé el pie en tres bloques en fila (marca, contacto y horario), alineados arriba con align-items: flex-start y separados uniformemente con justify-content: space-between.
+- Organicé el pie en tres bloques en fila (marca, contacto y horario), alineados arriba con align-items: flex-start y separados con justify-content: space-between.
 
 Comportamiento al estrechar la ventana (observado en DevTools):
 - Escritorio (≥768px): marca a la izquierda y menú a la derecha en una fila; pie con tres bloques en fila.
 - Móvil (<768px): marca arriba y menú debajo centrado; pie en columna apilada.
 
 ¿Qué aprendí?
-A usar Flexbox para distribuir y alinear elementos en una dimensión, entendiendo flex-direction, justify-content, align-items, flex-wrap y gap, y a evitar márgenes para separar los ítems del menú.
-
+A usar Flexbox para distribuir y alinear elementos en una dimensión.
 
 ------------------------------------------
 MINIRETO 2 — Flota en cuadrícula con Grid y Flexbox
 ------------------------------------------
-
 ¿Qué hice?
 - Agregué la sección "Nuestra flota" en inicio con siete tarjetas; cada tarjeta es un <article> con imagen, nombre, descripción, precio y enlace "Reservar".
 - Construí la cuadrícula con Grid usando repeat(auto-fit, minmax(min(100%, 250px), 1fr)), sin media queries, con gap uniforme.
-- Dentro de cada tarjeta usé Flexbox en columna (flex-direction: column) y margin-top: auto para que el botón "Reservar" quede siempre al final aunque las descripciones tengan distinta longitud.
+- Dentro de cada tarjeta usé Flexbox en columna y margin-top: auto para que el botón "Reservar" quede siempre al final.
 - Agregué el séptimo modelo (Tándem) y comprobé que la cuadrícula se reorganiza sin tocar el CSS.
 
 Columnas observadas en modo dispositivo (DevTools):
@@ -363,68 +426,60 @@ Columnas observadas en modo dispositivo (DevTools):
 | 500       | 1                 |
 
 ¿Qué aprendí?
-Que Grid con auto-fit y minmax construye una cuadrícula adaptable sin media queries, y que Flexbox en columna con margin-top: auto alinea los CTA al fondo de cada tarjeta.
+Que Grid con auto-fit y minmax construye una cuadrícula adaptable sin media queries, y que Flexbox en columna con margin-top: auto alinea los CTA al fondo.
 
 Nota: tras la migración a Bootstrap (Semana 2, reto 7), esta sección usa row g-4 + col-*; las reglas .grid-flota y .tarjeta-bicicleta quedaron comentadas en styles.css como referencia didáctica.
-
 
 ------------------------------------------
 MINIRETO 3 — Layout en dos dimensiones (Grid + Flex)
 ------------------------------------------
-
 Decisiones de Flexbox vs Grid por caso:
 
 | Caso               | Técnica  | Por qué |
 |--------------------|----------|---------|
-| Portada            | Grid 1fr 1fr (desde 1200px) | Dos bloques principales en filas/columnas; control claro de proporciones. |
-| Galería de rutas   | Grid repeat(3, 1fr) (desde 1200px) | Tres tarjetas del mismo ancho en una fila; grid da proporciones exactas. |
+| Portada            | Grid 1fr 1fr (desde 1200px) | Dos bloques principales; control claro de proporciones. |
+| Galería de rutas   | Grid repeat(3, 1fr) (desde 1200px) | Tres tarjetas del mismo ancho en una fila. |
 | Reservas 8/4       | Grid 2fr 1fr (desde 1200px) | Proporción 2:1 explícita con unidades fr. |
-| Fila del formulario| Flex (row, flex:1, gap) | Solo una dirección horizontal; flex resuelve con menos código. |
+| Fila del formulario| Flex (row, flex:1, gap) | Solo una dirección horizontal. |
 | Encabezado         | Flex (row, space-between, align-items:center) | Una dimensión: marca vs. menú. |
-| Pie de página      | Flex (row, space-between, align-items:flex-start, wrap) | Tres bloques en una línea con quiebre natural en móvil. |
+| Pie de página      | Flex (row, space-between, align-items:flex-start, wrap) | Tres bloques en una línea con quiebre en móvil. |
 
 Verificación:
-En escritorio el layout coincide con el boceto: portada en dos columnas, galería de tres rutas, reservas en proporción 2:1. Las columnas se definen con fr. El menú, la flota y la validación del formulario siguen funcionando.
+En escritorio el layout coincide con el boceto. Las columnas se definen con fr. El menú, la flota y la validación del formulario siguen funcionando.
 
-Nota: tras la migración a Bootstrap (Semana 2, reto 7-8), estos layouts se resuelven con row g-4 + col-*; las reglas propias quedaron comentadas en styles.css como referencia didáctica.
-
+Nota: tras la migración a Bootstrap (Semana 2, retos 7-8), estos layouts se resuelven con row g-4 + col-*; las reglas propias quedaron comentadas en styles.css como referencia didáctica.
 
 ------------------------------------------
 MINIRETO 4 — Rueda Libre v1.5: mobile-first
 ------------------------------------------
-
 ¿Qué hice?
-- Reorganicé css/styles.css con enfoque mobile-first: los estilos base (sin media query) describen la versión móvil en una sola columna y las media queries con min-width amplían el layout donde el contenido lo necesita.
+- Reorganicé css/styles.css con enfoque mobile-first: los estilos base (sin media query) describen la versión móvil en una sola columna y las media queries con min-width amplían el layout.
 - Base móvil: header en flex-direction: column con align-items: center; #menu con flex-wrap: wrap y justify-content: center; .portada, .galeria-rutas y .layout-reservas en 1fr; .fila-formulario en column; tablas con font-size: 0.75rem, table-layout: fixed y overflow-wrap: anywhere; img { max-width:100%; height:auto; }.
-- @media (min-width: 768px): header vuelve a row con space-between; footer en row con wrap; galería a 2 columnas; fila del formulario en row; tablas con font-size: 0.95rem y mayor padding.
+- @media (min-width: 768px): header vuelve a row con space-between; footer en row con wrap; galería a 2 columnas; fila del formulario en row; tablas con font-size: 0.95rem.
 - @media (min-width: 1200px): portada en 1fr 1fr; galería en 3 columnas; reservas en 2fr 1fr.
-- Eliminé el bloque @media (max-width: 768px) residual porque contradecía el enfoque mobile-first.
+- Eliminé el bloque @media (max-width: 768px) residual.
 
 Tres problemas responsive y su solución:
 1) Encabezado amontonado en móvil. Solución: base en column + gap; desde 768px row con space-between.
-2) Tablas con scroll lateral en celular. Solución: table-layout: fixed + font-size reducido + overflow-wrap: anywhere en base; a partir de 768px se aumenta el tamaño.
-3) Fila documento/celular desbordaba en pantallas pequeñas. Solución: base en column; a partir de 768px row con flex:1 y min-width:0.
+2) Tablas con scroll lateral en celular. Solución: table-layout: fixed + font-size reducido + overflow-wrap: anywhere en base; desde 768px se aumenta.
+3) Fila documento/celular desbordaba en pantallas pequeñas. Solución: base en column; desde 768px row con flex:1 y min-width:0.
 
 Verificación en DevTools (modo dispositivo):
 - 360px: sin scroll horizontal; contenido en una columna; header en columna; tablas legibles; footer apilado.
 - 768px: header y footer en fila; galería en 2 columnas.
 - 1280px: portada en 2 columnas; reservas 2:1; galería en 3 columnas.
 
-Publicación: v1.5 publicada en GitHub Pages y probada en un celular real.
+Publicación: v1.5 publicada en GitHub Pages y probada en celular real.
 
 ¿Qué aprendí?
-A escribir CSS mobile-first con breakpoints min-width, imágenes fluidas y tablas legibles en móvil, en lugar de corregir un diseño desktop-first hacia abajo.
-
-Versión: Rueda Libre v1.5
-
+A escribir CSS mobile-first con breakpoints min-width, imágenes fluidas y tablas legibles en móvil.
 
 ------------------------------------------
 MINIRETO 5 — Flota en Bootstrap: primera comparación
 ------------------------------------------
-
 ¿Qué hice?
 - Creé pruebas/catalogo-bootstrap.html con la plantilla de Bootstrap 5.3.3 por CDN (CSS y bundle JS).
-- Copié el marcado de la flota (siete modelos) ajustando las rutas de las imágenes a ../img/ por la nueva carpeta.
+- Copié el marcado de la flota (siete modelos) ajustando las rutas de las imágenes a ../img/.
 - Reconstruí la distribución solo con la grilla: col-12 col-sm-6 col-lg-4 col-xl-3, con g-4 como gutter.
 - No enlacé styles.css ni escribí CSS propio para la distribución en esta página.
 
@@ -443,7 +498,7 @@ Tiempo invertido: ~20 minutos.
 La cuadrícula responsive sin escribir CSS, el gutter uniforme con g-4 y componentes listos (card, btn).
 
 ¿Qué control perdí?
-Los puntos de quiebre y los anchos dependen de los valores del framework; personalizar exige sobrescribir variables (lo cual llegará en el reto 12).
+Los puntos de quiebre y los anchos dependen de los valores del framework; personalizar exige sobrescribir variables.
 
 Pruebas en DevTools (modo dispositivo):
 390px → 1 columna; 768px → 2 columnas; 1024px → 3 columnas; 1280px → 4 columnas. Sin 404 en Network.
@@ -451,15 +506,13 @@ Pruebas en DevTools (modo dispositivo):
 ¿Qué aprendí?
 Que Bootstrap reduce drásticamente el código de distribución a costa de perder control directo sobre breakpoints.
 
-
 ------------------------------------------
 MINIRETO 6 — Sección "¿Por qué Rueda Libre?" con utilidades
 ------------------------------------------
-
 ¿Qué hice?
-- En pruebas/catalogo-bootstrap.html, debajo de la flota, construí la sección "¿Por qué Rueda Libre?" con cuatro beneficios (bicicletas revisadas, casco y candado incluidos, guías certificados, puntos de devolución en 3 sedes) distribuidos con la grilla (col-12 col-sm-6 col-lg-3).
+- En pruebas/catalogo-bootstrap.html, debajo de la flota, construí la sección "¿Por qué Rueda Libre?" con cuatro beneficios (bicicletas revisadas, casco y candado incluidos, guías certificados, puntos de devolución en 3 sedes) distribuidos con col-12 col-sm-6 col-lg-3.
 - Construí la franja "¿Listo para rodar?" con texto y enlace destacado: columna en móvil y fila desde md con d-flex flex-column flex-md-row justify-content-between align-items-center gap-4.
-- Elemento decorativo (imagen de ciclista) con d-none d-md-block: oculto en celular y visible desde md.
+- Elemento decorativo (imagen de ciclista) con d-none d-md-block.
 - CTA destacado solo con utilidades de color y espaciado (bg-warning text-dark fw-bold px-4 py-3 rounded).
 - Sin CSS propio, sin style="", sin <style>.
 
@@ -470,51 +523,44 @@ Cinco clases consultadas en la documentación oficial y su función:
 4) d-none → oculta el elemento en todos los tamaños; se combina con d-md-block para mostrarlo desde md.
 5) bg-success → aplica el color de fondo verde del tema.
 
-Verificación: la franja pasa de columna a fila desde md; el elemento decorativo solo aparece desde md; todas las clases son de Bootstrap 5.3 (no ml-* ni mr-*).
+Verificación: la franja pasa de columna a fila desde md; el elemento decorativo solo aparece desde md; todas las clases son de Bootstrap 5.3.
 
 ¿Qué aprendí?
-Que con utilidades de Bootstrap se puede construir una sección completa sin CSS propio, apoyándose en el buscador de la documentación oficial.
-
+Que con utilidades de Bootstrap se puede construir una sección completa sin CSS propio.
 
 ------------------------------------------
 MINIRETO 7 — Inicio migra a Bootstrap
 ------------------------------------------
-
 ¿Qué hice?
 - Agregué Bootstrap CSS + bundle JS a index.html, con css/styles.css cargado DESPUÉS para mantener la cascada.
 - Reemplacé la distribución de la portada, la flota (con el marcado del reto 5), la galería de rutas y los beneficios por la grilla (row g-4 + col-*) y utilidades.
-- Eliminé de styles.css las reglas de distribución que inicio ya no usa y dejé comentadas las de tarjetas, portada, galería y reservas como referencia didáctica (retos 2 y 3 de la semana 2).
+- Eliminé de styles.css las reglas de distribución que inicio ya no usa y dejé comentadas las de tarjetas, portada, galería y reservas como referencia didáctica.
 - Probé inicio a 360px, 768px y 1280px en modo dispositivo: se ve correctamente en los tres anchos.
 
 Tres conflictos detectados con DevTools y su solución:
-
 1) Color azul por defecto de Bootstrap en enlaces del footer.
    - Diagnóstico: la regla a { color: … } de Bootstrap ganaba por orden a la regla de marca.
    - Solución: se ajustó la regla en styles.css usando la variable --bs-link-color: var(--verde-ruta); y --bs-link-hover-color: var(--verde-hover); en :root, sin !important.
-
 2) Margen inferior rígido del selector article que desalineaba las tarjetas frente al g-4 de la fila.
    - Diagnóstico: el selector global article imponía margin-bottom: 2rem sumado al gap de la fila.
    - Solución: se aplicó la clase utilitaria mb-0 (y h-100 para altura uniforme) en las tarjetas dentro de la grilla, neutralizando el margen heredado sin tocar el selector global.
-
 3) Tamaño y peso de encabezados alterados por Bootstrap.
    - Diagnóstico: Bootstrap redefine font-size y font-weight de h1–h6.
-   - Solución: se reforzó el marcado con clases utilitarias explícitas (h3, h4, fw-bold, lead) y se mantuvo la tipografía Montserrat mediante la regla agrupada h1,h2,…{font-family: var(--font-heading)}. Las fuentes y colores de marca se mantienen.
+   - Solución: se reforzó el marcado con clases utilitarias explícitas (h3, h4, fw-bold, lead) y se mantuvo la tipografía Montserrat mediante la regla agrupada h1,h2,…{font-family: var(--font-heading)}.
 
 Verificación: los tres anchos correctos; styles.css se carga después de Bootstrap; no se usó !important en ningún cambio.
 
 ¿Qué aprendí?
 A resolver conflictos de cascada y especificidad con orden de carga y variables, no con !important.
 
-
 ------------------------------------------
 MINIRETO 8 — v2.0-beta: migración completa
 ------------------------------------------
-
 ¿Qué hice?
 - Migré tarifas: sus secciones se organizan con row g-4, con las tablas en col-12 col-lg-8 y la información complementaria en col-12 col-lg-4. Conservé los estilos de tabla de la Semana 1.
 - Migré reservas: formulario y aside en col-12 col-md-8 + col-12 col-md-4 y las filas de campos cortos con row g-3 + col-12 col-sm-6. Se conservaron todas las reglas de validación nativa.
-- Limpié styles.css: eliminé las reglas de distribución que Bootstrap ya resuelve y dejé comentadas las que documentan la solución anterior (flota, portada, galería, reservas, fila del formulario). Conservé variables, tipografía, colores, tarjetas, tablas y estados.
-- Revisé las tres páginas a 360px, 768px y 1280px: se ven correctamente en los tres anchos.
+- Limpié styles.css: eliminé las reglas de distribución que Bootstrap ya resuelve y dejé comentadas las que documentan la solución anterior. Conservé variables, tipografía, colores, tarjetas, tablas y estados.
+- Revisé las tres páginas a 360px, 768px y 1280px: se ven correctamente.
 
 Comparativa final con datos reales:
 
@@ -525,7 +571,7 @@ Comparativa final con datos reales:
 | Reglas de distribución propias   | Grid + Flex manual | 0 (las resuelve Bootstrap) |
 
 Ventajas observadas:
-- Maquetación mucho más rápida (grilla 8/4 y columnas de tarifas resueltas por row/col).
+- Maquetación mucho más rápida.
 - Responsividad nativa garantizada por el framework.
 - Los campos de formulario heredan clases form-control/form-select con validación nativa intacta.
 
@@ -538,253 +584,183 @@ La migración a v2.0-beta es un éxito: se preservó la identidad visual, la val
 
 Publicación: v2.0-beta en GitHub Pages.
 
-
 ------------------------------------------
 MINIRETO 9 — Navbar colapsable y botones unificados
 ------------------------------------------
-
 ¿Qué hice?
-- Reemplacé el <header> + <nav> + <ul id="menu"> de las tres páginas por una navbar de Bootstrap con navbar-expand-lg (enlaces visibles desde 992px; colapsados por debajo con botón hamburguesa).
+- Reemplacé el <header> + <nav> + <ul id="menu"> de las tres páginas por una navbar de Bootstrap con navbar-expand-lg.
 - El botón usa data-bs-toggle="collapse", data-bs-target="#menuPrincipal" y aria-controls/aria-expanded correctamente sincronizados.
-- Marqué la página actual con class="active" y aria-current="page" (reemplaza la clase activo propia de la Semana 1).
-- Convertí todas las llamadas a la acción en botones de Bootstrap:
-  · Principal → btn btn-primary (verde de marca por --bs-primary).
-  · Tamaño grande en CTAs importantes → btn btn-primary btn-lg.
-  · Variante outline reservada para acciones secundarias (si aplica).
-- Verifiqué que el bundle de Bootstrap se carga una sola vez por página, antes de </body>, con el integrity oficial correcto (…IeHz).
-- Probé el menú a 360px con mouse y teclado (Tab y Enter).
+- Marqué la página actual con class="active" y aria-current="page".
+- Convertí todas las llamadas a la acción en botones de Bootstrap: btn btn-primary (verde de marca por --bs-primary), btn btn-primary btn-lg para CTAs importantes y btn-outline-primary para acciones secundarias.
+- Verifiqué que el bundle de Bootstrap se carga una sola vez por página, antes de </body>.
+- Probé el menú a 360px con mouse y teclado.
 
 Verificación en DevTools (modo dispositivo):
 - 1280px: los tres enlaces se ven a la derecha, sin botón hamburguesa.
-- 360px: aparece el botón hamburguesa; al pulsarlo se despliegan los tres enlaces; al pulsar de nuevo se cierra.
-- Teclado: Tab llega al botón hamburguesa, Enter lo abre, Tab recorre los enlaces, Enter navega.
+- 360px: aparece el botón hamburguesa; al pulsarlo se despliegan los tres enlaces.
+- Teclado: Tab llega al botón, Enter lo abre, Tab recorre los enlaces.
 - Network: una sola petición a bootstrap.bundle.min.js por página.
-- El enlace de la página actual tiene aria-current="page" (visible en Elements).
 
 ¿Qué aprendí?
-A usar el componente navbar de Bootstrap con collapse para menús responsive, a marcar la página activa de forma accesible con aria-current y a unificar los CTA con el componente btn.
+A usar el componente navbar de Bootstrap con collapse y a marcar la página activa con aria-current.
 
 ------------------------------------------
 MINIRETO 10 — La flota en cards y promociones que rotan
 ------------------------------------------
-
 ¿Qué hice?
-- Convertí cada modelo de la flota en una card de Bootstrap con card-img-top,
-  card-body, card-title, card-text, precio y botón "Reservar". La grilla se
-  mantiene (row g-4 + col-12 col-sm-6 col-lg-4 col-xl-3) y todas las cards usan
-  h-100 para igualar altura; el botón queda al final con d-flex flex-column + mt-auto.
+- Convertí cada modelo de la flota en una card de Bootstrap con card-img-top, card-body, card-title, card-text, precio y botón "Reservar". La grilla se mantiene (row g-4 + col-12 col-sm-6 col-lg-4 col-xl-3) y todas las cards usan h-100 para igualar altura; el botón queda al final con d-flex flex-column + mt-auto.
 - Convertí también las tarjetas de la galería de rutas en cards (row g-4 + col-md-4).
-- Agregué un carrusel de promociones en inicio con tres slides:
-  · Martes 2x1 en bicicletas urbanas.
-  · 20 % de descuento en eléctricas de lunes a jueves.
-  · Recorrido gratis si cumples años.
-  El carrusel tiene indicadores, controles prev/next con texto accesible
-  (visually-hidden) y avance automático con data-bs-ride="carousel".
+- Agregué un carrusel de promociones en inicio con tres slides: Martes 2x1, 20 % en eléctricas y recorrido gratis por cumpleaños. El carrusel tiene indicadores, controles prev/next con visually-hidden y avance automático con data-bs-ride="carousel".
 - Cada imagen del carrusel tiene alt descriptivo.
-- Eliminé de styles.css las reglas de tarjetas propias que ya no se usaban
-  (.tarjeta-bicicleta, .tarjeta-ruta, .grid-flota, .galeria-rutas, article img).
-  Conservé comentadas las reglas de portada, reservas y fila del formulario
-  como referencia didáctica.
+- Eliminé de styles.css las reglas de tarjetas propias que ya no se usaban (.tarjeta-bicicleta, .tarjeta-ruta, .grid-flota, .galeria-rutas, article img). Conservé comentadas las de portada, reservas y fila del formulario.
 
 Verificación en DevTools:
 - Las cards de una misma fila tienen la misma altura y sus CTA quedan alineados al fondo.
-- El carrusel avanza solo y responde a los controles con teclado (Tab + Enter).
-- Los controles del carrusel exponen "Promoción anterior" y "Siguiente promoción"
-  a los lectores de pantalla.
+- El carrusel avanza solo y responde a los controles con teclado.
+- Los controles del carrusel exponen "Promoción anterior" y "Siguiente promoción".
 - Sin reglas de tarjetas huérfanas en styles.css.
 - Sin errores 404 en Network.
 
 ¿Qué aprendí?
-A usar el componente card de Bootstrap dentro de la grilla existente y el
-componente carousel con controles accesibles, y a limpiar el CSS propio
-que el framework ya resuelve.
+A usar el componente card de Bootstrap dentro de la grilla y el carousel con controles accesibles, y a limpiar el CSS propio que el framework ya resuelve.
 
 ------------------------------------------
 MINIRETO 11 — Reservas confiables: validación visual, alerta y modal
 ------------------------------------------
-
 ¿Qué hice?
-- Consolidé el formulario en 3 fieldsets ("Tus datos", "Tu alquiler",
-  "Confirmación"), incluyendo el campo "Fecha del alquiler" con
-  min="2026-11-01" y max="2026-12-31".
-- Apliqué las clases de formulario de Bootstrap (form-label, form-control,
-  form-select, form-check, form-check-input, form-check-label) sin perder
-  las reglas de validación nativa (required, pattern, min, max, minlength,
-  maxlength, type email/tel/number/date).
-- Activé la validación visual de Bootstrap con needs-validation + novalidate
-  en el <form> y el script oficial copiado sin cambios antes de </body>.
-- Añadí un invalid-feedback específico por campo obligatorio con mensajes
-  que explican cómo corregir (no "campo inválido").
-- Agregué una alerta informativa dismissible arriba del formulario con el
-  recordatorio de traer el documento original.
-- Creé el modal "Políticas de alquiler" con las 5 políticas en una lista
-  ordenada, que se abre desde un botón junto a la casilla de aceptación y
-  se cierra con su botón, con "Entendido" y con Esc.
+- Consolidé el formulario en 3 fieldsets ("Tus datos", "Tu alquiler", "Confirmación"), incluyendo el campo "Fecha del alquiler" con min="2026-11-01" y max="2026-12-31".
+- Apliqué las clases de formulario de Bootstrap (form-label, form-control, form-select, form-check, form-check-input, form-check-label) sin perder las reglas de validación nativa.
+- Activé la validación visual con needs-validation + novalidate en el <form> y el script oficial copiado sin cambios antes de </body>.
+- Añadí un invalid-feedback específico por campo obligatorio.
+- Agregué una alerta informativa dismissible arriba del formulario con el recordatorio de traer el documento original.
+- Creé el modal "Políticas de alquiler" con las 5 políticas en una lista ordenada, que se abre desde un botón junto a la casilla y se cierra con su botón, con "Entendido" y con Esc.
 
 Verificación:
-- Enviar el formulario vacío: no se envía; cada campo muestra su mensaje
-  específico debajo y el borde se pinta de rojo (was-validated).
-- Reglas nativas: el celular acepta 3001234567 y rechaza 1234567890 y 300123;
-  el documento rechaza letras; la fecha no acepta días fuera del rango; la
-  cantidad solo admite 1–6.
+- Enviar el formulario vacío: no se envía; cada campo muestra su mensaje específico y el borde se pinta de rojo.
+- Reglas nativas: el celular acepta 3001234567 y rechaza 1234567890 y 300123; el documento rechaza letras; la fecha no acepta días fuera del rango; la cantidad solo admite 1–6.
 - La alerta se cierra con su botón ×.
-- El modal se abre desde el botón "Ver políticas", se cierra con el botón ×,
-  con "Entendido" y con Esc, y muestra las cinco políticas.
+- El modal se abre desde el botón, se cierra con su botón, con "Entendido" y con Esc, y muestra las cinco políticas.
 
 ¿Qué aprendí?
-A combinar la validación nativa HTML con la validación visual de Bootstrap
-(needs-validation + invalid-feedback) y a integrar los componentes alert y
-modal con texto y comportamiento accesibles.
+A combinar la validación nativa HTML con la validación visual de Bootstrap y a integrar los componentes alert y modal con texto y comportamiento accesibles.
 
 ------------------------------------------
 MINIRETO 12 — Rueda Libre v2.0: con identidad propia
 ------------------------------------------
-
 ¿Qué hice?
-- Sobrescribí las variables globales de Bootstrap en css/styles.css:
-  --bs-primary, --bs-primary-rgb, --bs-body-font-family, --bs-link-color,
-  --bs-link-hover-color, --bs-border-radius, --bs-heading-color y las
-  variables del botón (--bs-btn-bg, --bs-btn-hover-bg, --bs-btn-active-bg, etc.).
-- Creé la variante .btn-rl-accent con Naranja Pedal y texto Az
+- Sobrescribí las variables globales de Bootstrap en css/styles.css: --bs-primary, --bs-primary-rgb, --bs-body-font-family, --bs-link-color, --bs-link-hover-color, --bs-border-radius, --bs-heading-color y las variables del botón (--bs-btn-bg, --bs-btn-hover-bg, --bs-btn-active-bg, etc.).
+- Creé la variante .btn-rl-accent con Naranja Pedal y texto Azul Noche (contraste 7.1:1, apto texto normal).
+- Creé tres clases propias complementarias: .rl-portada (min-height: 60vh), .rl-titulo-seccion (título con borde verde) y .rl-footer (pie con fondo Azul Noche).
+- Agregué Bootstrap Icons por CDN y lo usé en la navbar (bi-bicycle), en los datos de contacto (bi-envelope, bi-clock), en los beneficios (bi-check-circle-fill) y en el enlace de WhatsApp (bi-whatsapp). Los íconos decorativos llevan aria-hidden="true" y el enlace de WhatsApp tiene aria-label.
+- Revisé la lista de errores comunes: sin !important (excepto en la corrección justificada de .text-success), sin clases de versiones anteriores, hoja propia después de Bootstrap, bundle una sola vez y estructura container > row > col.
+- Hice la prueba final (tres anchos, teclado y contraste) y publiqué la v2.0 con un commit de lanzamiento.
 
-![Antes - v1.5](img/capturas/antes-v1.5.png)
-![Después - v2.0](img/capturas/despues-v2.0.png)
+Las cinco verificaciones:
+1. Botones principales, enlaces y utilidades text-primary/bg-primary muestran los colores de marca: ✔
+2. Ninguna regla usa !important (salvo una excepción justificada en .text-success), y el archivo de Bootstrap no fue modificado: ✔
+3. Hay al menos tres clases propias (.rl-portada, .rl-titulo-seccion, .rl-footer) y cuatro usos de Bootstrap Icons con accesibilidad correcta: ✔
+4. Todas las combinaciones de texto y fondo cumplen 4.5:1: ✔
+5. La v2.0 está publicada y funciona en móvil, tablet y escritorio: ✔
+
+Resumen de la Semana 2:
+Migré el sitio a Bootstrap 5.3, aplicando su grilla, componentes (navbar, cards, carrusel, modal, alertas) y validación visual, y personalicé la identidad con variables --bs-* y clases propias. Aprendí a resolver conflictos de cascada sin !important y a medir el impacto del framework en el tiempo y el código.
+Mejoraría: documentar desde el inicio las variables que sobrescribo para evitar conflictos futuros.
+
+
+==========================================
+SEMANA 3 — Tailwind CSS y Rueda Nocturna
+==========================================
 
 ------------------------------------------
 MINIRETO 1 (Semana 3) — Prototipo de la sección principal con Tailwind Play CDN
 ------------------------------------------
-
 ¿Qué hice?
-- Creé la carpeta nocturna/ en el repositorio y dentro prototipo.html con la
-  estructura base y el Play CDN de Tailwind CSS.
-- Construí la sección principal con todos los elementos de la campaña:
-  · Etiqueta: "Nuevo · Jueves a sábado" (span con bg-amber-400 + rounded-full).
-  · Título: "Rueda Nocturna" (único h1, text-5xl md:text-7xl font-extrabold).
-  · Subtítulo: "Descubre Medellín en bici cuando se encienden las luces"
-    (p con text-slate-300 y leading-relaxed).
-  · Dos datos destacados: "3 rutas" y "Desde $55.000"
-    (dl + dt/dd con text-3xl md:text-4xl y text-amber-400).
-  · Enlace "Inscríbete" con apariencia de botón.
-- Todo el estilo se aplicó SOLO con utilidades de Tailwind: sin <style>,
-  sin style="" y sin clases de Bootstrap.
+- Creé la carpeta nocturna/ y dentro prototipo.html con la estructura base y el Play CDN de Tailwind CSS.
+- Construí la sección principal con todos los elementos: etiqueta "Nuevo · Jueves a sábado", título "Rueda Nocturna", subtítulo, dos datos destacados ("3 rutas" y "Desde $55.000") y el enlace "Inscríbete" con apariencia de botón.
+- Todo el estilo se aplicó SOLO con utilidades de Tailwind: sin <style>, sin style="" y sin clases de Bootstrap.
 
 Familias de utilidades usadas:
-- Espaciado: px-6, py-16, pt-4, space-y-8, space-y-1, gap-8, gap-12, px-4, py-1,
-  px-8, py-4.
+- Espaciado: px-6, py-16, pt-4, space-y-8, space-y-1, gap-8, gap-12, px-4, py-1, px-8, py-4.
 - Tamaños: w-full, max-w-3xl, max-w-2xl.
-- Colores: bg-slate-950, text-slate-100, bg-amber-400, text-slate-900,
-  text-white, text-slate-300, text-slate-400, text-amber-400, bg-emerald-500,
-  hover:bg-emerald-400.
-- Tipografía: text-5xl md:text-7xl, text-lg md:text-2xl, text-xs, text-3xl
-  md:text-4xl, font-extrabold, font-bold, font-semibold, leading-tight,
-  leading-relaxed, tracking-tight, tracking-widest, uppercase.
+- Colores: bg-slate-950, text-slate-100, bg-amber-400, text-slate-900, text-white, text-slate-300, text-slate-400, text-amber-400, bg-emerald-500, hover:bg-emerald-400.
+- Tipografía: text-5xl md:text-7xl, text-lg md:text-2xl, text-xs, text-3xl md:text-4xl, font-extrabold, font-bold, font-semibold, leading-tight, leading-relaxed, tracking-tight, tracking-widest, uppercase.
 
 Comparación del botón "Inscríbete": Bootstrap (Semana 2) vs Tailwind (Semana 3)
--------------------------------------------------------------------------------
 Semana 2 (Bootstrap):
     <a href="..." class="btn btn-primary btn-lg">Inscríbete</a>
-  → Una sola clase btn-primary trae fondo, color de texto, padding, radio,
-    estados hover/focus y transición desde el framework.
+  → Una sola clase btn-primary trae fondo, color de texto, padding, radio, estados hover/focus y transición desde el framework.
 
 Semana 3 (Tailwind, utility-first):
-    <a href="..." class="inline-block bg-emerald-500 hover:bg-emerald-400
-        focus:outline-none focus:ring-4 focus:ring-emerald-300/50
-        text-slate-900 text-lg font-bold px-8 py-4 rounded-full
-        transition-colors duration-200">Inscríbete</a>
+    <a href="..." class="inline-block bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/50 text-slate-900 text-lg font-bold px-8 py-4 rounded-full transition-colors duration-200">Inscríbete</a>
   → Cada propiedad visual se declara explícitamente con una clase utilitaria.
 
 Diferencia clave entre un framework de componentes y uno utility-first:
-- Bootstrap (componentes): te da componentes y clases semánticas ya
-  empaquetados (btn, card, navbar). Ahorra tiempo y garantiza consistencia,
-  pero si quieres un botón fuera del diseño del framework necesitas
-  sobrescribir variables o CSS propio.
-- Tailwind (utility-first): te da clases atómicas (una propiedad por clase)
-  y compones el diseño directamente en el HTML. Da control total y evita
-  CSS muerto, pero el HTML es más verboso y el diseño se aprende leyendo
-  clases.
+- Bootstrap (componentes): te da componentes y clases semánticas ya empaquetados (btn, card, navbar). Ahorra tiempo y garantiza consistencia, pero si quieres un botón fuera del diseño del framework necesitas sobrescribir variables o CSS propio.
+- Tailwind (utility-first): te da clases atómicas (una propiedad por clase) y compones el diseño directamente en el HTML. Da control total y evita CSS muerto, pero el HTML es más verboso.
 
 ¿Qué aprendí?
-A prototipar una sección completa con Tailwind Play CDN sin instalar nada,
-usando solo utilidades, y a contrastar el enfoque utility-first con el
-enfoque de componentes de Bootstrap.
+A prototipar una sección completa con Tailwind Play CDN sin instalar nada, usando solo utilidades, y a contrastar el enfoque utility-first con el enfoque de componentes de Bootstrap.
 
 Versión: Rueda Nocturna — prototipo (nocturna/prototipo.html)
 
-Búsqueda en output.css:
-- bg-emerald-500 → SÍ aparece (la usamos en el botón principal).
-- bg-pink-500 → NO aparece (no la usamos en ningún HTML).
+------------------------------------------
+MINIRETO 2 (Semana 3) — Tailwind CLI y botones del kit
+------------------------------------------
+¿Qué hice?
+- Dentro de nocturna/, instalé Tailwind y su CLI con npm, creé src/input.css con la importación de Tailwind y un archivo .gitignore que excluye node_modules/.
+- Ejecuté la CLI en modo watch para generar src/output.css.
+- Creé nocturna/index.html enlazando ese archivo y llevé allí la sección principal del prototipo.
+- Busqué en output.css una clase que uso y otra que no uso:
+  · bg-emerald-500 → SÍ aparece (la usamos en el botón principal).
+  · bg-pink-500 → NO aparece (no la usamos en ningún HTML).
+  · ¿Por qué? Tailwind es "on-demand": la CLI escanea los archivos HTML y solo genera el CSS de las clases que encuentra escritas como strings. bg-pink-500 no existe en index.html, así que no se genera.
 
-¿Por qué? Tailwind es "on-demand": la CLI escanea los archivos HTML y
-solo genera el CSS de las clases que encuentra escritas como strings.
-bg-pink-500 no existe en index.html, así que no se genera.
+- Construí las tres variantes de botón con estados hover y focus visibles:
+  1. Botón principal (verde): bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300/50 text-slate-900 text-lg font-bold px-8 py-4 rounded-full transition-colors duration-200.
+  2. Botón secundario (amarillo): bg-amber-400 hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-300/50 text-slate-900 text-lg font-bold px-8 py-4 rounded-full transition-colors duration-200.
+  3. Botón de contorno: border-2 border-slate-500 hover:border-white hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-400/50 text-slate-100 text-lg font-bold px-8 py-4 rounded-full transition-colors duration-200.
+- Cada botón tiene un anillo de foco visible (ring-4) y cambios de color en hover, cumpliendo con la accesibilidad.
+- Probé los botones con el teclado y verifiqué el foco visible en todos.
+
+Verificación:
+- nocturna/index.html usa src/output.css y no el Play CDN.
+- En GitHub no aparece node_modules y sí aparece src/output.css.
+- Los tres botones cambian con hover y muestran un indicador de foco visible al navegar con Tab.
+
+¿Qué aprendí?
+A configurar Tailwind con la CLI, entender la generación on-demand de clases y construir componentes con estados de interacción accesibles.
 
 ------------------------------------------
 MINIRETO 3 (Semana 3) — Cards de las rutas nocturnas
 ------------------------------------------
-
 ¿Qué hice?
-- En nocturna/index.html agregué la sección "Rutas" con las tres cards:
-  Luces del Centro (Fácil), Miradores de la Ciudad (Medio) y
-  Luna en Las Palmas (Difícil).
-- Cada card incluye: imagen con alto uniforme (h-56) y ancho completo
-  (w-full), etiqueta de nivel, nombre de la ruta, lista de datos
-  (distancia, duración, punto de encuentro), precio destacado y el
-  botón principal del kit (MiniReto 2).
-- Las tres cards comparten EXACTAMENTE la misma estructura y clases base
-  (bg-slate-900, border border-slate-800, rounded-2xl, overflow-hidden,
-  shadow-md, transition-all). Solo cambian los datos y el color de la
-  etiqueta.
+- En nocturna/index.html agregué la sección "Rutas" con las tres cards: Ciudad del Río (Fácil), Miradores de la Ciudad (Medio) y Luna en Las Palmas (Difícil).
+- Cada card incluye: imagen con alto uniforme (h-56) y ancho completo (w-full), etiqueta de nivel, nombre de la ruta, lista de datos (distancia, duración, punto de encuentro), precio destacado y el botón principal del kit.
+- Las tres cards comparten EXACTAMENTE la misma estructura y clases base (bg-slate-900, border border-slate-800, rounded-2xl, overflow-hidden, shadow-md, transition-all). Solo cambian los datos y el color de la etiqueta.
 - El nivel se distingue por color Y por texto:
     Fácil   → bg-emerald-500/20 text-emerald-300  + "Nivel: Fácil"
     Medio   → bg-amber-500/20  text-amber-300     + "Nivel: Medio"
     Difícil → bg-rose-500/20   text-rose-300      + "Nivel: Difícil"
-- Jerarquía tipográfica en la lista: <dt> pequeño, gris, uppercase y
-  tracking amplio (text-xs uppercase tracking-wider text-slate-400);
-  <dd> blanco, seminegrita (text-white font-semibold).
-- Efecto hover en la card: hover:shadow-2xl + hover:border-<color>/50
-  con transition-all duration-300. La card no se mueve, solo cambia la
-  sombra y el color del borde.
-- No hay CSS propio: cero <style>, cero style="". Todo el estilo sale de
-  utilidades de Tailwind.
-
-Utilidades aplicadas por familia:
-- Bordes: border, border-slate-800, border-b, hover:border-*,
-  rounded-full, rounded-2xl.
-- Sombras: shadow-md, shadow-lg shadow-emerald-500/30, hover:shadow-2xl.
-- Espaciado: p-6, space-y-4, space-y-2, pb-2, pt-2, mb-10, mx-auto,
-  px-5, py-2.5.
-- Tamaños: w-full, h-56, max-w-2xl, max-w-3xl, mx-auto.
-- Tipografía: text-2xl, text-sm, text-xs, font-bold, font-semibold,
-  font-extrabold, uppercase, tracking-wider, tracking-widest.
-- Colores: bg-slate-900, text-white, text-slate-400, text-emerald-400,
-  bg-emerald-500/20, bg-amber-500/20, bg-rose-500/20, etc.
-- Hover: hover:shadow-2xl, hover:border-*, hover:bg-*.
+- Jerarquía tipográfica en la lista: <dt> pequeño, gris, uppercase y tracking amplio (text-xs uppercase tracking-wider text-slate-400); <dd> blanco, seminegrita (text-white font-semibold).
+- Efecto hover en la card: hover:shadow-2xl + hover:border-<color>/50 con transition-all duration-300. La card no se mueve, solo cambia la sombra y el color del borde.
+- No hay CSS propio: cero <style>, cero style="".
 
 ¿Qué aprendí?
-A construir cards reutilizables con Tailwind usando un grupo de clases
-base compartido, diferenciando variantes solo por color y texto, y a
-aplicar hover sin desplazar el contenido.
+A construir cards reutilizables con Tailwind usando un grupo de clases base compartido, diferenciando variantes solo por color y texto, y a aplicar hover sin desplazar el contenido.
 
 ------------------------------------------
 MINIRETO 4 (Semana 3) — Kit de componentes
 ------------------------------------------
-
 ¿Qué hice?
 - Creé nocturna/componentes.html con los cuatro tipos de componente:
   · 3 botones del kit (principal, secundario, contorno) con hover y focus.
-  · 1 card del MiniReto 3 (ruta Luces del Centro).
-  · 3 alertas: información (azul), éxito (verde) y advertencia (ámbar),
-    cada una con fondo suave, borde lateral de color, título destacado
-    y texto. La alerta de éxito lleva role="status" para que los
-    lectores de pantalla la anuncien como aviso.
-  · 2 campos de formulario (correo y celular) con <label for> asociado,
-    borde, relleno, placeholder, texto de ayuda debajo y foco visible
-    con focus:ring-4.
+  · 1 card del MiniReto 3 (ruta Ciudad del Río).
+  · 3 alertas: información (azul), éxito (verde) y advertencia (ámbar), cada una con fondo suave, borde lateral de color, título destacado y texto. La alerta de éxito lleva role="status" para que los lectores de pantalla la anuncien como aviso.
+  · 2 campos de formulario (correo y celular) con <label for> asociado, borde, relleno, placeholder, texto de ayuda debajo y foco visible con focus:ring-4.
 - Registré las reglas del kit (abajo).
-- Publiqué en GitHub Pages y verifiqué en línea que output.css carga
-  sin errores 404 y que todo el kit se puede recorrer con Tab.
+- Publiqué en GitHub Pages y verifiqué en línea que output.css carga sin errores 404 y que todo el kit se puede recorrer con Tab.
 
-REGLAS DEL KIT (aplicadas a todos los componentes):
+REGLAS DEL KIT:
 
 1. Radios de borde:
    - rounded-full → botones y etiquetas.
@@ -803,8 +779,7 @@ REGLAS DEL KIT (aplicadas a todos los componentes):
    - Acción secundaria → amber-400 / hover amber-300.
    - Peligro / difícil → rose-500.
    - Información → sky-500.
-   - Fondo base bg-slate-950; superficie bg-slate-900;
-     bordes border-slate-800 / border-slate-700.
+   - Fondo base bg-slate-950; superficie bg-slate-900; bordes border-slate-800 / border-slate-700.
 
 4. Tipografía:
    - Títulos: font-bold / font-extrabold + text-white.
@@ -815,8 +790,7 @@ REGLAS DEL KIT (aplicadas a todos los componentes):
 5. Estados:
    - Hover: cambio de color de fondo.
    - Focus: focus:ring-4 con color a juego.
-   - Transición: transition-colors duration-200 (o duration-300
-     en la card).
+   - Transición: transition-colors duration-200 (o duration-300 en la card).
 
 6. Accesibilidad:
    - <label for> en cada input.
@@ -829,22 +803,16 @@ Verificación en línea:
 - El foco se ve en todos los elementos.
 
 ¿Qué aprendí?
-A construir un kit de componentes consistente con Tailwind usando reglas
-compartidas (radios, espaciado, colores, tipografía, estados) y a integrar
-alertas accesibles y formularios con foco visible sin escribir una sola
-línea de CSS propio.
-
-Versión: Rueda Nocturna — Kit de componentes (nocturna/componentes.html)
+A construir un kit de componentes consistente con Tailwind usando reglas compartidas y a integrar alertas accesibles y formularios con foco visible sin escribir CSS propio.
 
 ------------------------------------------
 MINIRETO 5 (Semana 3) — Layout completo de la landing
 ------------------------------------------
-
 ¿Qué hice?
 - Estructuré nocturna/index.html con etiquetas semánticas: <header>, <main> y <footer>.
-- Envolví el contenido de todas las secciones en el mismo contenedor centrado usando max-w-5xl mx-auto px-6 (equivalente al container de Tailwind).
+- Envolví el contenido de todas las secciones en el mismo contenedor centrado usando max-w-5xl mx-auto px-6.
 - Construí el <header> con flex (flex items-center justify-between): logo a la izquierda, enlaces de navegación y botón "Inscríbete" a la derecha.
-- Agregué las secciones que faltaban con sus respectivos id para las anclas: #rutas, #como-funciona y #inscripcion.
+- Agregué las secciones con sus respectivos id para las anclas: #rutas, #como-funciona y #inscripcion.
 - Distribuí las tres cards de rutas en una cuadrícula de tres columnas con grid grid-cols-1 md:grid-cols-3 gap-8.
 - Construí la sección "¿Cómo funciona?" con cuatro pasos en un grid grid-cols-1 md:grid-cols-4 gap-8.
 - Organicé el <footer> en tres bloques (marca, enlaces y contacto) usando flex flex-col md:flex-row justify-between.
@@ -861,17 +829,16 @@ Verificación en DevTools:
 - output.css está actualizado con las clases nuevas.
 
 ¿Qué aprendí?
-A estructurar una landing completa de principio a fin con Tailwind, usando contenedores consistentes (max-w-* mx-auto px-*), etiquetas semánticas para navegación interna y el sistema de Grid para distribuir bloques de contenido de forma uniforme.
+A estructurar una landing completa de principio a fin con Tailwind, usando contenedores consistentes, etiquetas semánticas para navegación interna y el sistema de Grid para distribuir bloques de contenido de forma uniforme.
 
 ------------------------------------------
 MINIRETO 6 (Semana 3) — Landing responsive (Mobile-First)
 ------------------------------------------
-
 ¿Qué revisé a 360 px (celular) y qué se rompía?
-1. El encabezado tenía los enlaces, el logo y el botón en una sola fila, lo que causaba desbordamiento (scroll horizontal) y amontonamiento de los textos.
-2. La grilla de rutas se veía muy apretada al intentar mostrar las 3 columnas fijas en el celular (el texto de las cards se desbordaba y las imágenes se achicaban demasiado).
-3. Los 4 pasos de "¿Cómo funciona?" también intentaban estar en una fila, comprimiéndose innecesariamente.
-4. La franja de inscripción (CTA) y el pie de página tenían contenido desalineado y pegado.
+1. El encabezado tenía los enlaces, el logo y el botón en una sola fila, lo que causaba desbordamiento y amontonamiento.
+2. La grilla de rutas se veía muy apretada al intentar mostrar las 3 columnas fijas en el celular.
+3. Los 4 pasos de "¿Cómo funciona?" también intentaban estar en una fila, comprimiéndose.
+4. La franja de inscripción y el pie de página tenían contenido desalineado y pegado.
 
 ¿Qué hice?
 - Reescribí las clases de layout con enfoque mobile-first:
@@ -893,12 +860,11 @@ Tabla de pruebas en DevTools (Modo dispositivo):
 | 1280px | En fila (contenedor 5xl)     | 3                | 4                | En fila           | No                |
 
 Conclusión:
-La landing ahora fluye de forma natural desde el celular (sin scroll horizontal y todo en una columna) hasta el escritorio, cumpliendo con el enfoque mobile-first exigido por Tailwind. El uso de los prefijos sm:, md: y lg: permitió establecer los puntos de quiebre sin usar una sola línea de CSS propio.
+La landing ahora fluye de forma natural desde el celular hasta el escritorio, cumpliendo con el enfoque mobile-first. El uso de los prefijos sm:, md: y lg: permitió establecer los puntos de quiebre sin usar una sola línea de CSS propio.
 
 ------------------------------------------
 MINIRETO 7 (Semana 3) — Tema de marca y modo oscuro
 ------------------------------------------
-
 ¿Qué hice?
 - En src/input.css definí el bloque @theme de Tailwind v4 para declarar las variables de la marca:
   · Los 5 colores base del sitio: Verde Ruta (#1E7A4F), Naranja Pedal (#F39A2B), Azul Noche (#14213D), Crema (#FAF6EF), Gris Asfalto (#5B6470).
@@ -906,17 +872,17 @@ MINIRETO 7 (Semana 3) — Tema de marca y modo oscuro
   · Las tipografías de la marca: Montserrat (títulos) y Open Sans (textos).
   · Variables extra para el modo oscuro: dark-bg, dark-surface, dark-border, dark-text, dark-muted.
 - Cargué las fuentes Montserrat y Open Sans desde Google Fonts en el <head> de index.html y componentes.html.
-- Reemplacé todos los colores genéricos de Tailwind (slate, emerald, amber, rose, sky) por los colores de la marca en la landing y en el kit. Ya no hay rastros de colores por defecto.
+- Reemplacé todos los colores genéricos de Tailwind (slate, emerald, amber, rose, sky) por los colores de la marca en la landing y en el kit.
 - Agregué las variantes dark: a fondos, textos, cards, bordes, inputs y botones, usando la estrategia por defecto de Tailwind (preferencia del sistema operativo).
 - Apliqué las tipografías con las clases generadas por el tema (font-heading y font-body).
 
 Validación de contraste (WCAG) en modo oscuro:
-- Verde Ruta (#1E7A4F) sobre Azul Noche (#14213D) → Contraste de 2.4:1 (NO APTO para texto normal).
-  · Solución: En el modo oscuro, usé el Verde Ruta solo para textos muy grandes (precios, que son text-2xl y font-extrabold) o para elementos gráficos (bordes, íconos). Para los botones, usé el Verde Ruta de fondo con texto blanco (contraste 5.2:1, apto).
+- Verde Ruta (#1E7A4F) sobre Azul Noche (#14213D) → Contraste de 3.01:1. NO APTO para texto normal (se requiere 4.5:1), pero SÍ APTO para texto grande (se requiere 3:1).
+  · Solución: En el modo oscuro, usé el Verde Ruta solo para textos grandes (precios, que son text-2xl y font-extrabold) o para elementos gráficos (bordes, íconos). Para los botones, usé el Verde Ruta de fondo con texto blanco (contraste 5.2:1, apto).
 - Crema (#FAF6EF) sobre Azul Noche (#14213D) → Contraste de 15:1 (APTO).
 - Amarillo Farol (#FFD166) sobre Azul Noche (#14213D) → Contraste de 11.6:1 (APTO).
-- Gris Asfalto (#5B6470) claro sobre dark-bg (#0B1121) → Contraste de 5.2:1 (APTO).
-- Textos secundarios en modo oscuro: usé un gris claro (dark-muted) que asegura más de 4.5:1 sobre el fondo oscuro.
+- Gris Asfalto (#5B6470) claro sobre dark-bg (#0B1121) → Contraste de 3.14:1. NO APTO para texto normal.
+  · Solución: Para textos secundarios en modo oscuro usé un gris claro (dark-muted, #9CA3AF) que da un contraste de 5.9:1 sobre dark-bg, asegurando más de 4.5:1.
 
 Verificación en DevTools:
 - Emulé prefers-color-scheme: dark en la pestaña Rendering. Todos los fondos cambiaron al tema oscuro, los textos se mantuvieron legibles y los botones conservaron su contraste.
@@ -929,7 +895,6 @@ A personalizar el tema de Tailwind con @theme, generando utilidades propias a pa
 ------------------------------------------
 MINIRETO 8 (Semana 3) — Refactorización y comparativa de frameworks
 ------------------------------------------
-
 1. Identificación de clases repetidas
 Al revisar la landing, las clases que más se repetían eran:
 - Los botones principales (Inscríbete): 4 veces con 15 clases idénticas.
@@ -937,17 +902,17 @@ Al revisar la landing, las clases que más se repetían eran:
 - Las clases de fondo de las cards: 3 veces con 9 clases idénticas.
 
 2. Refactorización con @apply
-Para limpiar el HTML, creé tres clases personalizadas en la capa de componentes (`@layer components` en `input.css`):
-- `.btn-primary`: botón verde de acción principal.
-- `.btn-secondary`: botón amarillo farol (CTA de la franja).
-- `.badge-level`: etiqueta redondeada para el nivel de dificultad.
+Para limpiar el HTML, creé tres clases personalizadas en la capa de componentes (@layer components en input.css):
+- .btn-primary: botón verde de acción principal.
+- .btn-secondary: botón amarillo farol (CTA de la franja).
+- .badge-level: etiqueta redondeada para el nivel de dificultad.
 El HTML pasó de tener botones con 15 clases a solo 1 clase. Esto mejora la legibilidad, no rompe el modo oscuro y la página se ve exactamente igual que antes.
 
 3. Generación del CSS minificado y medición
-Para medir el tamaño real del CSS de Tailwind, ejecuté el CLI con la opción `--minify`:
+Para medir el tamaño real del CSS de Tailwind, ejecuté el CLI con la opción --minify:
     npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify
 Luego abrí la landing en el navegador y, en DevTools → Network, filtré por "CSS" y "JS":
-- CSS de Tailwind (output.css minificado): ~18 KB.
+- CSS de Tailwind (output.css minificado): ~33.7 KB (tamaño transferido por la red; el archivo en disco pesa 33.7 KB).
 - JS de Tailwind: 0 KB (Tailwind no usa JavaScript por defecto).
 
 En la versión principal (v2.0 con Bootstrap), al revisar Network para la misma landing, el peso era:
@@ -961,22 +926,21 @@ En la versión principal (v2.0 con Bootstrap), al revisar Network para la misma 
 |----------|------------------|--------------------------|
 | Curva de aprendizaje | Baja al inicio (clases como btn, card listas para usar), pero alta si quieres personalizar profundo (peleas con especificidad y !important). | Media-alta al inicio (debes conocer las utilidades), pero una vez entiendes el sistema, el control es total y no hay CSS "basura". |
 | Personalización | Limitada. Para salir del diseño estándar tienes que sobrescribir variables (--bs-*) o escribir CSS propio, lo que a veces genera conflictos de cascada. | Total. El @theme permite definir exactamente los colores, fuentes y espaciados de la marca, y las utilidades se generan a partir de ahí. |
-| Tamaño final | Pesado. El CSS y JS de Bootstrap suman ~312 KB (cargando todo el framework). | Ligero. Tailwind genera CSS on-demand: solo lo que usas. El archivo minificado para esta landing pesa ~18 KB y no requiere JS. |
+| Tamaño final | Pesado. El CSS y JS de Bootstrap suman ~312 KB (cargando todo el framework). | Ligero. Tailwind genera CSS on-demand: solo lo que usas. El archivo minificado para esta landing pesa ~33.7 KB y no requiere JS. |
 | Casos de uso | Ideal para prototipos rápidos, paneles de administración o proyectos donde la identidad visual no es prioridad y se necesita velocidad. | Ideal para sitios con identidad de marca fuerte, landings de campaña, o cuando el rendimiento y el peso del CSS son críticos. |
 
 5. Recomendación para Rueda Libre
 Recomiendo Tailwind CSS para la próxima versión de todo el sitio de Rueda Libre.
 Razones basadas en los datos:
-- El peso: Tailwind reduce el peso del framework en más de un 90 % (18 KB vs 312 KB), lo que mejora los tiempos de carga, especialmente en celulares (que es el 70 % del tráfico de la campaña).
+- El peso: Tailwind reduce el peso del framework en más de un 85 % (33.7 KB vs 312 KB), lo que mejora los tiempos de carga, especialmente en celulares (que es el 70 % del tráfico de la campaña).
 - La identidad: Rueda Libre tiene una paleta de marca muy definida (Verde Ruta, Naranja Pedal, etc.) y Tailwind con @theme permite aplicarla de forma consistente sin conflictos.
 - La curva: aunque requiere aprender las utilidades, el equipo ya tiene experiencia con ambas herramientas, y la curva se compensa con creces con el control y la limpieza del HTML resultante.
 
 ------------------------------------------
 MINIRETO 9 (Semana 3) — Formulario de inscripción (Contrarreloj)
 ------------------------------------------
-
 Tiempo real invertido: 38 minutos (dentro del límite de 40).
-Quedó pendiente: Nada crítico. Se cumplieron todos los requisitos de validación, accesibilidad y diseño responsive. Como mejora futura, me gustaría añadir validación visual con JavaScript (tipo Bootstrap) para mostrar mensajes de error personalizados, pero por ahora la validación nativa del navegador es suficiente.
+Quedó pendiente: Nada crítico. Se cumplieron todos los requisitos de validación, accesibilidad y diseño responsive.
 
 ¿Qué hice?
 - Construí la sección #inscripcion con el formulario completo, agrupado en tres <fieldset> con su <legend>: "Tus datos", "Detalles de la salida" y "Confirmación".
@@ -1006,7 +970,6 @@ Pruebas realizadas:
 ------------------------------------------
 MINIRETO 10 (Semana 3) — Integración de la landing y el sitio
 ------------------------------------------
-
 Tiempo real invertido: 28 minutos (dentro del límite de 40).
 
 ¿Qué hice?
@@ -1032,7 +995,6 @@ Quedó pendiente: Nada crítico. Todo funciona en local y en línea.
 ------------------------------------------
 MINIRETO 11 (Semana 3) — Sección de Planes
 ------------------------------------------
-
 Tiempo real invertido: 32 minutos (dentro del límite de 45).
 Quedó pendiente: Nada crítico. Todo funciona y se ve bien.
 
@@ -1058,7 +1020,6 @@ Verificación en DevTools:
 ------------------------------------------
 MINIRETO 12 (Semana 3) — Lanzamiento final y demo
 ------------------------------------------
-
 Tiempo real invertido: 40 minutos.
 
 Lista de verificación final (ambos productos):
@@ -1079,7 +1040,7 @@ Demo preparada (3 minutos):
 - Contexto del cliente (30s): Rueda Libre quiere promocionar su campaña nocturna y recibir inscripciones por internet.
 - Recorrido en vivo (90s): Inicio del sitio → clic en "Rueda Nocturna" en el menú → landing de la campaña → mostrar modo oscuro → ir a la sección de planes → formulario de inscripción.
 - Decisiones técnicas (60s): 
-  1) Elegí Tailwind para la landing por su ligereza (18KB vs 312KB de Bootstrap) y su capacidad de personalizar la marca con @theme.
+  1) Elegí Tailwind para la landing por su ligereza (33.7KB vs 312KB de Bootstrap) y su capacidad de personalizar la marca con @theme.
   2) Usé la estrategia mobile-first con clases responsive (sm:, md:, lg:) para garantizar que la campaña funcione en celulares, que representan el 70% del tráfico.
 
 Retroalimentación recibida:
