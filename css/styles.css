@@ -920,7 +920,5 @@ footer a:hover {
 }
 
 .text-success {
-    color: var(--verde-ruta) !important;
+    color: var(--verde-ruta);
 }
-/* Nota: el único !important del sitio es para forzar
-   la variable de marca sobre la clase utilitaria de Bootstrap. */
